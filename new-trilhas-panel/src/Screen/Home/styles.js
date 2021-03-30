@@ -45,14 +45,24 @@ export const ButtonsBox = styled.div`
 
 export const TrilheirosBox = styled.div`
   width: 100%;
-  diplay: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 5px;
 `;
 
 export const AvatarTrilheiros = styled.img`
   width: 6%;
   margin-left: 10px;
+`;
+
+export const TrilheiroDetailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 20%;
 `;
 
 export const ButtonRelatorio = styled.button`
@@ -62,9 +72,13 @@ export const ButtonRelatorio = styled.button`
   border: none;
   outline: none;
   font-weight: bold;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+  font-weight: bold;
+
   border-left-style: solid;
   border-left-width: thin;
   border-left-color: #116591;
+
   border-right-style: solid;
   border-right-width: thin;
   border-right-color: #116591;
