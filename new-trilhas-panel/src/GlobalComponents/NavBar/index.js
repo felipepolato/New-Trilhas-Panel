@@ -54,7 +54,7 @@ export default class MyComponent extends React.Component {
 
             <SideBarButton
               type="button"
-              onClick={() => null}
+              onClick={() => window.location.href="/home"}
               style={
                 this.state.inHome
                   ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
@@ -65,7 +65,7 @@ export default class MyComponent extends React.Component {
             </SideBarButton>
             <SideBarButton
               type="button"
-              onClick={() => null}
+              onClick={() => window.location.href="/clients"}
               style={
                 this.state.inClients
                   ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
@@ -76,7 +76,7 @@ export default class MyComponent extends React.Component {
             </SideBarButton>
             <SideBarButton
               type="button"
-              onClick={() => null}
+              onClick={() => window.location.href="/accounts"}
               style={
                 this.state.inAccounts
                   ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
@@ -87,7 +87,7 @@ export default class MyComponent extends React.Component {
             </SideBarButton>
             <SideBarButton
               type="button"
-              onClick={() => null}
+              onClick={() => window.location.href="/destinations"}
               style={
                 this.state.inDestinations
                   ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
@@ -98,7 +98,7 @@ export default class MyComponent extends React.Component {
             </SideBarButton>
             <SideBarButton
               type="button"
-              onClick={() => null}
+              onClick={() => window.location.href="/sections"}
               style={
                 this.state.inSections
                   ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
