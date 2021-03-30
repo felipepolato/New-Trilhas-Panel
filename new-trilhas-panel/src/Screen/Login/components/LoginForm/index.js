@@ -64,6 +64,10 @@ export default class LoginForm extends React.Component {
                             "panel-trilhas-user",
                             this.state.user
                           );
+                          localStorage.setItem(
+                            "panel-trilhas-id",
+                            loop
+                          );
 
                           localStorage.setItem(
                             "trilhas-user-access",

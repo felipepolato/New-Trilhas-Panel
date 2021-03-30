@@ -12,6 +12,9 @@ import {
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
+//////FIREBASE///////
+import { fire } from "../config";
+
 export default class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -22,10 +25,26 @@ export default class MyComponent extends React.Component {
       inAccounts: false,
       inSections: false,
       inDestinations: false,
+      name: "",
+      surname: "",
+      function: "",
     };
   }
 
   componentDidMount() {
+    fire
+      .database()
+      .ref(`/panelUsers/${localStorage.getItem("panel-trilhas-id")}`)
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+
+        this.setState({
+          name: tmp.name,
+          surname: tmp.surname,
+          function: tmp.function,
+        });
+      });
+
     if (this.props.thisPage === "Home") {
       this.setState({ inHome: true });
     } else if (this.props.thisPage === "Clients") {
@@ -44,8 +63,10 @@ export default class MyComponent extends React.Component {
       <Container>
         <NavBar>
           <UserDetails>
-            <UserName>Antonio Rodrigues</UserName>
-            <UserAccess>Desenvolvedor</UserAccess>
+            <UserName>
+              {this.state.name} {this.state.surname}
+            </UserName>
+            <UserAccess>{this.state.function}</UserAccess>
           </UserDetails>
         </NavBar>
         <SideBar>
@@ -57,7 +78,12 @@ export default class MyComponent extends React.Component {
               onClick={() => (window.location.href = "/home")}
               style={
                 this.state.inHome
-                  ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
+                  ? {
+                      backgroundColor: "rgb(255, 198, 73)",
+                      color: "#116591",
+                      paddingBottom: "15px",
+                      paddingTop: "15px",
+                    }
                   : null
               }
             >
@@ -68,7 +94,12 @@ export default class MyComponent extends React.Component {
               onClick={() => (window.location.href = "/clients")}
               style={
                 this.state.inClients
-                  ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
+                  ? {
+                      backgroundColor: "rgb(255, 198, 73)",
+                      color: "#116591",
+                      paddingBottom: "15px",
+                      paddingTop: "15px",
+                    }
                   : null
               }
             >
@@ -79,7 +110,12 @@ export default class MyComponent extends React.Component {
               onClick={() => (window.location.href = "/accounts")}
               style={
                 this.state.inAccounts
-                  ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
+                  ? {
+                      backgroundColor: "rgb(255, 198, 73)",
+                      color: "#116591",
+                      paddingBottom: "15px",
+                      paddingTop: "15px",
+                    }
                   : null
               }
             >
@@ -90,7 +126,12 @@ export default class MyComponent extends React.Component {
               onClick={() => (window.location.href = "/destinations")}
               style={
                 this.state.inDestinations
-                  ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
+                  ? {
+                      backgroundColor: "rgb(255, 198, 73)",
+                      color: "#116591",
+                      paddingBottom: "15px",
+                      paddingTop: "15px",
+                    }
                   : null
               }
             >
@@ -101,7 +142,12 @@ export default class MyComponent extends React.Component {
               onClick={() => (window.location.href = "/sections")}
               style={
                 this.state.inSections
-                  ? { backgroundColor: "rgb(255, 198, 73)", color: "#116591" }
+                  ? {
+                      backgroundColor: "rgb(255, 198, 73)",
+                      color: "#116591",
+                      paddingBottom: "15px",
+                      paddingTop: "15px",
+                    }
                   : null
               }
             >
