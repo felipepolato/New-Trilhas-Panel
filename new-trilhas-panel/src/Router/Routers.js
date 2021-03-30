@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Accounts from "../Screen/Accounts";
 import Clients from "../Screen/Clients";
 import Home from "../Screen/Home";
 import Login from "../Screen/Login";
@@ -16,6 +17,9 @@ const Routers = () => {
         </Route>
         <Route exact path={"/"}>
           <Login />
+        </Route>
+        <Route exact path={"/accounts"}>
+          <Accounts />
         </Route>
       </Switch>
     </BrowserRouter>
