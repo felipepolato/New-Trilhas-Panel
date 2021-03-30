@@ -24,7 +24,7 @@ export const SideBarButton = styled.button`
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-bottom: 3px;
+  margin-bottom: 1px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -35,6 +35,10 @@ export const SideBarButton = styled.button`
   color: #fff;
   &:hover {
     cursor: pointer;
+    background-color: rgba(255, 198, 73, 1);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #116591;
   }
 `;
 
@@ -52,7 +56,7 @@ export const NavBar = styled.div`
 export const Logomarca = styled.img`
   width: 80%;
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 `;
 
 export const UserDetails = styled.div`
