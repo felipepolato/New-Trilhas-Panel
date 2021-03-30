@@ -45,12 +45,56 @@ export default class LoginForm extends React.Component {
               document.getElementById("logo").style.animation =
                 "anim-logo 0.2s linear 2";
 
+
               setTimeout(() => {
-                /*
-                
-                  COLOCAR FUNÇÃO DE LOGIN AQUI!
-                
-                */
+
+                fire
+                  .database()
+                  .ref(`/panelUsers/`)
+                  .on("value", (snapshot) => {
+                    let dataTemp = snapshot.val();
+
+                    let achou = false;
+
+                    for (let loop in dataTemp) {
+                      if (dataTemp[loop].user === this.state.user) {
+                        achou = true;
+                        if (dataTemp[loop].pass === this.state.pass) {
+                          localStorage.setItem(
+                            "panel-trilhas-user",
+                            this.state.user
+                          );
+
+                          localStorage.setItem(
+                            "trilhas-user-access",
+                            dataTemp[loop].access
+                          );
+
+                          if (dataTemp[loop].access == 3) {
+                            window.location.href = "/home";
+                          }
+                          if (dataTemp[loop].access == 2) {
+                            window.location.href = "/home";
+                          }
+                          if (dataTemp[loop].access == 1) {
+                            window.location.href = "/home";
+                            localStorage.setItem(
+                              "comercio-for-client",
+                              dataTemp[loop].comercio
+                            );
+                          }
+                        } else {
+                          alert("Usuario ou Senha Incorreto!");
+                          window.location.href = "/";
+                          break;
+                        }
+                      }
+                    }
+
+                    if (!achou) {
+                      alert("Usuario Não Encontrado!");
+                    }
+                  });
               }, 500);
             }}
           >
