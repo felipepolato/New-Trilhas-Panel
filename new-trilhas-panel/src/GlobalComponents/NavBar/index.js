@@ -9,6 +9,12 @@ import {
   UserName,
   UserDetails,
   UserAccess,
+  ContainerAccounts,
+  InputFile,
+  Input,
+  ButtonInput,
+  SelectContas,
+  OptionContas
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
@@ -62,6 +68,24 @@ export default class MyComponent extends React.Component {
     return (
       <Container>
         <NavBar>
+          {this.state.inAccounts ? (
+            <ContainerAccounts>
+              <InputFile type="file" />
+              <Input type="text" placeholder="Nome" />
+              <Input type="text" placeholder="Sobrenome" />
+              <Input type="text" placeholder="Usuário" />
+              <Input type="password" placeholder="Senha" />
+
+              <SelectContas >
+                <OptionContas value="">Selecione ↓</OptionContas>
+                <OptionContas value="parceiro">Parceiro</OptionContas>
+                <OptionContas value="gerente">Gerente</OptionContas>
+                <OptionContas value="administrador">Administrador</OptionContas>
+              </SelectContas>
+
+              <ButtonInput>Enviar</ButtonInput>
+            </ContainerAccounts>
+          ) : null}
           <UserDetails>
             <UserName>
               {this.state.name} {this.state.surname}

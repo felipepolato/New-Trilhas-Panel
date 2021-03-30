@@ -1,6 +1,65 @@
 import styled from "styled-components";
 
+export const ContainerAccounts = styled.div`
+  color: white;
+  font-size: 12px;
+  width: 74%;
+`;
+
 export const Container = styled.div``;
+
+export const InputFile = styled.input`
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding-left: 10px;
+  width: 11.7%;
+  margin: 5px;
+`;
+
+export const Input = styled.input`
+  background-color: #cbeefd;
+  outline: none;
+  border: none;
+  height: 4vh;
+  margin-right: 3px;
+  font-size: 12px;
+  box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
+`;
+
+export const ButtonInput = styled.button`
+  background-color: #ffe082;
+  outline: none;
+  border: none;
+  height: 4.3vh;
+  width: 10%;
+  margin-right: 5px;
+  font-size: 12px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+`;
+
+export const SelectContas = styled.select`
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 10%;
+  height: 28px;
+  margin-top: -0.21px;
+  margin-right: 3px;
+  border-radius: 2px;
+  background-color: #cbeefd;
+  box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
+`;
+
+export const OptionContas = styled.option`
+  background-color: #cbeefd;
+  outline: none;
+  border: none;
+`;
 
 export const SideBar = styled.div`
   position: fixed;

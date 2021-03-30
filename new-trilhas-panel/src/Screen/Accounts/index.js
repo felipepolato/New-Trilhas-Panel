@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "./styles";
 
 import NavBar from "../../GlobalComponents/NavBar";
+import ComponentsAccounts from "./components/ComponentsAccounts";
 
 export default class Accounts extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Accounts extends React.Component {
     return (
       <Container>
         <NavBar thisPage="Accounts" />
+        <ComponentsAccounts />
       </Container>
     );
   }
