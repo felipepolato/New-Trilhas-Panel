@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomeScren from "../Screen/Home/HomeScreen";
 
 
-export default function Routers() {
+export default function Route() {
   return (
     <BrowserRouter>
       <Switch>

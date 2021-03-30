@@ -1,7 +1,7 @@
 import React from "react"
 import Route from "./Router/Route"
 
-function App() {
+const App= () => {
   return (
     <div className="App">
      <Route/>
