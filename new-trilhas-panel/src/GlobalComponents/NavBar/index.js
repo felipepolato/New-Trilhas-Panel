@@ -13,7 +13,7 @@ import {
 import LogomarcaImage from "../../Images/logo-normal.png";
 
 //////FIREBASE///////
-import { fire } from "../config";
+import { fire, userRef } from "../config";
 
 export default class MyComponent extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class MyComponent extends React.Component {
   componentDidMount() {
     fire
       .database()
-      .ref(`/panelUsers/${localStorage.getItem("panel-trilhas-id")}`)
+      .ref(userRef)
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
 

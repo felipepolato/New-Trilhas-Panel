@@ -7,6 +7,8 @@ export const SideBar = styled.div`
   width: 15vw;
   height: 100vh;
   background-color: #116591;
+  top: 0;
+  left: 0;
   box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.18);
 `;
 
@@ -44,6 +46,8 @@ export const SideBarButton = styled.button`
 
 export const NavBar = styled.div`
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 8vh;
   display: flex;
