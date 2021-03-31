@@ -3,7 +3,17 @@
     z-index: 0;
     width: 100%;
     top: -20vh;
-    animation: anim-stars 30s linear infinite;
+    left: -10vw;
+    animation: anim-stars 20s linear infinite;
+}
+
+.bgImageFour {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    top: -20vh;
+    right: -5vw;
+    animation: anim-stars 40s linear infinite;
 }
 
 .bgImageTwo {
@@ -12,7 +22,7 @@
     width: 100%;
     top: -20vh;
     right: -5vw;
-    animation: anim-stars-back 20s linear infinite;
+    animation: anim-stars-back 12s linear infinite;
 }
 
 .bgImageThree {
@@ -21,7 +31,7 @@
     width: 100%;
     top: -20vh;
     left: -10vw;
-    animation: anim-stars-three 20s linear infinite;
+    animation: anim-stars-three 25s linear infinite;
 }
 
 @keyframes anim-stars {
@@ -44,7 +54,7 @@
 
 @keyframes anim-stars-three {
     0% {
-        transform: translateY(1000px);
+        transform: translateY(900px);
     }
     100% {
         transform: translateY(-1300px);

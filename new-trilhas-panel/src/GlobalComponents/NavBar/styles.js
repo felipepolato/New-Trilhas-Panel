@@ -41,6 +41,61 @@ export const ButtonInput = styled.button`
   color: white;
   font-weight: bold;
 `;
+export const SideBarButtonDropdown = styled.button`
+  outline: none;
+  border: none;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 1px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(167, 203, 219, 0);
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #116591;
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+    background-color: #2aceb6;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #000;
+  }
+`;
+
+export const ConfigDropdown = styled.div`
+  width: 15vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  margin-top: 17px;
+  margin-left: -6px;
+`;
+
+export const SideBarButtonConfig = styled.button`
+  outline: none;
+  border: none;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 1px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(167, 203, 219, 0);
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #116591;
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(255, 198, 73, 1);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #116591;
+  }
+`;
 
 export const SelectContas = styled.select`
   border: none;

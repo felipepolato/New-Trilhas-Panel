@@ -20,9 +20,10 @@ export default class Home extends React.Component {
   render() {
     return (
       <Container>
-        <img src={BackgroundImage} className="bgImage" />
+      <img src={BackgroundImage} className="bgImage" />
         <img src={BackgroundImageTwo} className="bgImageTwo" />
         <img src={BackgroundImageThree} className="bgImageThree" />
+        <img src={BackgroundImage} className="bgImageFour" />
         <Row style={{ justifyContent: "flex-start" }}>
           <LoginForm />
         </Row>

@@ -28,6 +28,7 @@ export default class LoginForm extends React.Component {
           <Input
             style={{
               marginTop: "5px",
+              borderTopRightRadius: "20px"
             }}
             placeholder="Usuário"
             type="text"

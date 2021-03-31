@@ -14,7 +14,10 @@ import {
   Input,
   ButtonInput,
   SelectContas,
-  OptionContas
+  OptionContas,
+  SideBarButtonConfig,
+  ConfigDropdown,
+  SideBarButtonDropdown
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
@@ -34,6 +37,7 @@ export default class MyComponent extends React.Component {
       name: "",
       surname: "",
       function: "",
+      dropdownActive: false,
     };
   }
 
@@ -177,10 +181,55 @@ export default class MyComponent extends React.Component {
             >
               Sessões
             </SideBarButton>
-            <SideBarButton type="button" onClick={() => null}>
-              Configurações
-            </SideBarButton>
-            <SideBarFooter>Tecnologia Senhor.APP</SideBarFooter>
+            <SideBarButtonConfig
+              onClick={() =>
+                this.state.dropdownActive
+                  ? this.setState({ dropdownActive: false })
+                  : this.setState({ dropdownActive: true })
+              }
+              type="button"
+              style={
+                this.state.dropdownActive
+                  ? {
+                      backgroundColor: "rgb(255, 198, 73)",
+                      color: "#116591",
+                      paddingBottom: "15px",
+                      paddingTop: "15px",
+                    }
+                  : null
+              }
+            >
+              {this.state.dropdownActive
+                ? `Configurações ▲`
+                : `Configurações ▼`}
+              {this.state.dropdownActive ? (
+                <ConfigDropdown id="dropdrownConfig">
+                  <SideBarButtonDropdown
+                    type="button"
+                    onClick={() => (window.location.href = "/sections")}
+                    style={
+                      this.state.inSections
+                        ? {
+                            backgroundColor: "rgb(255, 198, 73)",
+                            color: "#116591",
+                            paddingBottom: "15px",
+                            paddingTop: "15px",
+                          }
+                        : null
+                    }
+                  >
+                    Trocar Senha
+                  </SideBarButtonDropdown>
+                  <SideBarButtonDropdown
+                    type="button"
+                    onClick={() => (window.location.href = "/sections")}
+                  >
+                    Sair
+                  </SideBarButtonDropdown>
+                </ConfigDropdown>
+              ) : null}
+            </SideBarButtonConfig>
+            <SideBarFooter>Tecnologia Senhor.APP<br />v2.0.0</SideBarFooter>
           </center>
         </SideBar>
       </Container>

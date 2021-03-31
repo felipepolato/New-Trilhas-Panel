@@ -11,20 +11,6 @@ export default class ComponentsAccounts extends React.Component {
   render() {
     return (
       <div>
-        <div className="row">
-          <div className="col6">
-            <row>
-              {RepresentanteBox(
-                "Lígia",
-                "Rodrigues",
-                data,
-                ligiaAprovados,
-                ligiaReprovados,
-                ligiaNegociando
-              )}
-            </row>
-          </div>
-        </div>
       </div>
     );
   }
