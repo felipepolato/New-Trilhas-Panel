@@ -17,7 +17,8 @@ import {
   OptionContas,
   SideBarButtonConfig,
   ConfigDropdown,
-  SideBarButtonDropdown
+  SideBarButtonDropdown,
+  InputFileLabel
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
@@ -74,10 +75,12 @@ export default class MyComponent extends React.Component {
         <NavBar>
           {this.state.inAccounts ? (
             <ContainerAccounts>
+              <InputFileLabel>AVATAR</InputFileLabel>
               <InputFile type="file" />
               <Input type="text" placeholder="Nome" />
               <Input type="text" placeholder="Sobrenome" />
               <Input type="text" placeholder="Usuário" />
+              <Input type="text" placeholder="Comércio" />
               <Input type="password" placeholder="Senha" />
 
               <SelectContas >

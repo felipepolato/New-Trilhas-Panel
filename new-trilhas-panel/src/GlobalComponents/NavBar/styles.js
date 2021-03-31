@@ -15,6 +15,18 @@ export const InputFile = styled.input`
   padding-left: 10px;
   width: 11.7%;
   margin: 5px;
+  display: none;
+`;
+
+export const InputFileLabel = styled.label`
+  background-color: #cbeefd;
+  outline: none;
+  border: none;
+  height: 4vh;
+  margin-right: 3px;
+  font-size: 12px;
+  padding: 6px;
+  box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
 `;
 
 export const Input = styled.input`
@@ -22,7 +34,7 @@ export const Input = styled.input`
   outline: none;
   border: none;
   height: 4vh;
-  margin-right: 3px;
+  margin-right: 2px;
   font-size: 12px;
   box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
 `;
@@ -32,7 +44,7 @@ export const ButtonInput = styled.button`
   outline: none;
   border: none;
   height: 4.3vh;
-  width: 10%;
+  width: 8%;
   margin-right: 5px;
   font-size: 12px;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);

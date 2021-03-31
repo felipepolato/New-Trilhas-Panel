@@ -1,5 +1,7 @@
 import React from "react";
 
+import { TableUsers, TableUserHeaderText, TableUserHeaderBox } from "./styles";
+
 export default class ComponentsAccounts extends React.Component {
   constructor(props) {
     super(props);
@@ -10,8 +12,23 @@ export default class ComponentsAccounts extends React.Component {
 
   render() {
     return (
-      <div>
-      </div>
+      <TableUsers>
+        <TableUserHeaderBox>
+          <TableUserHeaderText>Avatar</TableUserHeaderText>
+        </TableUserHeaderBox>
+
+        <TableUserHeaderBox style={{ marginLeft: '2px' }}>
+          <TableUserHeaderText>Nome</TableUserHeaderText>
+        </TableUserHeaderBox>
+
+        <TableUserHeaderBox style={{ marginLeft: '2px', marginRight: '2px' }}>
+          <TableUserHeaderText>Sobrenome</TableUserHeaderText>
+        </TableUserHeaderBox>
+
+        <TableUserHeaderBox>
+          <TableUserHeaderText>Ações</TableUserHeaderText>
+        </TableUserHeaderBox>
+      </TableUsers>
     );
   }
 }
