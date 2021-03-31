@@ -254,7 +254,12 @@ export default class MyComponent extends React.Component {
                   </SideBarButtonDropdown>
                   <SideBarButtonDropdown
                     type="button"
-                    onClick={() => (window.location.href = "/sections")}
+                    onClick={() => {
+                      localStorage.clear();
+                      localStorage.removeItem('panel-trilhas-user');
+                      localStorage.removeItem('panel-trilhas-id');
+                      window.location.href = "/";
+                    }}
                   >
                     Sair
                   </SideBarButtonDropdown>
