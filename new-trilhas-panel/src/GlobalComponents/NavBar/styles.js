@@ -8,6 +8,37 @@ export const ContainerAccounts = styled.div`
 
 export const Container = styled.div``;
 
+export const ButtonAdd = styled.button`
+  width: 12vw;
+  height: 3vw;
+  background: rgba(255, 198, 73, 1);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 15px;
+`;
+
+export const ButtonAddTextBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ButtonAddText = styled.span`
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  color: #fff;
+`;
+
 export const InputFile = styled.input`
   border: none;
   outline: none;

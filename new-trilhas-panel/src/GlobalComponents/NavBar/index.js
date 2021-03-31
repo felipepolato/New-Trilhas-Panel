@@ -18,7 +18,10 @@ import {
   SideBarButtonConfig,
   ConfigDropdown,
   SideBarButtonDropdown,
-  InputFileLabel
+  InputFileLabel,
+  ButtonAdd,
+  ButtonAddTextBox,
+  ButtonAddText,
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
@@ -83,7 +86,7 @@ export default class MyComponent extends React.Component {
               <Input type="text" placeholder="Comércio" />
               <Input type="password" placeholder="Senha" />
 
-              <SelectContas >
+              <SelectContas>
                 <OptionContas value="">Selecione ↓</OptionContas>
                 <OptionContas value="parceiro">Parceiro</OptionContas>
                 <OptionContas value="gerente">Gerente</OptionContas>
@@ -92,6 +95,14 @@ export default class MyComponent extends React.Component {
 
               <ButtonInput>Enviar</ButtonInput>
             </ContainerAccounts>
+          ) : null}
+
+          {this.state.inClients ? (
+            <ButtonAdd>
+              <ButtonAddTextBox>
+                <ButtonAddText>Adicionar Cliente</ButtonAddText>
+              </ButtonAddTextBox>
+            </ButtonAdd>
           ) : null}
           <UserDetails>
             <UserName>
@@ -232,7 +243,11 @@ export default class MyComponent extends React.Component {
                 </ConfigDropdown>
               ) : null}
             </SideBarButtonConfig>
-            <SideBarFooter>Tecnologia Senhor.APP<br />v2.0.0</SideBarFooter>
+            <SideBarFooter>
+              Tecnologia Senhor.APP
+              <br />
+              v2.0.0
+            </SideBarFooter>
           </center>
         </SideBar>
       </Container>
