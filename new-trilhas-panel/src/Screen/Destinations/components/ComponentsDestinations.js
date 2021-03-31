@@ -19,11 +19,12 @@ import {
   ButtonRemove,
   ButtonEditTextBox,
   ButtonEdit,
+  Tr,
 } from "./styles";
 
 import icon from "../../../Images/location-icon.png";
 
-export default class ComponentsClients extends React.Component {
+export default class ComponentsDestination extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -35,13 +36,13 @@ export default class ComponentsClients extends React.Component {
     return (
       <div>
         <TitleBox>
-          <Title>Clientes</Title>
+          <Title>Destinos</Title>
         </TitleBox>
 
         <Row2>
           <Col21>
             <Table>
-              <tr>
+              <Tr>
                 <Th
                   style={{
                     width: "20%",
@@ -63,7 +64,7 @@ export default class ComponentsClients extends React.Component {
                 >
                   Ações
                 </Th>
-              </tr>
+              </Tr>
               <tr>
                 <center>
                   <td>
@@ -72,7 +73,6 @@ export default class ComponentsClients extends React.Component {
                 </center>
                 <td>
                   <TdTitle>Nome</TdTitle> <br />
-                  <TdSubTitle>Nicho</TdSubTitle> <br />
                   <TdSubTitle>Cidade/Estado</TdSubTitle>
                 </td>
                 <td>
@@ -95,7 +95,7 @@ export default class ComponentsClients extends React.Component {
           </Col21>
           <Col22>
             <Table>
-              <tr>
+              <Tr>
                 <Th
                   style={{
                     width: "20%",
@@ -117,7 +117,7 @@ export default class ComponentsClients extends React.Component {
                 >
                   Ações
                 </Th>
-              </tr>
+              </Tr>
 
               <tr>
                 <center>
@@ -127,7 +127,6 @@ export default class ComponentsClients extends React.Component {
                 </center>
                 <td>
                   <TdTitle>Nome</TdTitle> <br />
-                  <TdSubTitle>Nicho</TdSubTitle> <br />
                   <TdSubTitle>Cidade/Estado</TdSubTitle>
                 </td>
                 <td>

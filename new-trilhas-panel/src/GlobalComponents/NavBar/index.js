@@ -78,6 +78,7 @@ export default class MyComponent extends React.Component {
     return (
       <Container>
         <NavBar>
+          
           {this.state.inAccounts ? (
             <ContainerAccounts>
               <InputFileLabel>AVATAR</InputFileLabel>
@@ -109,6 +110,18 @@ export default class MyComponent extends React.Component {
               </ButtonAdd>
             </DivNav>
           ) : null}
+
+          {this.state.inDestinations ? (
+            <DivNav>
+              <SearchBar />
+              <ButtonAdd>
+                <ButtonAddTextBox>
+                  <ButtonAddText>Adicionar Destino</ButtonAddText>
+                </ButtonAddTextBox>
+              </ButtonAdd>
+            </DivNav>
+          ) : null}
+
           <UserDetails>
             <UserName>
               {this.state.name} {this.state.surname}

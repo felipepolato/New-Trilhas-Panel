@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Accounts from "../Screen/Accounts";
 import Clients from "../Screen/Clients";
-import Destinations from "../Screen/Destinations/indesx";
+import Destinations from "../Screen/Destinations/index";
 import Home from "../Screen/Home";
 import Login from "../Screen/Login";
 import Sections from "../Screen/Sections";
