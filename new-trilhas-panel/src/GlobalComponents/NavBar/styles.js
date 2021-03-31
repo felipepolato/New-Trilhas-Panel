@@ -235,3 +235,10 @@ export const UserAccess = styled.span`
   color: white;
   font-size: 12px;
 `;
+
+export const DivNav = styled.div`
+  width: 73%;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+`;

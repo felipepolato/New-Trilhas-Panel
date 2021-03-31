@@ -22,11 +22,13 @@ import {
   ButtonAdd,
   ButtonAddTextBox,
   ButtonAddText,
+  DivNav,
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
 //////FIREBASE///////
 import { fire, userRef } from "../config";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default class MyComponent extends React.Component {
   constructor(props) {
@@ -98,11 +100,14 @@ export default class MyComponent extends React.Component {
           ) : null}
 
           {this.state.inClients ? (
-            <ButtonAdd>
-              <ButtonAddTextBox>
-                <ButtonAddText>Adicionar Cliente</ButtonAddText>
-              </ButtonAddTextBox>
-            </ButtonAdd>
+            <DivNav>
+              <SearchBar />
+              <ButtonAdd>
+                <ButtonAddTextBox>
+                  <ButtonAddText>Adicionar Cliente</ButtonAddText>
+                </ButtonAddTextBox>
+              </ButtonAdd>
+            </DivNav>
           ) : null}
           <UserDetails>
             <UserName>
