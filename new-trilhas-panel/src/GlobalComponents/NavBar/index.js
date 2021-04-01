@@ -17,12 +17,18 @@ import {
   OptionContas,
   SideBarButtonConfig,
   ConfigDropdown,
-  SideBarButtonDropdown
+  SideBarButtonDropdown,
+  InputFileLabel,
+  ButtonAdd,
+  ButtonAddTextBox,
+  ButtonAddText,
+  DivNav,
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
 //////FIREBASE///////
 import { fire, userRef } from "../config";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default class MyComponent extends React.Component {
   constructor(props) {
@@ -72,15 +78,18 @@ export default class MyComponent extends React.Component {
     return (
       <Container>
         <NavBar>
+          
           {this.state.inAccounts ? (
             <ContainerAccounts>
+              <InputFileLabel>AVATAR</InputFileLabel>
               <InputFile type="file" />
               <Input type="text" placeholder="Nome" />
               <Input type="text" placeholder="Sobrenome" />
               <Input type="text" placeholder="Usuário" />
+              <Input type="text" placeholder="Comércio" />
               <Input type="password" placeholder="Senha" />
 
-              <SelectContas >
+              <SelectContas>
                 <OptionContas value="">Selecione ↓</OptionContas>
                 <OptionContas value="parceiro">Parceiro</OptionContas>
                 <OptionContas value="gerente">Gerente</OptionContas>
@@ -90,6 +99,29 @@ export default class MyComponent extends React.Component {
               <ButtonInput>Enviar</ButtonInput>
             </ContainerAccounts>
           ) : null}
+
+          {this.state.inClients ? (
+            <DivNav>
+              <SearchBar />
+              <ButtonAdd>
+                <ButtonAddTextBox>
+                  <ButtonAddText>Adicionar Cliente</ButtonAddText>
+                </ButtonAddTextBox>
+              </ButtonAdd>
+            </DivNav>
+          ) : null}
+
+          {this.state.inDestinations ? (
+            <DivNav>
+              <SearchBar />
+              <ButtonAdd>
+                <ButtonAddTextBox>
+                  <ButtonAddText>Adicionar Destino</ButtonAddText>
+                </ButtonAddTextBox>
+              </ButtonAdd>
+            </DivNav>
+          ) : null}
+
           <UserDetails>
             <UserName>
               {this.state.name} {this.state.surname}
@@ -222,14 +254,23 @@ export default class MyComponent extends React.Component {
                   </SideBarButtonDropdown>
                   <SideBarButtonDropdown
                     type="button"
-                    onClick={() => (window.location.href = "/sections")}
+                    onClick={() => {
+                      localStorage.clear();
+                      localStorage.removeItem('panel-trilhas-user');
+                      localStorage.removeItem('panel-trilhas-id');
+                      window.location.href = "/";
+                    }}
                   >
                     Sair
                   </SideBarButtonDropdown>
                 </ConfigDropdown>
               ) : null}
             </SideBarButtonConfig>
-            <SideBarFooter>Tecnologia Senhor.APP<br />v2.0.0</SideBarFooter>
+            <SideBarFooter>
+              Tecnologia Senhor.APP
+              <br />
+              v2.0.0
+            </SideBarFooter>
           </center>
         </SideBar>
       </Container>

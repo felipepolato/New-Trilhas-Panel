@@ -8,6 +8,37 @@ export const ContainerAccounts = styled.div`
 
 export const Container = styled.div``;
 
+export const ButtonAdd = styled.button`
+  width: 12vw;
+  height: 3vw;
+  background: rgba(255, 198, 73, 1);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 15px;
+`;
+
+export const ButtonAddTextBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ButtonAddText = styled.span`
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  color: #fff;
+`;
+
 export const InputFile = styled.input`
   border: none;
   outline: none;
@@ -15,6 +46,18 @@ export const InputFile = styled.input`
   padding-left: 10px;
   width: 11.7%;
   margin: 5px;
+  display: none;
+`;
+
+export const InputFileLabel = styled.label`
+  background-color: #cbeefd;
+  outline: none;
+  border: none;
+  height: 4vh;
+  margin-right: 3px;
+  font-size: 12px;
+  padding: 6px;
+  box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
 `;
 
 export const Input = styled.input`
@@ -22,7 +65,7 @@ export const Input = styled.input`
   outline: none;
   border: none;
   height: 4vh;
-  margin-right: 3px;
+  margin-right: 2px;
   font-size: 12px;
   box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
 `;
@@ -32,7 +75,7 @@ export const ButtonInput = styled.button`
   outline: none;
   border: none;
   height: 4.3vh;
-  width: 10%;
+  width: 8%;
   margin-right: 5px;
   font-size: 12px;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
@@ -191,4 +234,11 @@ export const UserName = styled.span`
 export const UserAccess = styled.span`
   color: white;
   font-size: 12px;
+`;
+
+export const DivNav = styled.div`
+  width: 73%;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
 `;

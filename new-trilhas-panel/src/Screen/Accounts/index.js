@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 import NavBar from "../../GlobalComponents/NavBar";
 import ComponentsAccounts from "./components/ComponentsAccounts";
@@ -16,7 +16,10 @@ export default class Accounts extends React.Component {
     return (
       <Container>
         <NavBar thisPage="Accounts" />
-        <ComponentsAccounts />
+      <Content>
+        <ComponentsAccounts></ComponentsAccounts>
+      </Content>
+        
       </Container>
     );
   }
