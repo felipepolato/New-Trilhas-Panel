@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import "./main.css";
+
 import {
   DivAbsoluta,
   ImageLoading,
@@ -14,7 +14,6 @@ import {
 // FireBase ///////////////
 ///////////////////////////
 
-import firebase from "firebase";
 import { fire } from "../../../GlobalComponents/config";
 
 ///////////////////////////
