@@ -6,6 +6,7 @@ import Destinations from "../Screen/Destinations/index";
 import Home from "../Screen/Home";
 import Login from "../Screen/Login";
 import Sections from "../Screen/Sections";
+import ClientesAdd from "../Screen/ClientsAdd";
 
 const Routers = () => {
   return (
@@ -28,6 +29,9 @@ const Routers = () => {
         </Route>
         <Route exact path={"/sections"}>
           <Sections />
+        </Route>
+        <Route exact path={"/add"}>
+          <ClientesAdd />
         </Route>
       </Switch>
     </BrowserRouter>
