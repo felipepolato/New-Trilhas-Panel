@@ -105,7 +105,7 @@ export default class MyComponent extends React.Component {
               <SearchBar />
               <ButtonAdd>
                 <ButtonAddTextBox>
-                  <ButtonAddText>Adicionar Cliente</ButtonAddText>
+                  <ButtonAddText >Adicionar Cliente</ButtonAddText>
                 </ButtonAddTextBox>
               </ButtonAdd>
             </DivNav>

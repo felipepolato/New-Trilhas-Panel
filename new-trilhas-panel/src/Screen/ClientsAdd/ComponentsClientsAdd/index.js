@@ -57,297 +57,297 @@ import VeiculosDB from "./ComponentsServicosClientes/VaiculosDB";
 import PetsAgro from "./ComponentsServicosClientes/PetAgroDB";
 
 export default class ComponentsClientsAdd extends React.Component {
-  constructor() {
-    super();
-    console.log("haha");
+  // constructor() {
+  //   super();
+  //   console.log("haha");
 
-    this.state = {
-      speed: 10,
-      app: fire,
-      isLoading: false,
-    };
+  //   this.state = {
+  //     speed: 10,
+  //     app: fire,
+  //     isLoading: false,
+  //   };
 
-    this.database = this.state.app.database().ref().child("speed");
-  }
+  //   this.database = this.state.app.database().ref().child("speed");
+  // }
 
-  componentDidMount() {
-    this.database.on("value", (snap) => {
-      this.setState({
-        speed: snap.val(),
-      });
-    });
+  // componentDidMount() {
+    // this.database.on("value", (snap) => {
+    //   this.setState({
+    //     speed: snap.val(),
+    //   });
+    // });
 
-    if (
-      localStorage.getItem("trilhas-user-access") !== "gerente" &&
-      localStorage.getItem("trilhas-user-access") !== "administrador"
-    ) {
-      window.location.href = "/";
-    }
-  }
+    // if (
+    //   localStorage.getItem("trilhas-user-access") !== "gerente" &&
+    //   localStorage.getItem("trilhas-user-access") !== "administrador"
+    // ) {
+    //   window.location.href = "/";
+    // }
+  // }
 
   render() {
     return (
       <div>
         <form
-          onSubmit={(data) => {
-            this.setState({ isLoading: true });
-            setTimeout(() => {
-              this.setState({ isLoading: false });
-              window.location.href = "/clientes";
-            }, 4000);
+          // onSubmit={(data) => {
+          //   this.setState({ isLoading: true });
+          //   setTimeout(() => {
+          //     this.setState({ isLoading: false });
+          //     window.location.href = "/clientes";
+          //   }, 4000);
 
-            let myGallery = [];
+          //   let myGallery = [];
 
-            let NomeFoto1 = "";
-            let NomeFoto2 = "";
-            let NomeFoto3 = "";
-            let NomeFoto4 = "";
-            let NomeFoto5 = "";
-            let NomeFoto6 = "";
-            let NomeFoto7 = "";
+          //   let NomeFoto1 = "";
+          //   let NomeFoto2 = "";
+          //   let NomeFoto3 = "";
+          //   let NomeFoto4 = "";
+          //   let NomeFoto5 = "";
+          //   let NomeFoto6 = "";
+          //   let NomeFoto7 = "";
 
-            for (let i = 1; i < 8; i++) {
-              if (fileGallery[i] == undefined) {
-                if (i == 1) {
-                  myGallery.foto1 = "";
-                }
-                if (i == 2) {
-                  myGallery.foto2 = "";
-                }
-                if (i == 3) {
-                  myGallery.foto3 = "";
-                }
-                if (i == 4) {
-                  myGallery.foto4 = "";
-                }
-                if (i == 5) {
-                  myGallery.foto5 = "";
-                }
-                if (i == 6) {
-                  myGallery.foto6 = "";
-                }
-                if (i == 7) {
-                  myGallery.foto7 = "";
-                }
-              } else {
-                if (i == 1) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto1 = Math.random().toString(36).substring(7);
-                  myGallery.foto1 = NomeFoto1;
-                }
-                if (i == 2) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto2 = Math.random().toString(36).substring(7);
-                  myGallery.foto2 = NomeFoto2;
-                }
-                if (i == 3) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto3 = Math.random().toString(36).substring(7);
-                  myGallery.foto3 = NomeFoto3;
-                }
-                if (i == 4) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto4 = Math.random().toString(36).substring(7);
-                  myGallery.foto4 = NomeFoto4;
-                }
-                if (i == 5) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto5 = Math.random().toString(36).substring(7);
-                  myGallery.foto5 = NomeFoto5;
-                }
-                if (i == 6) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto6 = Math.random().toString(36).substring(7);
-                  myGallery.foto6 = NomeFoto6;
-                }
-                if (i == 7) {
-                  var n = Math.floor(Math.random() * 11);
-                  var k = Math.floor(Math.random() * 1000000);
-                  NomeFoto7 = Math.random().toString(36).substring(7);
-                  myGallery.foto7 = NomeFoto7;
-                }
-              }
-            }
+          //   for (let i = 1; i < 8; i++) {
+          //     if (fileGallery[i] == undefined) {
+          //       if (i == 1) {
+          //         myGallery.foto1 = "";
+          //       }
+          //       if (i == 2) {
+          //         myGallery.foto2 = "";
+          //       }
+          //       if (i == 3) {
+          //         myGallery.foto3 = "";
+          //       }
+          //       if (i == 4) {
+          //         myGallery.foto4 = "";
+          //       }
+          //       if (i == 5) {
+          //         myGallery.foto5 = "";
+          //       }
+          //       if (i == 6) {
+          //         myGallery.foto6 = "";
+          //       }
+          //       if (i == 7) {
+          //         myGallery.foto7 = "";
+          //       }
+          //     } else {
+          //       if (i == 1) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto1 = Math.random().toString(36).substring(7);
+          //         myGallery.foto1 = NomeFoto1;
+          //       }
+          //       if (i == 2) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto2 = Math.random().toString(36).substring(7);
+          //         myGallery.foto2 = NomeFoto2;
+          //       }
+          //       if (i == 3) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto3 = Math.random().toString(36).substring(7);
+          //         myGallery.foto3 = NomeFoto3;
+          //       }
+          //       if (i == 4) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto4 = Math.random().toString(36).substring(7);
+          //         myGallery.foto4 = NomeFoto4;
+          //       }
+          //       if (i == 5) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto5 = Math.random().toString(36).substring(7);
+          //         myGallery.foto5 = NomeFoto5;
+          //       }
+          //       if (i == 6) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto6 = Math.random().toString(36).substring(7);
+          //         myGallery.foto6 = NomeFoto6;
+          //       }
+          //       if (i == 7) {
+          //         var n = Math.floor(Math.random() * 11);
+          //         var k = Math.floor(Math.random() * 1000000);
+          //         NomeFoto7 = Math.random().toString(36).substring(7);
+          //         myGallery.foto7 = NomeFoto7;
+          //       }
+          //     }
+          //   }
 
-            let myData = data;
-            myData.logomarca = file.name;
+          //   let myData = data;
+          //   myData.logomarca = file.name;
 
-            this.state.app
-              .database()
-              .ref(`/lojas/galerias/${data.nome}`)
-              .set(myGallery)
-              .then(() => console.log("Gallery set."));
+          //   this.state.app
+          //     .database()
+          //     .ref(`/lojas/galerias/${data.nome}`)
+          //     .set(myGallery)
+          //     .then(() => console.log("Gallery set."));
 
-            // Serviços Gerais:
+          //   // Serviços Gerais:
 
-            ServicosGeraisDB(myData, this.state.app);
+          //   ServicosGeraisDB(myData, this.state.app);
 
-            // Delivery Alimentos e Bebidas:
+          //   // Delivery Alimentos e Bebidas:
 
-            DelAlimentosBebidasDB(myData, this.state.app);
+          //   DelAlimentosBebidasDB(myData, this.state.app);
 
-            // Delivery Moda e Acessórios:
+          //   // Delivery Moda e Acessórios:
 
-            DelModasAcessorios(myData, this.state.app);
+          //   DelModasAcessorios(myData, this.state.app);
 
-            // Delivery Pets e Agro:
+          //   // Delivery Pets e Agro:
 
-            DelPetsAgro(myData, this.state.app);
+          //   DelPetsAgro(myData, this.state.app);
 
-            // Delivery Saúde e Beleza:
+          //   // Delivery Saúde e Beleza:
 
-            DelSaudeBeleza(myData, this.state.app);
+          //   DelSaudeBeleza(myData, this.state.app);
 
-            // Turismo:
+          //   // Turismo:
 
-            Turismo(myData, this.state.app);
+          //   Turismo(myData, this.state.app);
 
-            // Náutica:
+          //   // Náutica:
 
-            Nautica(myData, this.state.app);
+          //   Nautica(myData, this.state.app);
 
-            // Religião:
+          //   // Religião:
 
-            Religiao(myData, this.state.app);
+          //   Religiao(myData, this.state.app);
 
-            // Educação:
+          //   // Educação:
 
-            EducacaoDB(myData, this.state.app);
+          //   EducacaoDB(myData, this.state.app);
 
-            // Moda e Acessórios:
+          //   // Moda e Acessórios:
 
-            ModaAcessorioDB(myData, this.state.app);
+          //   ModaAcessorioDB(myData, this.state.app);
 
-            // Imóveis:
+          //   // Imóveis:
 
-            ImoveisDB(myData, this.state.app);
+          //   ImoveisDB(myData, this.state.app);
 
-            // Casa, Móveis e Decoração:
+          //   // Casa, Móveis e Decoração:
 
-            CasaMoveisDecoracaoDB(myData, this.state.app);
+          //   CasaMoveisDecoracaoDB(myData, this.state.app);
 
-            // Hotelaria:
+          //   // Hotelaria:
 
-            HotelariaDB(myData, this.state.app);
+          //   HotelariaDB(myData, this.state.app);
 
-            // Eletrônicos e Informática:
+          //   // Eletrônicos e Informática:
 
-            EletronicoInformaticaDB(myData, this.state.app);
+          //   EletronicoInformaticaDB(myData, this.state.app);
 
-            // Profissionais Liberais:
+          //   // Profissionais Liberais:
 
-            ProfissionaisLiberaisDB(myData, this.state.app);
+          //   ProfissionaisLiberaisDB(myData, this.state.app);
 
-            // Construção Industrial e Civil:
+          //   // Construção Industrial e Civil:
 
-            ConstrucaoIndustrialECivilDB(myData, this.state.app);
+          //   ConstrucaoIndustrialECivilDB(myData, this.state.app);
 
-            // Utilidade Pública:
+          //   // Utilidade Pública:
 
-            UtilidadePublicaDB(myData, this.state.app);
+          //   UtilidadePublicaDB(myData, this.state.app);
 
-            // Alimentos e Bebidas:
+          //   // Alimentos e Bebidas:
 
-            AlimentosBebidasDB(myData, this.state.app);
+          //   AlimentosBebidasDB(myData, this.state.app);
 
-            // Arte, Papelaria e Armarinho:
+          //   // Arte, Papelaria e Armarinho:
 
-            ArtePapelariaArmarinhoDB(myData, this.state.app);
+          //   ArtePapelariaArmarinhoDB(myData, this.state.app);
 
-            // Beleza e Cuidado Pessoal:
+          //   // Beleza e Cuidado Pessoal:
 
-            BalezaCuidadoPessoalDB(myData, this.state.app);
+          //   BalezaCuidadoPessoalDB(myData, this.state.app);
 
-            // Saúde:
+          //   // Saúde:
 
-            SaudeDB(myData, this.state.app);
+          //   SaudeDB(myData, this.state.app);
 
-            // Veículos:
+          //   // Veículos:
 
-            VeiculosDB(myData, this.state.app);
+          //   VeiculosDB(myData, this.state.app);
 
-            // Pets e Agro:
+          //   // Pets e Agro:
 
-            PetsAgro(myData, this.state.app);
+          //   PetsAgro(myData, this.state.app);
 
-            //Glaeria//
+          //   //Glaeria//
 
-            let storageRef = this.state.app.storage().ref();
-            let mountainsRef = storageRef.child(`${data.nome}`);
-            let mountainImagesRef = storageRef.child(`images/${data.nome}`);
-            mountainImagesRef.put(file).then(function (snapshot) {
-              console.log("Uploaded a blob or file!");
-            });
+          //   let storageRef = this.state.app.storage().ref();
+          //   let mountainsRef = storageRef.child(`${data.nome}`);
+          //   let mountainImagesRef = storageRef.child(`images/${data.nome}`);
+          //   mountainImagesRef.put(file).then(function (snapshot) {
+          //     console.log("Uploaded a blob or file!");
+          //   });
 
-            if (NomeFoto1 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto1}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto1}`);
-              mountainImagesRef.put(fileGallery[1]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 1");
-              });
-            }
+          //   if (NomeFoto1 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto1}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto1}`);
+          //     mountainImagesRef.put(fileGallery[1]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 1");
+          //     });
+          //   }
 
-            if (NomeFoto2 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto2}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto2}`);
-              mountainImagesRef.put(fileGallery[2]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 2");
-              });
-            }
+          //   if (NomeFoto2 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto2}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto2}`);
+          //     mountainImagesRef.put(fileGallery[2]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 2");
+          //     });
+          //   }
 
-            if (NomeFoto3 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto3}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto3}`);
-              mountainImagesRef.put(fileGallery[3]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 3");
-              });
-            }
+          //   if (NomeFoto3 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto3}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto3}`);
+          //     mountainImagesRef.put(fileGallery[3]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 3");
+          //     });
+          //   }
 
-            if (NomeFoto4 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto4}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto4}`);
-              mountainImagesRef.put(fileGallery[4]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 4");
-              });
-            }
+          //   if (NomeFoto4 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto4}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto4}`);
+          //     mountainImagesRef.put(fileGallery[4]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 4");
+          //     });
+          //   }
 
-            if (NomeFoto5 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto5}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto5}`);
-              mountainImagesRef.put(fileGallery[5]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 5");
-              });
-            }
+          //   if (NomeFoto5 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto5}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto5}`);
+          //     mountainImagesRef.put(fileGallery[5]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 5");
+          //     });
+          //   }
 
-            if (NomeFoto6 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto6}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto6}`);
-              mountainImagesRef.put(fileGallery[6]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 6");
-              });
-            }
+          //   if (NomeFoto6 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto6}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto6}`);
+          //     mountainImagesRef.put(fileGallery[6]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 6");
+          //     });
+          //   }
 
-            if (NomeFoto7 !== "") {
-              storageRef = this.state.app.storage().ref();
-              mountainsRef = storageRef.child(`${NomeFoto7}`);
-              mountainImagesRef = storageRef.child(`images/${NomeFoto7}`);
-              mountainImagesRef.put(fileGallery[7]).then(function (snapshot) {
-                console.log("Uploaded a Gallery File 7");
-              });
-            }
-          }}
+          //   if (NomeFoto7 !== "") {
+          //     storageRef = this.state.app.storage().ref();
+          //     mountainsRef = storageRef.child(`${NomeFoto7}`);
+          //     mountainImagesRef = storageRef.child(`images/${NomeFoto7}`);
+          //     mountainImagesRef.put(fileGallery[7]).then(function (snapshot) {
+          //       console.log("Uploaded a Gallery File 7");
+          //     });
+          //   }
+          // }}
 
           // Inputs //
         >
@@ -1403,11 +1403,11 @@ export default class ComponentsClientsAdd extends React.Component {
             </div>
           </div>
 
-          <ButtonSubmit type="submit">Cadastrar no Trilhas</ButtonSubmit>
+          <ButtonSubmit type="submit" >Cadastrar no Trilhas</ButtonSubmit>
         </form>
         {this.state.isLoading ? (
           <DivAbsoluta>
-            <ImageLoading src="https://thumbs.gfycat.com/HollowNaughtyAfricanhornbill-small.gif" />
+            {/* <ImageLoading src="https://thumbs.gfycat.com/HollowNaughtyAfricanhornbill-small.gif" /> */}
           </DivAbsoluta>
         ) : null}
       </div>

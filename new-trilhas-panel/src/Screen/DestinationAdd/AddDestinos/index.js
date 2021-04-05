@@ -5,8 +5,8 @@ import { ButtonSubmit, Logomarca, RowRow } from "./styles";
 // FireBase ///////////////
 ///////////////////////////
 
-import firebase from "firebase";
-import { fire } from "../../../GlobalComponents/config";
+// import firebase from "firebase";
+// import { fire } from "../../../GlobalComponents/config";
 
 ///////////////////////////
 // Formulário /////////////
@@ -22,121 +22,102 @@ import {
   fileGallery,
 } from "../../../GlobalComponents/Form/GalleryInput";
 
-export default class ComponentsAddDestinos extends Component {
-  constructor() {
-    super();
-    console.log("haha");
+export default class AddDestinos extends Component {
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      speed: 10,
-      app: fire,
-    };
+  //   this.state = {};
+  // }
 
-    this.database = this.state.app.database().ref().child("speed");
-  }
-
-  componentDidMount() {
-    this.database.on("value", (snap) => {
-      this.setState({
-        speed: snap.val(),
-      });
-    });
-
-    if (
-      localStorage.getItem("trilhas-user-access") !== "gerente" &&
-      localStorage.getItem("trilhas-user-access") !== "administrador"
-    ) {
-      window.location.href = "/";
-    }
-  }
+  // componentDidMount() {}
 
   render() {
     return (
       <div>
         <form
-          onSubmit={(data) => {
-            let myData = data;
+          // onSubmit={(data) => {
+          //   let myData = data;
 
-            for (let i = 1; i < 8; i++) {
-              if (fileGallery[i] == undefined) {
-                if (i == 1) {
-                  myData.foto1 = "";
-                }
-                if (i == 2) {
-                  myData.foto2 = "";
-                }
-                if (i == 3) {
-                  myData.foto3 = "";
-                }
-                if (i == 4) {
-                  myData.foto4 = "";
-                }
-                if (i == 5) {
-                  myData.foto5 = "";
-                }
-                if (i == 6) {
-                  myData.foto6 = "";
-                }
-                if (i == 7) {
-                  myData.foto7 = "";
-                }
-              } else {
-                if (i == 1) {
-                  myData.foto1 = fileGallery[i].name;
-                }
-                if (i == 2) {
-                  myData.foto2 = fileGallery[i].name;
-                }
-                if (i == 3) {
-                  myData.foto3 = fileGallery[i].name;
-                }
-                if (i == 4) {
-                  myData.foto4 = fileGallery[i].name;
-                }
-                if (i == 5) {
-                  myData.foto5 = fileGallery[i].name;
-                }
-                if (i == 6) {
-                  myData.foto6 = fileGallery[i].name;
-                }
-                if (i == 7) {
-                  myData.foto7 = fileGallery[i].name;
-                }
-              }
-            }
+          //   for (let i = 1; i < 8; i++) {
+          //     if (fileGallery[i] == undefined) {
+          //       if (i == 1) {
+          //         myData.foto1 = "";
+          //       }
+          //       if (i == 2) {
+          //         myData.foto2 = "";
+          //       }
+          //       if (i == 3) {
+          //         myData.foto3 = "";
+          //       }
+          //       if (i == 4) {
+          //         myData.foto4 = "";
+          //       }
+          //       if (i == 5) {
+          //         myData.foto5 = "";
+          //       }
+          //       if (i == 6) {
+          //         myData.foto6 = "";
+          //       }
+          //       if (i == 7) {
+          //         myData.foto7 = "";
+          //       }
+          //     } else {
+          //       if (i == 1) {
+          //         myData.foto1 = fileGallery[i].name;
+          //       }
+          //       if (i == 2) {
+          //         myData.foto2 = fileGallery[i].name;
+          //       }
+          //       if (i == 3) {
+          //         myData.foto3 = fileGallery[i].name;
+          //       }
+          //       if (i == 4) {
+          //         myData.foto4 = fileGallery[i].name;
+          //       }
+          //       if (i == 5) {
+          //         myData.foto5 = fileGallery[i].name;
+          //       }
+          //       if (i == 6) {
+          //         myData.foto6 = fileGallery[i].name;
+          //       }
+          //       if (i == 7) {
+          //         myData.foto7 = fileGallery[i].name;
+          //       }
+          //     }
+            // }
 
-            myData.logomarca = file.name;
+            // myData.logomarca = file.name;
 
-            console.log(myData);
+            // console.log(myData);
 
-            this.state.app
-              .database()
-              .ref(`destinos/${data.nome}`)
-              .set(myData)
-              .then(() => console.log("Data set."));
+            // this.state.app
+            //   .database()
+            //   .ref(`destinos/${data.nome}`)
+            //   .set(myData)
+            //   .then(() => console.log("Data set."));
 
-            let storageRef = this.state.app.storage().ref();
-            let mountainsRef = storageRef.child(`${data.nome}`);
-            let mountainImagesRef = storageRef.child(`destinos/${data.nome}`);
+            // let storageRef = this.state.app.storage().ref();
+            // let mountainsRef = storageRef.child(`${data.nome}`);
+            // let mountainImagesRef = storageRef.child(`destinos/${data.nome}`);
 
-            mountainImagesRef.put(file).then(function (snapshot) {
-              console.log("Uploaded a blob or file!");
-            });
+            // mountainImagesRef.put(file).then(function (snapshot) {
+            //   console.log("Uploaded a blob or file!");
+            // });
 
-            for (let i = 1; i < 8; i++) {
-              if (fileGallery[i] != undefined) {
-                storageRef = this.state.app.storage().ref();
-                mountainsRef = storageRef.child(`${fileGallery[i].name}`);
-                mountainImagesRef = storageRef.child(
-                  `destinos/${data.nome}/${fileGallery[i].name}`
-                );
+          //   for (let i = 1; i < 8; i++) {
+          //     if (fileGallery[i] != undefined) {
+          //       storageRef = this.state.app.storage().ref();
+          //       mountainsRef = storageRef.child(`${fileGallery[i].name}`);
+          //       mountainImagesRef = storageRef.child(
+          //         `destinos/${data.nome}/${fileGallery[i].name}`
+          //       );
 
-                mountainImagesRef.put(fileGallery[i]).then(function (snapshot) {
-                  console.log(`Uploaded gallery ${i}`);
-                });
-              }
-            }
-          }}
+          //       mountainImagesRef.put(fileGallery[i]).then(function (snapshot) {
+          //         console.log(`Uploaded gallery ${i}`);
+          //       });
+          //     }
+          //   }
+          // }}
         >
           <center>
             <Logomarca className="container-50">
