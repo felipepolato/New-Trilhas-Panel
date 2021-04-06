@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { DivAbsoluta, ButtonSubmit } from "../styles";
+import { DivAbsoluta, ButtonSubmit, FormSectionTitle } from "../styles";
 
 ///////////////////////////
 // FireBase ///////////////
@@ -13,7 +13,6 @@ import { DivAbsoluta, ButtonSubmit } from "../styles";
 ///////////////////////////
 
 import TextAreaInput from "../../../GlobalComponents/Form/TextAreaInput";
-import FormSectionTitle from "../../../GlobalComponents/Form/FormSectionTitle";
 //import Input from "../../../GlobalComponents/Form/Forms";
 //import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
 //import { InputFile } from "../../../GlobalComponents/NavBar/styles";
