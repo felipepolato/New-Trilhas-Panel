@@ -14,12 +14,8 @@ export default function CheckboxInput({ labelName, nome, ...rest }) {
   const [valueInput, setValueInput] = useState("");
 
   useEffect(() => {
-    registerField({
-      name: fieldName,
-      ref: inputRef.current,
-      path: "value",
-    });
-  }, [fieldName, registerField]);
+    
+  }, []);
 ////////////////////////////////////////////////////////////////
   if (valueInput !== "sim") {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ButtonSubmit, Logomarca, RowRow } from "./styles";
+import { ButtonSubmit, Logomarca, RowRow, FormSectionTitle } from "./styles";
 
 ///////////////////////////
 // FireBase ///////////////
@@ -16,7 +16,6 @@ import Input from "../../../GlobalComponents/Form/Input";
 import { FileInput, file } from "../../../GlobalComponents/Form/FileInput";
 import TextAreaInput from "../../../GlobalComponents/Form/TextAreaInput";
 import CheckboxInput from "../../../GlobalComponents/Form/CheckBoxInput";
-import FormSectionTitle from "../../../GlobalComponents/Form/FormSectionTitle";
 import {
   GalleryInput,
   fileGallery,

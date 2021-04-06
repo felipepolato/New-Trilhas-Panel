@@ -11,12 +11,8 @@ export default function Input({ typeInput, nome, ...rest }) {
    const [ error, setError] = useState("");
 
   useEffect(() => {
-    registerField({
-      name: fieldName,
-      ref: inputRef.current,
-      path: "value",
-    });
-  }, [fieldName, registerField]);
+   
+  }, []);
 ////////////////////////////////////////////////////////////////
   if (typeInput === "width-100") {
     return (

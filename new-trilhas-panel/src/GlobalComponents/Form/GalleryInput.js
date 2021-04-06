@@ -28,12 +28,8 @@ export function GalleryInput({
   const [typeOfString, setTypeOfString] = useState("");
 
   useEffect(() => {
-    registerField({
-      name: fieldName,
-      ref: inputRef.current,
-      path: "value",
-    });
-  }, [fieldName, registerField]);
+    
+  }, []);
 ///////////////////////////////////////////////////////////////////////////
   setTimeout(() => {
     if (destiny == true) {

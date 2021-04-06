@@ -85,3 +85,11 @@ export const RowEstado = styled.div`
   margin-right: 12px;
   width: 60%;
 `;
+
+export const FormSectionTitle = styled.span `
+  font-size: 30px;
+  text-shadow: 0px 0px 5px #000000;
+  color: #fff;
+  margin: 0;
+  margin-top: 8px;
+`;
