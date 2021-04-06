@@ -6,8 +6,8 @@ import Destinations from "../Screen/Destinations/index";
 import Home from "../Screen/Home";
 import Login from "../Screen/Login";
 import Sections from "../Screen/Sections";
-import ClientesAdd from "../Screen/ClientsAdd"
-import DestinationAdd from "../Screen/DestinationAdd"
+import ClientesAdd from "../Screen/ClientsAdd";
+import DestinationAdd from "../Screen/DestinationAdd";
 
 const Routers = () => {
   return (
@@ -31,7 +31,7 @@ const Routers = () => {
         <Route exact path={"/sections"}>
           <Sections />
         </Route>
-        <Route exact path={"/clientsadd"}>
+        <Route exact path={"/add"}>
           <ClientesAdd />
         </Route>
         <Route exact path={"/destinationadd"}>

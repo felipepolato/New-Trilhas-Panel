@@ -2,20 +2,18 @@ import React, { Component } from "react";
 import { Wrapper, ContainerShadowBox, Container } from "./styles";
 
 import Navbar from "../../GlobalComponents/NavBar";
-import AddDestinos from "./AddDestinos";
+import ComponentsAddDestinos from "../DestinationAdd/AddDestinos";
 
 ///////////////////////////
 
-export default class DestinationAdd extends Component {
-
-  
+export default class DestinationInformation extends Component {
   render() {
     return (
       <Wrapper>
         <Navbar />
         <ContainerShadowBox />
         <Container>
-          <AddDestinos />
+          <ComponentsAddDestinos />
         </Container>
       </Wrapper>
     );

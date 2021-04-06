@@ -11,6 +11,8 @@ const firebaseConfig = {
   measurementId: "G-SHFCQ2BZHK",
 };
 
-export const userRef = `/panelUsers/${localStorage.getItem("panel-trilhas-id")}`;
+export const userRef = `/panelUsers/${localStorage.getItem(
+  "panel-trilhas-id"
+)}`;
 
 export const fire = firebase.initializeApp(firebaseConfig);

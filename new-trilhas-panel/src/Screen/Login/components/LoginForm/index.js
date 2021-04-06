@@ -28,7 +28,7 @@ export default class LoginForm extends React.Component {
           <Input
             style={{
               marginTop: "5px",
-              borderTopRightRadius: "20px"
+              borderTopRightRadius: "20px",
             }}
             placeholder="Usuário"
             type="text"
@@ -46,9 +46,7 @@ export default class LoginForm extends React.Component {
               document.getElementById("logo").style.animation =
                 "anim-logo 0.2s linear 2";
 
-
               setTimeout(() => {
-
                 fire
                   .database()
                   .ref(`/panelUsers/`)
@@ -65,10 +63,7 @@ export default class LoginForm extends React.Component {
                             "panel-trilhas-user",
                             this.state.user
                           );
-                          localStorage.setItem(
-                            "panel-trilhas-id",
-                            loop
-                          );
+                          localStorage.setItem("panel-trilhas-id", loop);
 
                           localStorage.setItem(
                             "trilhas-user-access",
