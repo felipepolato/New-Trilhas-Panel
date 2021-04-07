@@ -6,17 +6,7 @@ export const ContainerAccounts = styled.div`
   width: 74%;
 `;
 
-export const Container = styled.div`
-  width: 90vw;
-  height: 85vh;
-  overflow-y: scroll;
-  background: #1179b6;
-  margin-top: 10vh;
-  margin-left: 5vw;
-  padding-left: 30px;
-  z-index: 3;
-  box-shadow: inset 0px -30px 30px 0px rgba(0, 0, 0, 0.4);
-`;
+export const Container = styled.div``;
 
 export const ButtonAdd = styled.button`
   width: 12vw;

@@ -1,204 +1,174 @@
 import React, { Component } from "react";
-import { ButtonSubmit, Logomarca, RowRow, FormSectionTitle } from "./styles";
+
+import { DivAbsoluta, ButtonSubmit, FormSectionTitle, Logomarca } from "../styles";
 
 ///////////////////////////
 // FireBase ///////////////
 ///////////////////////////
 
-// import firebase from "firebase";
-// import { fire } from "../../../GlobalComponents/config";
+//import { fire } from "../../../GlobalComponents/config";
 
 ///////////////////////////
 // Formulário /////////////
 ///////////////////////////
 
-import Input from "../../../GlobalComponents/Form/Input";
-import { FileInput, file } from "../../../GlobalComponents/Form/FileInput";
 import TextAreaInput from "../../../GlobalComponents/Form/TextAreaInput";
-import CheckboxInput from "../../../GlobalComponents/Form/CheckBoxInput";
-import {
-  GalleryInput,
-  fileGallery,
-} from "../../../GlobalComponents/Form/GalleryInput";
+import Input from "../../../GlobalComponents/Form/Forms";
+import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
+import { InputFile } from "../../../GlobalComponents/NavBar/styles";
 
-export default class AddDestinos extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {};
-  // }
-
-  // componentDidMount() {}
-
+export default class ComponentsAddDestinos extends React.Component {
   render() {
     return (
       <div>
-        <form
-          // onSubmit={(data) => {
-          //   let myData = data;
+        <center>
+          <Logomarca>
+            <InputFile nome="logomarca"  />
+          </Logomarca>
+        </center>
+        <div>
+          <div>
+            {/* Informações Gerais */}
 
-          //   for (let i = 1; i < 8; i++) {
-          //     if (fileGallery[i] == undefined) {
-          //       if (i == 1) {
-          //         myData.foto1 = "";
-          //       }
-          //       if (i == 2) {
-          //         myData.foto2 = "";
-          //       }
-          //       if (i == 3) {
-          //         myData.foto3 = "";
-          //       }
-          //       if (i == 4) {
-          //         myData.foto4 = "";
-          //       }
-          //       if (i == 5) {
-          //         myData.foto5 = "";
-          //       }
-          //       if (i == 6) {
-          //         myData.foto6 = "";
-          //       }
-          //       if (i == 7) {
-          //         myData.foto7 = "";
-          //       }
-          //     } else {
-          //       if (i == 1) {
-          //         myData.foto1 = fileGallery[i].name;
-          //       }
-          //       if (i == 2) {
-          //         myData.foto2 = fileGallery[i].name;
-          //       }
-          //       if (i == 3) {
-          //         myData.foto3 = fileGallery[i].name;
-          //       }
-          //       if (i == 4) {
-          //         myData.foto4 = fileGallery[i].name;
-          //       }
-          //       if (i == 5) {
-          //         myData.foto5 = fileGallery[i].name;
-          //       }
-          //       if (i == 6) {
-          //         myData.foto6 = fileGallery[i].name;
-          //       }
-          //       if (i == 7) {
-          //         myData.foto7 = fileGallery[i].name;
-          //       }
-          //     }
-            // }
+            <FormSectionTitle title="Informações Gerais" />
 
-            // myData.logomarca = file.name;
+            <Input
+              name="nome"
+              type="text"
+              maxlength="16"
+              placeholder="Nome do Destino"
+            />
 
-            // console.log(myData);
+            <Input nome="tipo" placeholder="Tipo" />
 
-            // this.state.app
-            //   .database()
-            //   .ref(`destinos/${data.nome}`)
-            //   .set(myData)
-            //   .then(() => console.log("Data set."));
+            <Input nome="whatsapp" placeholder="Whatsapp Comercial" />
 
-            // let storageRef = this.state.app.storage().ref();
-            // let mountainsRef = storageRef.child(`${data.nome}`);
-            // let mountainImagesRef = storageRef.child(`destinos/${data.nome}`);
+            <Input nome="telefone" placeholder="Telefone Comercial" />
 
-            // mountainImagesRef.put(file).then(function (snapshot) {
-            //   console.log("Uploaded a blob or file!");
-            // });
+            {/* Geolocalização */}
 
-          //   for (let i = 1; i < 8; i++) {
-          //     if (fileGallery[i] != undefined) {
-          //       storageRef = this.state.app.storage().ref();
-          //       mountainsRef = storageRef.child(`${fileGallery[i].name}`);
-          //       mountainImagesRef = storageRef.child(
-          //         `destinos/${data.nome}/${fileGallery[i].name}`
-          //       );
+            <FormSectionTitle title="Geolocalização" />
 
-          //       mountainImagesRef.put(fileGallery[i]).then(function (snapshot) {
-          //         console.log(`Uploaded gallery ${i}`);
-          //       });
-          //     }
-          //   }
-          // }}
-        >
-          <center>
-            <Logomarca className="container-50">
-              <FileInput nome="logomarca" />
-            </Logomarca>
-          </center>
-          <div className="row">
-            <div className="col-6 align-center">
-              {/* Informações Gerais */}
+            <div>
+              <Input nome="latitude" placeholder="latitude" />
+            </div>
 
-              <FormSectionTitle title="Informações Gerais" />
+            <div>
+              <Input nome="longitude" placeholder="longitude" />
+            </div>
 
-              <Input nome="nome" placeholder="Nome do Destino" />
+            {/* Endereço */}
 
-              <Input nome="tipo" placeholder="Tipo do Destino" />
+            <FormSectionTitle title="Endereço" />
 
-              <TextAreaInput
-                nome="desricao"
-                placeholder="Descrição do destino"
-              />
+            <div>
+              <div>
+                <Input nome="rua" placeholder="rua" />
+              </div>
 
-              {/* Informações Adicionais */}
+              <Input nome="numero" placeholder="número" />
 
-              <FormSectionTitle title="Informações Adicionais" />
+              <Input nome="complemento" placeholder="complemento" />
 
-              <div path="informacoesadicionais">
-                <RowRow>
-                  <div className="col-6-row">
-                    <Input nome="tituloinfo1" placeholder="Título" />
-                  </div>
-                  <div className="col-6-row-left">
-                    <Input nome="textoinfo1" placeholder="Informação" />
-                  </div>
-                </RowRow>
-                <RowRow>
-                  <div className="col-6-row">
-                    <Input nome="tituloinfo2" placeholder="Título" />
-                  </div>
-                  <div className="col-6-row-left">
-                    <Input nome="textoinfo2" placeholder="Informação" />
-                  </div>
-                </RowRow>
-                <RowRow>
-                  <div className="col-6-row">
-                    <Input nome="tituloinfo3" placeholder="Título" />
-                  </div>
-                  <div className="col-6-row-left">
-                    <Input nome="textoinfo3" placeholder="Informação" />
-                  </div>
-                </RowRow>
+              <Input nome="bairro" placeholder="bairro" />
+
+              <div>
+                <Input nome="cidade" placeholder="cidade" />
+              </div>
+
+              <Input nome="estado" placeholder="estado" />
+            </div>
+          </div>
+
+          <hr />
+
+          <div>
+            {/* Redes Sociais */}
+
+            <inputectionTitle title="Redes Sociais" />
+
+            <div>
+              <Input nome="facebook" placeholder="facebook" />
+
+              <Input nome="instagram" placeholder="instagram" />
+
+              <Input nome="youtube" placeholder="youtube" />
+
+              <Input nome="linkedin" placeholder="linkedin" />
+
+              <Input nome="twitter" placeholder="twitter" />
+
+              <Input nome="site" placeholder="site" />
+            </div>
+
+            {/* Descrição */}
+
+            <FormSectionTitle title="Descrição" />
+
+            <TextAreaInput nome="descricao" placeholder="descrição" />
+          </div>
+        </div>
+        <br />
+        <hr />
+        <center>
+          {/* Horário de Funcionamento [ 1 ] */}
+
+          <FormSectionTitle title="Horário de Funcionamento" />
+
+          <div>
+            <div>
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
               </div>
             </div>
+
             <hr />
-            <div className="col-6-left align-center">
-              {/* Informações de Rota */}
 
-              <FormSectionTitle title="Informações de Rota" />
+            <div>
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
 
-              <CheckboxInput
-                nome="possuirota"
-                labelName="Há como ir por terra."
-              />
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
 
-              <RowRow>
-                <div className="col-6-row">
-                  <Input nome="latitude" placeholder="latitude" />
-                </div>
-                <div className="col-6-row-left">
-                  <Input nome="longitude" placeholder="longitude" />
-                </div>
-              </RowRow>
-
-              {/* Mídias Sociais */}
-
-              <FormSectionTitle title="Mídias Sociais" />
-
-              <div path="midiassociais">
-                <Input nome="whatsapp" placeholder="Whatsapp" />
-                <Input nome="instagram" placeholder="Instagram" />
-                <Input nome="wikipedia" placeholder="Wikipedia" />
-                <Input nome="facebook" placeholder="Facebook" />
-                <Input nome="site" placeholder="Site" />
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
               </div>
             </div>
           </div>
@@ -206,7 +176,69 @@ export default class AddDestinos extends Component {
           <br />
 
           <hr />
-          <div className="row">
+
+          <div>
+            <div>
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
             <div className="col-6 align-center">
               <GalleryInput
                 nome="foto1"
@@ -233,8 +265,20 @@ export default class AddDestinos extends Component {
                 labeltext="Selecionar Foto 05"
                 indexnumber={5}
               />
+
+              <br />
+
+              <hr />
+
+              <GalleryInput
+                nome="foto7"
+                labeltext="Selecionar Foto 07"
+                indexnumber={7}
+              />
             </div>
+
             <hr />
+
             <div className="col-6-left align-center">
               <GalleryInput
                 nome="foto2"
@@ -263,11 +307,22 @@ export default class AddDestinos extends Component {
               />
             </div>
           </div>
-
-          <ButtonSubmit type="submit">Cadastrar Destino</ButtonSubmit>
-        </form>
-        ;
+        </center>
+        <br />
+        <hr />
+        <br />
+        <hr />
+        <ButtonSubmit type="submit">Cadastrar no Trilhas</ButtonSubmit>
       </div>
     );
   }
 }
+
+/*{this.state.isLoading ? (
+          <DivAbsoluta>
+            <ImageLoading src="https://thumbs.gfycat.com/HollowNaughtyAfricanhornbill-small.gif" />
+          </DivAbsoluta>
+        ) : null}
+        
+         
+        */

@@ -3,12 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #116591;
+  background: #cbeefd;
   display: flex;
 `;
 
 export const Logomarca = styled.div`
-  background: #1179b6;
+  width: 100%;
+  height: 2em;
+  background: #ccc;
 `;
 
 export const ButtonSubmit = styled.button`
@@ -29,23 +31,23 @@ export const ButtonSubmit = styled.button`
 `;
 
 export const ContainerShadowBox = styled.div`
-  width: 90vw;
-  height: 85vh;
+  width: 80vw;
+  height: 88vh;
   background: #1179b6;
   top: 10vh;
-  left: 5vw;
+  left: 17vw;
   position: fixed;
   z-index: 0;
   box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);
 `;
 
 export const Container = styled.div`
-  width: 90vw;
-  height: 85vh;
+  width: 80vw;
+  height: 88vh;
   overflow-y: scroll;
   background: #1179b6;
   margin-top: 10vh;
-  margin-left: 5vw;
+  margin-left: 17vw;
   padding-left: 30px;
   z-index: 3;
   box-shadow: inset 0px -30px 30px 0px rgba(0, 0, 0, 0.4);
@@ -86,7 +88,7 @@ export const RowEstado = styled.div`
   width: 60%;
 `;
 
-export const FormSectionTitle = styled.span `
+export const FormSectionTitle = styled.span`
   font-size: 30px;
   text-shadow: 0px 0px 5px #000000;
   color: #fff;

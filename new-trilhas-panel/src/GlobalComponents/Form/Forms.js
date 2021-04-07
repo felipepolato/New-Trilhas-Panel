@@ -15,5 +15,6 @@ export default ({ name, value, onChange, type, placeholder }) => {
 };
 
 const InputStyled = styled.input`
-    
+    width: 100%;
+    height: 2em;
 `;
