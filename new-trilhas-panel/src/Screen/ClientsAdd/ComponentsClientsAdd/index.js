@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 
-import { DivAbsoluta, ButtonSubmit, FormSectionTitle } from "../styles";
+import {
+  DivAbsoluta,
+  ButtonSubmit,
+  FormSectionTitle,
+  Logomarca,
+  RowRow,
+  Column,
+  RowNumero,
+  RowEstado,
+} from "./styles";
 
 ///////////////////////////
 // FireBase ///////////////
@@ -13,9 +22,9 @@ import { DivAbsoluta, ButtonSubmit, FormSectionTitle } from "../styles";
 ///////////////////////////
 
 import TextAreaInput from "../../../GlobalComponents/Form/TextAreaInput";
-//import Input from "../../../GlobalComponents/Form/Forms";
-//import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
-//import { InputFile } from "../../../GlobalComponents/NavBar/styles";
+import Input from "../../../GlobalComponents/Form/Forms";
+import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
+import { InputFile } from "../../../GlobalComponents/NavBar/styles";
 
 export default class ComponentsClientsAdd extends React.Component {
   /*constructor(props) {
@@ -84,231 +93,212 @@ export default class ComponentsClientsAdd extends React.Component {
       this.setState(`${state}: ${value.target.value}`);*/
     return (
       <div>
-        <center>
-          <div>
-            <input nome="logomarca" />
-          </div>
-        </center>
-        <div>
-          <div>
+        <RowRow>
+          <center>
+            <Logomarca>
+              <InputFile nome="logomarca" />
+            </Logomarca>
+          </center>
+
+          <Column>
             {/* Informações Gerais */}
 
             <FormSectionTitle title="Informações Gerais" />
 
-            <input
+            <Input
               name="nome"
               type="text"
               maxlength="16"
               placeholder="Nome do Empreendimento"
             />
 
-            <input nome="nicho" placeholder="Nicho Comercial" />
+            <Input nome="nicho" placeholder="Nicho Comercial" />
 
-            <input nome="cor" placeholder="Cor de fundo" />
+            <Input nome="cor" placeholder="Cor de fundo" />
 
-            <input nome="whatsapp" placeholder="Whatsapp Comercial" />
+            <Input nome="whatsapp" placeholder="Whatsapp Comercial" />
 
-            <input nome="telefone" placeholder="Telefone Comercial" />
+            <Input nome="telefone" placeholder="Telefone Comercial" />
 
+            <Input name="cardapio" placeholder="Cardápio" />
+            
             {/* Geolocalização */}
 
-            <inputectionTitle title="Geolocalização" />
-
-            <div>
-              <input nome="latitude" placeholder="latitude" />
-            </div>
-
-            <div>
-              <input nome="longitude" placeholder="longitude" />
-            </div>
+            <FormSectionTitle title="Geolocalização" />
+            <RowRow>
+              <Column>
+                <Input nome="latitude" placeholder="latitude" />
+              </Column>
+              <Column>
+                <Input nome="longitude" placeholder="longitude" />
+              </Column>
+            </RowRow>
 
             {/* Endereço */}
+            <FormSectionTitle title="Endereço" />
 
-            <inputectionTitle title="Endereço" />
+            <RowRow>
+              <Input nome="rua" placeholder="rua" />
+              <RowNumero>
+                <Input nome="numero" placeholder="número" />
+              </RowNumero>
+            </RowRow>
+            <Input nome="complemento" placeholder="complemento" />
 
-            <div path="endereco">
-              <div>
-                <input nome="rua" placeholder="rua" />
-              </div>
-
-              <input nome="numero" placeholder="número" />
-
-              <input nome="complemento" placeholder="complemento" />
-
-              <input nome="bairro" placeholder="bairro" />
-
-              <div>
-                <input nome="cidade" placeholder="cidade" />
-              </div>
-
-              <input nome="estado" placeholder="estado" />
-            </div>
-          </div>
+            <Input nome="bairro" placeholder="bairro" />
+            <RowRow>
+              <Input nome="cidade" placeholder="cidade" />
+              <RowEstado>
+                <Input nome="estado" placeholder="estado" />
+              </RowEstado>
+            </RowRow>
+          </Column>
 
           <hr />
-
-          <div>
+          <Column>
             {/* Redes Sociais */}
 
-            <inputectionTitle title="Redes Sociais" />
+            <div>
+              {/* Redes Sociais */}
+              <FormSectionTitle title="Redes Sociais" />
 
-            <div path="redessociais">
-              <input nome="facebook" placeholder="facebook" />
-
-              <input nome="instagram" placeholder="instagram" />
-
-              <input nome="youtube" placeholder="youtube" />
-
-              <input nome="linkedin" placeholder="linkedin" />
-
-              <input nome="twitter" placeholder="twitter" />
-
-              <input nome="site" placeholder="site" />
+              <Input nome="facebook" placeholder="facebook" />
+              <Input nome="instagram" placeholder="instagram" />
+              <Input nome="youtube" placeholder="youtube" />
+              <Input nome="linkedin" placeholder="linkedin" />
+              <Input nome="twitter" placeholder="twitter" />
+              <Input nome="site" placeholder="site" />
             </div>
-
             {/* Descrição */}
 
-            <inputectionTitle title="Descrição" />
-
+            <FormSectionTitle title="Descrição" />
             <TextAreaInput nome="descricao" placeholder="descrição" />
-          </div>
-        </div>
+          </Column>
+        </RowRow>
         <br />
         <hr />
-        <center>
-          {/* Horário de Funcionamento [ 1 ] */}
 
-          <inputectionTitle title="Horário de Funcionamento" />
+        {/* Horário de Funcionamento [ 1 ] */}
 
-          <div>
+        <RowRow>
+          <FormSectionTitle title="Horário de Funcionamento" />
+          <Column>
             <div>
               <div>
-                <input
+                <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                 />
-
-                <input
+                <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
-                <input
+                <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
 
-                <input
+                <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
-                <input
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+
+              <hr />
+
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
               </div>
             </div>
-
-            <hr />
-
-            <div>
-              <div>
-                <input
-                  nome="titulo"
-                  placeholder="Título (Ex: Segunda à Sexta)"
-                />
-
-                <input
-                  nome="horario[0].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-                <input
-                  nome="horario[1].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <input
-                  nome="horario[2].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-                <input
-                  nome="horario[3].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-              </div>
-            </div>
-          </div>
-
+          </Column>
           <br />
 
           <hr />
-
-          <div>
+          <Column>
             <div>
               <div>
-                <input
+                <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                 />
-
-                <input
+                <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
-                <input
+                <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
 
-                <input
+                <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
 
-                <input
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+
+              <hr />
+
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                 />
               </div>
             </div>
+          </Column>
+        </RowRow>
 
-            <hr />
-
-            <div>
-              <div>
-                <input
-                  nome="titulo"
-                  placeholder="Título (Ex: Segunda à Sexta)"
-                />
-
-                <input
-                  nome="horario[0].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <input
-                  nome="horario[1].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <input
-                  nome="horario[2].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <input
-                  nome="horario[3].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-              </div>
-            </div>
-
-            <input name="cardapio" placeholder="Cardápio" />
-          </div>
-        </center>
         <br />
         <hr />
-        <br />
-        <hr />
+
         <ButtonSubmit type="submit">Cadastrar no Trilhas</ButtonSubmit>
       </div>
     );
@@ -387,5 +377,4 @@ export default class ComponentsClientsAdd extends React.Component {
                 indexnumber={6}
               />
             </div>
-          </div>
-        */
+          </div>*/

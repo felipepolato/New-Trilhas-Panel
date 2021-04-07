@@ -70,18 +70,30 @@ export const ImageLoading = styled.img`
   object-fit: contain;
 `;
 
+export const Column = styled.div`
+  width: 47%;
+  margin-bottom: 25px;
+`;
+
 export const RowRow = styled.div`
   display: flex;
   flex-direction: row;
   width: 97%;
+  align-items: space-between;
 `;
 
 export const RowNumero = styled.div`
-  margin-right: 25px;
+  width: 100%;
 `;
 
 export const RowEstado = styled.div`
-  margin-left: 50px;
-  margin-right: 12px;
-  width: 60%;
+  width: 100%;
+`;
+
+export const FormSectionTitle = styled.span`
+  font-size: 30px;
+  text-shadow: 0px 0px 5px #000000;
+  color: #fff;
+  margin: 0;
+  margin-top: 8px;
 `;

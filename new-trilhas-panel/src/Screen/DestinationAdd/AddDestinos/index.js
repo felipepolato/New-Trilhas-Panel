@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 
-import { DivAbsoluta, ButtonSubmit, FormSectionTitle, Logomarca } from "../styles";
+import {
+  DivAbsoluta,
+  ButtonSubmit,
+  FormSectionTitle,
+  Logomarca,
+  RowRow,
+  Column,
+  RowNumero,
+  RowEstado,
+} from "./styles";
 
 ///////////////////////////
 // FireBase ///////////////
@@ -21,15 +30,15 @@ export default class ComponentsAddDestinos extends React.Component {
   render() {
     return (
       <div>
-        <center>
-          <Logomarca>
-            <InputFile nome="logomarca"  />
-          </Logomarca>
-        </center>
-        <div>
-          <div>
-            {/* Informações Gerais */}
+        <RowRow>
+          <center>
+            <Logomarca>
+              <InputFile nome="logomarca" />
+            </Logomarca>
+          </center>
 
+          <Column>
+            {/* Informações Gerais */}
             <FormSectionTitle title="Informações Gerais" />
 
             <Input
@@ -38,91 +47,100 @@ export default class ComponentsAddDestinos extends React.Component {
               maxlength="16"
               placeholder="Nome do Destino"
             />
-
             <Input nome="tipo" placeholder="Tipo" />
 
             <Input nome="whatsapp" placeholder="Whatsapp Comercial" />
-
             <Input nome="telefone" placeholder="Telefone Comercial" />
 
             {/* Geolocalização */}
 
             <FormSectionTitle title="Geolocalização" />
-
-            <div>
-              <Input nome="latitude" placeholder="latitude" />
-            </div>
-
-            <div>
-              <Input nome="longitude" placeholder="longitude" />
-            </div>
+            <RowRow>
+              <Column>
+                <Input nome="latitude" placeholder="latitude" />
+              </Column>
+              <Column>
+                <Input nome="longitude" placeholder="longitude" />
+              </Column>
+            </RowRow>
 
             {/* Endereço */}
-
             <FormSectionTitle title="Endereço" />
 
-            <div>
-              <div>
-                <Input nome="rua" placeholder="rua" />
-              </div>
+            <RowRow>
+              <Input nome="rua" placeholder="rua" />
+              <RowNumero>
+                <Input nome="numero" placeholder="número" />
+              </RowNumero>
+            </RowRow>
+            <Input nome="complemento" placeholder="complemento" />
 
-              <Input nome="numero" placeholder="número" />
-
-              <Input nome="complemento" placeholder="complemento" />
-
-              <Input nome="bairro" placeholder="bairro" />
-
-              <div>
-                <Input nome="cidade" placeholder="cidade" />
-              </div>
-
-              <Input nome="estado" placeholder="estado" />
-            </div>
-          </div>
-
+            <Input nome="bairro" placeholder="bairro" />
+            <RowRow>
+              <Input nome="cidade" placeholder="cidade" />
+              <RowEstado>
+                <Input nome="estado" placeholder="estado" />
+              </RowEstado>
+            </RowRow>
+          </Column>
           <hr />
-
-          <div>
-            {/* Redes Sociais */}
-
-            <inputectionTitle title="Redes Sociais" />
-
+          <Column>
             <div>
+              {/* Redes Sociais */}
+              <FormSectionTitle title="Redes Sociais" />
+
               <Input nome="facebook" placeholder="facebook" />
-
               <Input nome="instagram" placeholder="instagram" />
-
               <Input nome="youtube" placeholder="youtube" />
-
               <Input nome="linkedin" placeholder="linkedin" />
-
               <Input nome="twitter" placeholder="twitter" />
-
               <Input nome="site" placeholder="site" />
             </div>
-
             {/* Descrição */}
 
             <FormSectionTitle title="Descrição" />
-
             <TextAreaInput nome="descricao" placeholder="descrição" />
-          </div>
-        </div>
+          </Column>
+        </RowRow>
         <br />
         <hr />
-        <center>
-          {/* Horário de Funcionamento [ 1 ] */}
+        {/* Horário de Funcionamento [ 1 ] */}
 
+        <RowRow>
           <FormSectionTitle title="Horário de Funcionamento" />
-
-          <div>
+          <Column>
             <div>
               <div>
                 <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                 />
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
 
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+
+              <hr />
+
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
@@ -142,176 +160,143 @@ export default class ComponentsAddDestinos extends React.Component {
                 />
               </div>
             </div>
+          </Column>
+          <br />
+
+          <hr />
+          <Column>
+            <div>
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+
+              <hr />
+
+              <div>
+                <Input
+                  nome="titulo"
+                  placeholder="Título (Ex: Segunda à Sexta)"
+                />
+                <Input
+                  nome="horario[0].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[1].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[2].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+
+                <Input
+                  nome="horario[3].horas"
+                  placeholder="Horário (Ex: 07:00 às 18:00)"
+                />
+              </div>
+            </div>
+          </Column>
+        </RowRow>
+        <div>
+          <RowRow>
+            <GalleryInput
+              nome="foto1"
+              labeltext="Selecionar Foto 01"
+              indexnumber={1}
+            />
+
+            <br />
 
             <hr />
 
-            <div>
-              <div>
-                <Input
-                  nome="titulo"
-                  placeholder="Título (Ex: Segunda à Sexta)"
-                />
-
-                <Input
-                  nome="horario[0].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-                <Input
-                  nome="horario[1].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <Input
-                  nome="horario[2].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-                <Input
-                  nome="horario[3].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-              </div>
-            </div>
-          </div>
-
+            <GalleryInput
+              nome="foto3"
+              labeltext="Selecionar Foto 03"
+              indexnumber={3}
+            />
+          </RowRow>
           <br />
 
           <hr />
 
-          <div>
-            <div>
-              <div>
-                <Input
-                  nome="titulo"
-                  placeholder="Título (Ex: Segunda à Sexta)"
-                />
+          <RowRow>
+            <GalleryInput
+              nome="foto5"
+              labeltext="Selecionar Foto 05"
+              indexnumber={5}
+            />
 
-                <Input
-                  nome="horario[0].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-                <Input
-                  nome="horario[1].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <Input
-                  nome="horario[2].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <Input
-                  nome="horario[3].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-              </div>
-            </div>
+            <br />
 
             <hr />
 
-            <div>
-              <div>
-                <Input
-                  nome="titulo"
-                  placeholder="Título (Ex: Segunda à Sexta)"
-                />
+            <GalleryInput
+              nome="foto7"
+              labeltext="Selecionar Foto 07"
+              indexnumber={7}
+            />
+          </RowRow>
 
-                <Input
-                  nome="horario[0].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
+          <hr />
 
-                <Input
-                  nome="horario[1].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
+          <RowRow>
+            <GalleryInput
+              nome="foto2"
+              labeltext="Selecionar Foto 02"
+              indexnumber={2}
+            />
 
-                <Input
-                  nome="horario[2].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-
-                <Input
-                  nome="horario[3].horas"
-                  placeholder="Horário (Ex: 07:00 às 18:00)"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="col-6 align-center">
-              <GalleryInput
-                nome="foto1"
-                labeltext="Selecionar Foto 01"
-                indexnumber={1}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto3"
-                labeltext="Selecionar Foto 03"
-                indexnumber={3}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto5"
-                labeltext="Selecionar Foto 05"
-                indexnumber={5}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto7"
-                labeltext="Selecionar Foto 07"
-                indexnumber={7}
-              />
-            </div>
+            <br />
 
             <hr />
 
-            <div className="col-6-left align-center">
-              <GalleryInput
-                nome="foto2"
-                labeltext="Selecionar Foto 02"
-                indexnumber={2}
-              />
+            <GalleryInput
+              nome="foto4"
+              labeltext="Selecionar Foto 04"
+              indexnumber={4}
+            />
+          </RowRow>
+          <br />
 
-              <br />
+          <hr />
 
-              <hr />
+          <RowRow>
+            <GalleryInput
+              nome="foto6"
+              labeltext="Selecionar Foto 06"
+              indexnumber={6}
+            />
+            <div style={{ width: "180%" }} />
+          </RowRow>
+        </div>
 
-              <GalleryInput
-                nome="foto4"
-                labeltext="Selecionar Foto 04"
-                indexnumber={4}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto6"
-                labeltext="Selecionar Foto 06"
-                indexnumber={6}
-              />
-            </div>
-          </div>
-        </center>
         <br />
         <hr />
-        <br />
-        <hr />
+
         <ButtonSubmit type="submit">Cadastrar no Trilhas</ButtonSubmit>
       </div>
     );
