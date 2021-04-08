@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-export default ({ name, value, onChange, type, placeholder, id }) => {
+export default ({ name, value, onChange, type, placeholder, id, ...rest }) => {
   return (
     <InputStyled
       name={name}
@@ -11,6 +11,7 @@ export default ({ name, value, onChange, type, placeholder, id }) => {
       type={type}
       placeholder={placeholder}
       id={id}
+      {...rest}
     />
   );
 };

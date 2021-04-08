@@ -29,6 +29,8 @@ import Input from "../../../GlobalComponents/Form/Forms";
 import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
 import { InputFile } from "../../../GlobalComponents/NavBar/styles";
 
+let controlCheckboxInput = [];
+
 export default class ComponentsClientsAdd extends React.Component {
   constructor(props) {
     super(props);
@@ -203,6 +205,20 @@ export default class ComponentsClientsAdd extends React.Component {
           );
 
           for (let i = loopInitialValue; i < count; i++) {
+            controlCheckboxInput.push({
+              section: secoes[i].title,
+              value: 'none'
+            });
+
+            let result;
+
+            for(let loop2 in controlCheckboxInput) {
+              if(controlCheckboxInput[loop2].section === secoes[i].title) {
+                result = loop2;
+                break;
+              }
+            }
+
             sideA.push(
               <DivCheckbox>
                 <TextCheckbox for={secoes[i].title} style={{ width: "90%" }}>
@@ -210,8 +226,13 @@ export default class ComponentsClientsAdd extends React.Component {
                 </TextCheckbox>
                 <Input
                   type="checkbox"
-                  value={secoes[i].title}
                   id={secoes[i].title}
+                  value={controlCheckboxInput[result].value}
+                  onChange={() =>
+                    document.getElementById(secoes[i].title).checked
+                      ? controlCheckboxInput[result].value = 'ok'
+                      : controlCheckboxInput[result].value = 'none'
+                  }
                 />
               </DivCheckbox>
             );
@@ -225,6 +246,19 @@ export default class ComponentsClientsAdd extends React.Component {
           );
 
           for (let i = loopInitialValue; i < count; i++) {
+            controlCheckboxInput.push({
+              section: secoes[i].title,
+              value: 'none'
+            });
+
+            let result;
+
+            for(let loop2 in controlCheckboxInput) {
+              if(controlCheckboxInput[loop2].section === secoes[i].title) {
+                result = loop2;
+                break;
+              }
+            }
             sideB.push(
               <DivCheckbox>
                 <TextCheckbox for={secoes[i].title} style={{ width: "90%" }}>
@@ -232,8 +266,13 @@ export default class ComponentsClientsAdd extends React.Component {
                 </TextCheckbox>
                 <Input
                   type="checkbox"
-                  value={secoes[i].title}
                   id={secoes[i].title}
+                  value={controlCheckboxInput[result].value}
+                  onChange={() =>
+                    document.getElementById(secoes[i].title).checked
+                      ? controlCheckboxInput[result].value = 'ok'
+                      : controlCheckboxInput[result].value = 'none'
+                  }
                 />
               </DivCheckbox>
             );
@@ -274,19 +313,44 @@ export default class ComponentsClientsAdd extends React.Component {
               type="text"
               maxlength="16"
               value={nome}
-              onChange={(e)=> this.setState({nome: e.target.value})}
+              onChange={(e) => this.setState({ nome: e.target.value })}
               placeholder="Nome do Empreendimento"
             />
 
-            <Input nome="nicho" placeholder="Nicho Comercial" value={nicho} onChange={(e)=> this.setState({nicho: e.target.value})} />
+            <Input
+              nome="nicho"
+              placeholder="Nicho Comercial"
+              value={nicho}
+              onChange={(e) => this.setState({ nicho: e.target.value })}
+            />
 
-            <Input nome="cor" placeholder="Cor de fundo" value={cor} onChange={(e)=> this.setState({cor: e.target.value})}/>
+            <Input
+              nome="cor"
+              placeholder="Cor de fundo"
+              value={cor}
+              onChange={(e) => this.setState({ cor: e.target.value })}
+            />
 
-            <Input nome="whatsapp" placeholder="Whatsapp Comercial" value={whatsapp} onChange={(e)=> this.setState({whatsapp: e.target.value})}/>
+            <Input
+              nome="whatsapp"
+              placeholder="Whatsapp Comercial"
+              value={whatsapp}
+              onChange={(e) => this.setState({ whatsapp: e.target.value })}
+            />
 
-            <Input nome="telefone" placeholder="Telefone Comercial" value={telefone} onChange={(e)=> this.setState({telefone: e.target.value})}/>
+            <Input
+              nome="telefone"
+              placeholder="Telefone Comercial"
+              value={telefone}
+              onChange={(e) => this.setState({ telefone: e.target.value })}
+            />
 
-            <Input name="cardapio" placeholder="Cardápio" value={cardapio} onChange={(e)=> this.setState({cardapio: e.target.value})}/>
+            <Input
+              name="cardapio"
+              placeholder="Cardápio"
+              value={cardapio}
+              onChange={(e) => this.setState({ cardapio: e.target.value })}
+            />
 
             {/* Geolocalização */}
             <Title style={{ marginTop: "4%" }}>
@@ -295,10 +359,20 @@ export default class ComponentsClientsAdd extends React.Component {
 
             <RowRow style={{ width: "106%" }}>
               <Column>
-                <Input nome="latitude" placeholder="latitude" value={latitude} onChange={(e)=> this.setState({latitude: e.target.value})}/>
+                <Input
+                  nome="latitude"
+                  placeholder="latitude"
+                  value={latitude}
+                  onChange={(e) => this.setState({ latitude: e.target.value })}
+                />
               </Column>
               <Column>
-                <Input nome="longitude" placeholder="longitude" value={longitude} onChange={(e)=> this.setState({longitude: e.target.value})}/>
+                <Input
+                  nome="longitude"
+                  placeholder="longitude"
+                  value={longitude}
+                  onChange={(e) => this.setState({ longitude: e.target.value })}
+                />
               </Column>
             </RowRow>
 
@@ -308,18 +382,48 @@ export default class ComponentsClientsAdd extends React.Component {
             </Title>
 
             <RowRow style={{ width: "100%" }}>
-              <Input nome="rua" placeholder="rua" value={rua} onChange={(e)=> this.setState({rua: e.target.value})}/>
+              <Input
+                nome="rua"
+                placeholder="rua"
+                value={rua}
+                onChange={(e) => this.setState({ rua: e.target.value })}
+              />
               <RowNumero>
-                <Input nome="numero" placeholder="número" value={numero} onChange={(e)=> this.setState({numero: e.target.value})}/>
+                <Input
+                  nome="numero"
+                  placeholder="número"
+                  value={numero}
+                  onChange={(e) => this.setState({ numero: e.target.value })}
+                />
               </RowNumero>
             </RowRow>
-            <Input nome="complemento" placeholder="complemento" value={complemento} onChange={(e)=> this.setState({complemento: e.target.value})}/>
+            <Input
+              nome="complemento"
+              placeholder="complemento"
+              value={complemento}
+              onChange={(e) => this.setState({ complemento: e.target.value })}
+            />
 
-            <Input nome="bairro" placeholder="bairro" value={bairro} onChange={(e)=> this.setState({bairro: e.target.value})}/>
+            <Input
+              nome="bairro"
+              placeholder="bairro"
+              value={bairro}
+              onChange={(e) => this.setState({ bairro: e.target.value })}
+            />
             <RowRow style={{ width: "100%" }}>
-              <Input nome="cidade" placeholder="cidade" value={cidade} onChange={(e)=> this.setState({cidade: e.target.value})}/>
+              <Input
+                nome="cidade"
+                placeholder="cidade"
+                value={cidade}
+                onChange={(e) => this.setState({ cidade: e.target.value })}
+              />
               <RowEstado>
-                <Input nome="estado" placeholder="estado" value={estado} onChange={(e)=> this.setState({estado: e.target.value})}/>
+                <Input
+                  nome="estado"
+                  placeholder="estado"
+                  value={estado}
+                  onChange={(e) => this.setState({ estado: e.target.value })}
+                />
               </RowEstado>
             </RowRow>
           </Column>
@@ -332,17 +436,52 @@ export default class ComponentsClientsAdd extends React.Component {
                 <FormSectionTitle>Redes Sociais</FormSectionTitle>
               </Title>
 
-              <Input nome="facebook" placeholder="facebook" value={facebook} onChange={(e)=> this.setState({facebook: e.target.value})}/>
-              <Input nome="instagram" placeholder="instagram" value={instagram} onChange={(e)=> this.setState({instagram: e.target.value})}/>
-              <Input nome="youtube" placeholder="youtube" value={youtube} onChange={(e)=> this.setState({youtube: e.target.value})}/>
-              <Input nome="linkedin" placeholder="linkedin" value={linkedin} onChange={(e)=> this.setState({linkedin: e.target.value})}/>
-              <Input nome="twitter" placeholder="twitter" value={twitter} onChange={(e)=> this.setState({twitter: e.target.value})}/>
-              <Input nome="site" placeholder="site" value={site} onChange={(e)=> this.setState({site: e.target.value})}/>
+              <Input
+                nome="facebook"
+                placeholder="facebook"
+                value={facebook}
+                onChange={(e) => this.setState({ facebook: e.target.value })}
+              />
+              <Input
+                nome="instagram"
+                placeholder="instagram"
+                value={instagram}
+                onChange={(e) => this.setState({ instagram: e.target.value })}
+              />
+              <Input
+                nome="youtube"
+                placeholder="youtube"
+                value={youtube}
+                onChange={(e) => this.setState({ youtube: e.target.value })}
+              />
+              <Input
+                nome="linkedin"
+                placeholder="linkedin"
+                value={linkedin}
+                onChange={(e) => this.setState({ linkedin: e.target.value })}
+              />
+              <Input
+                nome="twitter"
+                placeholder="twitter"
+                value={twitter}
+                onChange={(e) => this.setState({ twitter: e.target.value })}
+              />
+              <Input
+                nome="site"
+                placeholder="site"
+                value={site}
+                onChange={(e) => this.setState({ site: e.target.value })}
+              />
             </div>
             {/* Descrição */}
             <div style={{ marginTop: "4%" }}></div>
             <FormSectionTitle>Descrição</FormSectionTitle>
-            <TextAreaInput nome="descricao" placeholder="Descrição" value={descricao} onChange={(e)=> this.setState({descricao: e.target.value})}/>
+            <TextAreaInput
+              nome="descricao"
+              placeholder="Descrição"
+              value={descricao}
+              onChange={(e) => this.setState({ descricao: e.target.value })}
+            />
           </Column>
         </RowRow>
         <br />
@@ -362,32 +501,40 @@ export default class ComponentsClientsAdd extends React.Component {
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                   value={titulo1}
-                  onChange={(e)=> this.setState({titulo1: e.target.value})}
+                  onChange={(e) => this.setState({ titulo1: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario1horario1}
-                  onChange={(e)=> this.setState({horario1horario1: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario1horario1: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario1horario2}
-                  onChange={(e)=> this.setState({horario1horario2: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario1horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario1horario3}
-                  onChange={(e)=> this.setState({horario1horario3: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario1horario3: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario1horario4}
-                  onChange={(e)=> this.setState({horario1horario4: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario1horario4: e.target.value })
+                  }
                 />
               </div>
 
@@ -398,32 +545,40 @@ export default class ComponentsClientsAdd extends React.Component {
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                   value={titulo2}
-                  onChange={(e)=> this.setState({titulo2: e.target.value})}
+                  onChange={(e) => this.setState({ titulo2: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario2horario1}
-                  onChange={(e)=> this.setState({horario2horario1: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario2horario1: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario2horario2}
-                  onChange={(e)=> this.setState({horario2horario2: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario2horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario2horario3}
-                  onChange={(e)=> this.setState({horario2horario3: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario2horario3: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario2horario4}
-                  onChange={(e)=> this.setState({horario2horario4: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario2horario4: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -438,33 +593,41 @@ export default class ComponentsClientsAdd extends React.Component {
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                   value={titulo3}
-                  onChange={(e)=> this.setState({titulo3: e.target.value})}
+                  onChange={(e) => this.setState({ titulo3: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario3horario1}
-                  onChange={(e)=> this.setState({horario3horario1: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario3horario1: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario3horario2}
-                  onChange={(e)=> this.setState({horario3horario2: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario3horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario3horario3}
-                  onChange={(e)=> this.setState({horario3horario3: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario3horario3: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario3horario4}
-                  onChange={(e)=> this.setState({horario3horario4: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario3horario4: e.target.value })
+                  }
                 />
               </div>
 
@@ -475,34 +638,42 @@ export default class ComponentsClientsAdd extends React.Component {
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
                   value={titulo4}
-                  onChange={(e)=> this.setState({titulo4: e.target.value})}
+                  onChange={(e) => this.setState({ titulo4: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario4horario1}
-                  onChange={(e)=> this.setState({horario4horario1: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario4horario1: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario4horario2}
-                  onChange={(e)=> this.setState({horario4horario2: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario4horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario4horario3}
-                  onChange={(e)=> this.setState({horario4horario3: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario4horario3: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
                   value={horario4horario4}
-                  onChange={(e)=> this.setState({horario4horario4: e.target.value})}
+                  onChange={(e) =>
+                    this.setState({ horario4horario4: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -598,7 +769,20 @@ export default class ComponentsClientsAdd extends React.Component {
         <br />
         <hr />
 
-        <ButtonSubmit type="submit">Cadastrar no Trilhas</ButtonSubmit>
+        <ButtonSubmit
+          type="submit"
+          onClick={() => {
+            for (let loop in controlCheckboxInput) {
+              console.log(
+                `${controlCheckboxInput[loop].section}: ${
+                  controlCheckboxInput[loop].value
+                }`
+              );
+            }
+          }}
+        >
+          Cadastrar no Trilhas
+        </ButtonSubmit>
       </div>
     );
   }
