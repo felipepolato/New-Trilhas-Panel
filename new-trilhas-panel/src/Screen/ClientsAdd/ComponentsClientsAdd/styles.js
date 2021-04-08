@@ -99,8 +99,22 @@ export const FormSectionTitle = styled.span`
   font-weight: bold;
 `;
 
-
 export const Title = styled.div`
   margin-top: 4%;
   margin-bottom: 2%;
+`;
+
+export const TextCheckbox = styled.label`
+  font-size: 16px;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  color: white;
+  margin: 20px;
+  margin-top: 8px;
+  padding-left: 2px;
+`;
+
+export const DivCheckbox = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 `;

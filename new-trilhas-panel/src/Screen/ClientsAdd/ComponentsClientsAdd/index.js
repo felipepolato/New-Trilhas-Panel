@@ -10,13 +10,15 @@ import {
   RowNumero,
   RowEstado,
   Title,
+  TextCheckbox,
+  DivCheckbox,
 } from "./styles";
 
 ///////////////////////////
 // FireBase ///////////////
 ///////////////////////////
 
-//import { fire } from "../../../GlobalComponents/config";
+import { fire } from "../../../GlobalComponents/config";
 
 ///////////////////////////
 // Formulário /////////////
@@ -28,10 +30,13 @@ import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
 import { InputFile } from "../../../GlobalComponents/NavBar/styles";
 
 export default class ComponentsClientsAdd extends React.Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
+      titulos: "",
+      secoes: "",
+
       // #InformaçõesGerais
 
       nome: "",
@@ -86,12 +91,48 @@ export default class ComponentsClientsAdd extends React.Component {
       horario4horario3: "",
       horario4horario4: "",
     };
-  }*/
+  }
+
+  componentDidMount() {
+    fire
+      .database()
+      .ref("/categorias/")
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+
+        let titulos = [];
+        let secoes = [];
+
+        for (let loop in tmp) {
+          titulos.push({
+            title: tmp[loop].info["section-title"],
+            ref: loop,
+          });
+
+          let tmp2 = tmp[loop].segments;
+          for (let loop2 in tmp2) {
+            secoes.push(loop2);
+          }
+        }
+
+        for (let loop in titulos) {
+          let tmp3 = tmp[titulos[loop].ref].segments;
+          let count = 0;
+          for (let loop2 in tmp3) {
+            count++;
+          }
+          titulos[loop].count = count;
+        }
+        console.log(titulos);
+        this.setState({ titulos: titulos, secoes: secoes });
+      });
+  }
 
   render() {
-    /*const { nome, idade, sobrenome } = this.state;
+    const { nome, idade, sobrenome } = this.state;
     const ChangeValue = (state, value) =>
-      this.setState(`${state}: ${value.target.value}`);*/
+      this.setState(`${state}: ${value.target.value}`);
+
     return (
       <div>
         <RowRow>
@@ -161,7 +202,6 @@ export default class ComponentsClientsAdd extends React.Component {
 
           <hr />
           <Column>
-            
             <div>
               {/* Redes Sociais */}
               <Title>
@@ -304,6 +344,37 @@ export default class ComponentsClientsAdd extends React.Component {
             </div>
           </Column>
         </RowRow>
+
+        <Column>
+          <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
+            <FormSectionTitle>Delivery Alimentos e Bebidas</FormSectionTitle>
+          </Title>
+          <RowRow>
+            <Column>
+              <DivCheckbox>
+                <TextCheckbox>Adegas</TextCheckbox>
+                <Input type="checkbox" />
+              </DivCheckbox>
+              <DivCheckbox>
+                <TextCheckbox>Adegas</TextCheckbox>
+                <Input type="checkbox" />
+              </DivCheckbox>
+              <DivCheckbox>
+                <TextCheckbox>Adegas</TextCheckbox>
+                <Input type="checkbox" />
+              </DivCheckbox>
+              <DivCheckbox>
+                <TextCheckbox>Adegas</TextCheckbox>
+                <Input type="checkbox" />
+              </DivCheckbox>
+              <DivCheckbox>
+                <TextCheckbox>Adegas</TextCheckbox>
+                <Input type="checkbox" />
+              </DivCheckbox>
+            </Column>
+          </RowRow>
+        </Column>
+
         <div>
           <RowRow>
             <GalleryInput
@@ -313,7 +384,6 @@ export default class ComponentsClientsAdd extends React.Component {
             />
 
             <br />
-
             <hr />
 
             <GalleryInput
@@ -322,8 +392,8 @@ export default class ComponentsClientsAdd extends React.Component {
               indexnumber={3}
             />
           </RowRow>
-          <br />
 
+          <br />
           <hr />
 
           <RowRow>
@@ -334,7 +404,6 @@ export default class ComponentsClientsAdd extends React.Component {
             />
 
             <br />
-
             <hr />
 
             <GalleryInput
@@ -354,7 +423,6 @@ export default class ComponentsClientsAdd extends React.Component {
             />
 
             <br />
-
             <hr />
 
             <GalleryInput
@@ -363,8 +431,8 @@ export default class ComponentsClientsAdd extends React.Component {
               indexnumber={4}
             />
           </RowRow>
-          <br />
 
+          <br />
           <hr />
 
           <RowRow>
@@ -385,77 +453,3 @@ export default class ComponentsClientsAdd extends React.Component {
     );
   }
 }
-
-/*{this.state.isLoading ? (
-          <DivAbsoluta>
-            <ImageLoading src="https://thumbs.gfycat.com/HollowNaughtyAfricanhornbill-small.gif" />
-          </DivAbsoluta>
-        ) : null}
-        
-          <div>
-            <div className="col-6 align-center">
-              <GalleryInput
-                nome="foto1"
-                labeltext="Selecionar Foto 01"
-                indexnumber={1}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto3"
-                labeltext="Selecionar Foto 03"
-                indexnumber={3}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto5"
-                labeltext="Selecionar Foto 05"
-                indexnumber={5}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto7"
-                labeltext="Selecionar Foto 07"
-                indexnumber={7}
-              />
-            </div>
-            <hr />
-            <div className="col-6-left align-center">
-              <GalleryInput
-                nome="foto2"
-                labeltext="Selecionar Foto 02"
-                indexnumber={2}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto4"
-                labeltext="Selecionar Foto 04"
-                indexnumber={4}
-              />
-
-              <br />
-
-              <hr />
-
-              <GalleryInput
-                nome="foto6"
-                labeltext="Selecionar Foto 06"
-                indexnumber={6}
-              />
-            </div>
-          </div>*/
