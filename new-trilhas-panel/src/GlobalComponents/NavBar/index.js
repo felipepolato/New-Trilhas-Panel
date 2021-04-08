@@ -106,7 +106,7 @@ export default class MyComponent extends React.Component {
               <SearchBar />
               <ButtonAdd>
                 <ButtonAddTextBox>
-                  <ButtonAddText>Adicionar Cliente</ButtonAddText>
+                  <ButtonAddText onClick={() => (window.location.href = "/add")}>Adicionar Cliente</ButtonAddText>
                 </ButtonAddTextBox>
               </ButtonAdd>
             </DivNav>
@@ -117,7 +117,11 @@ export default class MyComponent extends React.Component {
               <SearchBar />
               <ButtonAdd>
                 <ButtonAddTextBox>
-                  <ButtonAddText>Adicionar Destino</ButtonAddText>
+                  <ButtonAddText
+                    onClick={() => (window.location.href = "/destinationadd")}
+                  >
+                    Adicionar Destino
+                  </ButtonAddText>
                 </ButtonAddTextBox>
               </ButtonAdd>
             </DivNav>
@@ -239,7 +243,12 @@ export default class MyComponent extends React.Component {
                 <ConfigDropdown id="dropdrownConfig">
                   <SideBarButtonDropdown
                     type="button"
-                    onClick={() => this.setState({trocarSenha: true, dropdownActive: false})}
+                    onClick={() =>
+                      this.setState({
+                        trocarSenha: true,
+                        dropdownActive: false,
+                      })
+                    }
                     style={
                       this.state.inSections
                         ? {
