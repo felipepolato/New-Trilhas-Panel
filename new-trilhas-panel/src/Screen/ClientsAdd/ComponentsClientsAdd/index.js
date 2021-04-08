@@ -44,7 +44,7 @@ export default class ComponentsClientsAdd extends React.Component {
       cor: "",
       whatsapp: "",
       telefone: "",
-      // #Gelocalizaliçaõ
+      // #Gelocalizalição
 
       latitude: "",
       longitude: "",
@@ -111,7 +111,7 @@ export default class ComponentsClientsAdd extends React.Component {
 
           let tmp2 = tmp[loop].segments;
           for (let loop2 in tmp2) {
-            secoes.push(loop2);
+            secoes.push({ title: loop2 });
           }
         }
 
@@ -127,11 +127,85 @@ export default class ComponentsClientsAdd extends React.Component {
         this.setState({ titulos: titulos, secoes: secoes });
       });
   }
+  /*
 
+          
+*/
   render() {
     const { nome, idade, sobrenome } = this.state;
     const ChangeValue = (state, value) =>
       this.setState(`${state}: ${value.target.value}`);
+
+    const CheckboxRender = () => {
+      let sideA = [];
+      let sideB = [];
+      let loopInitialValue = 0;
+
+      const titulos = this.state.titulos;
+      const secoes = this.state.secoes;
+
+      let countLoop = 0;
+      let division = titulos.length / 2;
+
+      for (let loop in titulos) {
+        let count = loopInitialValue + titulos[loop].count;
+        countLoop++;
+
+        if (countLoop > division) {
+          sideA.push(
+            <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
+              <FormSectionTitle>{titulos[loop].title}</FormSectionTitle>
+            </Title>
+          );
+
+          for (let i = loopInitialValue; i < count; i++) {
+            sideA.push(
+              <DivCheckbox>
+                <TextCheckbox for={secoes[i].title} style={{ width: "90%" }}>
+                  {secoes[i].title}
+                </TextCheckbox>
+                <Input type="checkbox" value={secoes[i].title} id={secoes[i].title} />
+              </DivCheckbox>
+            );
+          }
+          sideA.push(
+            <hr style={{ width: '98%' }}/>
+          );
+        } else {
+          sideB.push(
+            <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
+              <FormSectionTitle>{titulos[loop].title}</FormSectionTitle>
+            </Title>
+          );
+
+          for (let i = loopInitialValue; i < count; i++) {
+            sideB.push(
+              <DivCheckbox>
+                <TextCheckbox for={secoes[i].title} style={{ width: "90%" }}>
+                  {secoes[i].title}
+                </TextCheckbox>
+                <Input type="checkbox" value={secoes[i].title} id={secoes[i].title} />
+              </DivCheckbox>
+            );
+          }
+          sideB.push(
+            <hr style={{ width: '98%' }}/>
+          );
+        }
+
+        loopInitialValue += titulos[loop].count;
+      }
+
+      return (
+        <RowRow>
+          <Column>{sideA}</Column>
+          <br />
+
+          <hr />
+          <Column>{sideB}</Column>
+        </RowRow>
+      );
+    };
 
     return (
       <div>
@@ -345,37 +419,23 @@ export default class ComponentsClientsAdd extends React.Component {
           </Column>
         </RowRow>
 
-        <Column>
+        <br />
+        <hr />
+
+        {/* SENGMENTO */}
+        <center>
           <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
-            <FormSectionTitle>Delivery Alimentos e Bebidas</FormSectionTitle>
+            <FormSectionTitle>Selecione os Nichos</FormSectionTitle>
           </Title>
-          <RowRow>
-            <Column>
-              <DivCheckbox>
-                <TextCheckbox>Adegas</TextCheckbox>
-                <Input type="checkbox" />
-              </DivCheckbox>
-              <DivCheckbox>
-                <TextCheckbox>Adegas</TextCheckbox>
-                <Input type="checkbox" />
-              </DivCheckbox>
-              <DivCheckbox>
-                <TextCheckbox>Adegas</TextCheckbox>
-                <Input type="checkbox" />
-              </DivCheckbox>
-              <DivCheckbox>
-                <TextCheckbox>Adegas</TextCheckbox>
-                <Input type="checkbox" />
-              </DivCheckbox>
-              <DivCheckbox>
-                <TextCheckbox>Adegas</TextCheckbox>
-                <Input type="checkbox" />
-              </DivCheckbox>
-            </Column>
-          </RowRow>
-        </Column>
+        </center>
+        {CheckboxRender()}
 
         <div>
+        <center>
+          <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
+            <FormSectionTitle>Fotos para Galeria</FormSectionTitle>
+          </Title>
+        </center>
           <RowRow>
             <GalleryInput
               nome="foto1"
