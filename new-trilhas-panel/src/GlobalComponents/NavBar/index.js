@@ -23,6 +23,7 @@ import {
   ButtonAddTextBox,
   ButtonAddText,
   DivNav,
+  ButtomAlterarSenha,
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
@@ -44,6 +45,7 @@ export default class MyComponent extends React.Component {
       surname: "",
       function: "",
       dropdownActive: false,
+      trocarSenha: false,
     };
   }
 
@@ -78,7 +80,6 @@ export default class MyComponent extends React.Component {
     return (
       <Container>
         <NavBar>
-          
           {this.state.inAccounts ? (
             <ContainerAccounts>
               <InputFileLabel>AVATAR</InputFileLabel>
@@ -105,7 +106,7 @@ export default class MyComponent extends React.Component {
               <SearchBar />
               <ButtonAdd>
                 <ButtonAddTextBox>
-                  <ButtonAddText >Adicionar Cliente</ButtonAddText>
+                  <ButtonAddText>Adicionar Cliente</ButtonAddText>
                 </ButtonAddTextBox>
               </ButtonAdd>
             </DivNav>
@@ -217,7 +218,7 @@ export default class MyComponent extends React.Component {
               onClick={() =>
                 this.state.dropdownActive
                   ? this.setState({ dropdownActive: false })
-                  : this.setState({ dropdownActive: true })
+                  : this.setState({ dropdownActive: true, trocarSenha: false })
               }
               type="button"
               style={
@@ -238,7 +239,7 @@ export default class MyComponent extends React.Component {
                 <ConfigDropdown id="dropdrownConfig">
                   <SideBarButtonDropdown
                     type="button"
-                    onClick={() => (window.location.href = "/sections")}
+                    onClick={() => this.setState({trocarSenha: true, dropdownActive: false})}
                     style={
                       this.state.inSections
                         ? {
@@ -256,8 +257,8 @@ export default class MyComponent extends React.Component {
                     type="button"
                     onClick={() => {
                       localStorage.clear();
-                      localStorage.removeItem('panel-trilhas-user');
-                      localStorage.removeItem('panel-trilhas-id');
+                      localStorage.removeItem("panel-trilhas-user");
+                      localStorage.removeItem("panel-trilhas-id");
                       window.location.href = "/";
                     }}
                   >
@@ -266,6 +267,27 @@ export default class MyComponent extends React.Component {
                 </ConfigDropdown>
               ) : null}
             </SideBarButtonConfig>
+
+            {this.state.trocarSenha ? (
+              <div>
+                <Input
+                  style={{ margin: "3px", width: "96%", height: "3em" }}
+                  placeholder="Senha Atual"
+                />
+
+                <Input
+                  style={{ margin: "3px", width: "96%", height: "3em" }}
+                  placeholder="Senha Nova"
+                />
+
+                <Input
+                  style={{ margin: "3px", width: "96%", height: "3em" }}
+                  placeholder="Confirmação de Senha"
+                />
+                <ButtomAlterarSenha>Alterar Senha</ButtomAlterarSenha>
+              </div>
+            ) : null}
+
             <SideBarFooter>
               Tecnologia Senhor.APP
               <br />

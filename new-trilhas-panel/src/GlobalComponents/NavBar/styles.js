@@ -84,6 +84,24 @@ export const ButtonInput = styled.button`
   color: white;
   font-weight: bold;
 `;
+
+export const ButtomAlterarSenha = styled.button`
+  background-color: rgba(255, 198, 73, 1);
+  outline: none;
+  border: none;
+  height: 3em;
+  width: 98%;
+  margin: 3px;
+  font-size: 12px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;    
+`;
+
 export const SideBarButtonDropdown = styled.button`
   outline: none;
   border: none;
