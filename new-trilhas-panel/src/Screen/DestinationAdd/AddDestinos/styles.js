@@ -91,9 +91,15 @@ export const RowEstado = styled.div`
 `;
 
 export const FormSectionTitle = styled.span`
-  font-size: 30px;
+  font-size: 20px;
   text-shadow: 0px 0px 5px #000000;
   color: #fff;
   margin: 0;
-  margin-top: 8px;
+  padding: 15px;
+  font-weight: bold;
+`;
+
+export const Title = styled.div`
+  margin-top: 4%;
+  margin-bottom: 2%;
 `;

@@ -9,6 +9,7 @@ import {
   Column,
   RowNumero,
   RowEstado,
+  Title
 } from "./styles";
 
 ///////////////////////////
@@ -39,7 +40,9 @@ export default class ComponentsAddDestinos extends React.Component {
 
           <Column>
             {/* Informações Gerais */}
-            <FormSectionTitle title="Informações Gerais" />
+            <Title>
+              <FormSectionTitle>Informações Gerais</FormSectionTitle>
+            </Title>
 
             <Input
               name="nome"
@@ -54,8 +57,11 @@ export default class ComponentsAddDestinos extends React.Component {
 
             {/* Geolocalização */}
 
-            <FormSectionTitle title="Geolocalização" />
-            <RowRow>
+            <Title style={{ marginTop: "4%" }}>
+              <FormSectionTitle>Geolocalização</FormSectionTitle>
+            </Title>
+
+            <RowRow style={{ width: "106%" }}>
               <Column>
                 <Input nome="latitude" placeholder="latitude" />
               </Column>
@@ -65,9 +71,11 @@ export default class ComponentsAddDestinos extends React.Component {
             </RowRow>
 
             {/* Endereço */}
-            <FormSectionTitle title="Endereço" />
+            <Title>
+              <FormSectionTitle>Endereço</FormSectionTitle>
+            </Title>
 
-            <RowRow>
+            <RowRow style={{ width: "100%" }}>
               <Input nome="rua" placeholder="rua" />
               <RowNumero>
                 <Input nome="numero" placeholder="número" />
@@ -76,7 +84,7 @@ export default class ComponentsAddDestinos extends React.Component {
             <Input nome="complemento" placeholder="complemento" />
 
             <Input nome="bairro" placeholder="bairro" />
-            <RowRow>
+            <RowRow style={{ width: "100%" }}>
               <Input nome="cidade" placeholder="cidade" />
               <RowEstado>
                 <Input nome="estado" placeholder="estado" />
@@ -87,7 +95,9 @@ export default class ComponentsAddDestinos extends React.Component {
           <Column>
             <div>
               {/* Redes Sociais */}
-              <FormSectionTitle title="Redes Sociais" />
+              <Title>
+                <FormSectionTitle>Redes Sociais</FormSectionTitle>
+              </Title>
 
               <Input nome="facebook" placeholder="facebook" />
               <Input nome="instagram" placeholder="instagram" />
@@ -97,17 +107,20 @@ export default class ComponentsAddDestinos extends React.Component {
               <Input nome="site" placeholder="site" />
             </div>
             {/* Descrição */}
-
-            <FormSectionTitle title="Descrição" />
-            <TextAreaInput nome="descricao" placeholder="descrição" />
+            <div style={{ marginTop: "4%" }}></div>
+            <FormSectionTitle>Descrição</FormSectionTitle>
+            <TextAreaInput nome="descricao" placeholder="Descrição" />
           </Column>
         </RowRow>
         <br />
         <hr />
         {/* Horário de Funcionamento [ 1 ] */}
-
+        <center>
+          <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
+            <FormSectionTitle>Horario de Funcionamento</FormSectionTitle>
+          </Title>
+        </center>
         <RowRow>
-          <FormSectionTitle title="Horário de Funcionamento" />
           <Column>
             <div>
               <div>

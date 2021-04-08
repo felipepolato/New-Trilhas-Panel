@@ -161,7 +161,7 @@ export default class ComponentsClientsAdd extends React.Component {
 
           <hr />
           <Column>
-            {/* Redes Sociais */}
+            
             <div>
               {/* Redes Sociais */}
               <Title>
@@ -177,7 +177,7 @@ export default class ComponentsClientsAdd extends React.Component {
             </div>
             {/* Descrição */}
             <div style={{ marginTop: "4%" }}></div>
-            <FormSectionTitle>Descrição</FormSectionTitle>.
+            <FormSectionTitle>Descrição</FormSectionTitle>
             <TextAreaInput nome="descricao" placeholder="Descrição" />
           </Column>
         </RowRow>
