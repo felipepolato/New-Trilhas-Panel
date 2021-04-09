@@ -141,7 +141,11 @@ export default class ComponentsClientsAdd extends React.Component {
       .ref("/clientes/")
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
-        this.setState({totalClientes: tmp.length});
+        if(tmp == null) {
+          this.setState({totalClientes: 0});
+        } else {
+          this.setState({totalClientes: tmp.length});
+        }
       });
   }
 
