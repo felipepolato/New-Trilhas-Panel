@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
 import {
-  DivAbsoluta,
   ButtonSubmit,
   FormSectionTitle,
-  Logomarca,
   RowRow,
   Column,
   RowNumero,
@@ -26,8 +24,11 @@ import { fire } from "../../../GlobalComponents/config";
 
 import TextAreaInput from "../../../GlobalComponents/Form/TextAreaInput";
 import Input from "../../../GlobalComponents/Form/Forms";
-import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
-import { InputFile } from "../../../GlobalComponents/NavBar/styles";
+import {
+  GalleryInput,
+  fileGallery,
+} from "../../../GlobalComponents/Form/GalleryInput";
+import { FileInput, file } from "../../../GlobalComponents/Form/FileInput";
 
 let controlCheckboxInput = [];
 
@@ -132,6 +133,21 @@ export default class ComponentsClientsAdd extends React.Component {
         }
         console.log(titulos);
         this.setState({ titulos: titulos, secoes: secoes });
+
+       /* const { titulos } = this.state;
+        let toRender = [];
+
+        toRender.push(...)
+
+        for(let loop in titulos) {
+          toRender.push(
+            <div>
+              {titulos[loop].title}
+            </div>
+          )
+        }
+
+        return toRender;*/
       });
   }
 
@@ -179,8 +195,6 @@ export default class ComponentsClientsAdd extends React.Component {
       horario4horario3,
       horario4horario4,
     } = this.state;
-    const ChangeValue = (state, value) =>
-      this.setState(`${state}: ${value.target.value}`);
 
     const CheckboxRender = () => {
       let sideA = [];
@@ -205,33 +219,27 @@ export default class ComponentsClientsAdd extends React.Component {
           );
 
           for (let i = loopInitialValue; i < count; i++) {
-            controlCheckboxInput.push({
-              section: secoes[i].title,
-              value: 'none'
-            });
-
-            let result;
-
-            for(let loop2 in controlCheckboxInput) {
-              if(controlCheckboxInput[loop2].section === secoes[i].title) {
-                result = loop2;
-                break;
-              }
-            }
-
             sideA.push(
               <DivCheckbox>
-                <TextCheckbox for={secoes[i].title} style={{ width: "90%" }}>
+                <TextCheckbox
+                  for={`${titulos[loop].title}_${secoes[i].title}`}
+                  style={{ width: "90%" }}
+                >
                   {secoes[i].title}
                 </TextCheckbox>
                 <Input
                   type="checkbox"
-                  id={secoes[i].title}
-                  value={controlCheckboxInput[result].value}
+                  id={`${titulos[loop].title}_${secoes[i].title}`}
                   onChange={() =>
-                    document.getElementById(secoes[i].title).checked
-                      ? controlCheckboxInput[result].value = 'ok'
-                      : controlCheckboxInput[result].value = 'none'
+                    document.getElementById(
+                      `${titulos[loop].title}_${secoes[i].title}`
+                    ).checked
+                      ? (controlCheckboxInput[
+                          `${titulos[loop].title}_${secoes[i].title}`
+                        ] = "ok")
+                      : (controlCheckboxInput[
+                          `${titulos[loop].title}_${secoes[i].title}`
+                        ] = "")
                   }
                 />
               </DivCheckbox>
@@ -246,32 +254,27 @@ export default class ComponentsClientsAdd extends React.Component {
           );
 
           for (let i = loopInitialValue; i < count; i++) {
-            controlCheckboxInput.push({
-              section: secoes[i].title,
-              value: 'none'
-            });
-
-            let result;
-
-            for(let loop2 in controlCheckboxInput) {
-              if(controlCheckboxInput[loop2].section === secoes[i].title) {
-                result = loop2;
-                break;
-              }
-            }
             sideB.push(
               <DivCheckbox>
-                <TextCheckbox for={secoes[i].title} style={{ width: "90%" }}>
+                <TextCheckbox
+                  for={`${titulos[loop].title}_${secoes[i].title}`}
+                  style={{ width: "90%" }}
+                >
                   {secoes[i].title}
                 </TextCheckbox>
                 <Input
                   type="checkbox"
-                  id={secoes[i].title}
-                  value={controlCheckboxInput[result].value}
+                  id={`${titulos[loop].title}_${secoes[i].title}`}
                   onChange={() =>
-                    document.getElementById(secoes[i].title).checked
-                      ? controlCheckboxInput[result].value = 'ok'
-                      : controlCheckboxInput[result].value = 'none'
+                    document.getElementById(
+                      `${titulos[loop].title}_${secoes[i].title}`
+                    ).checked
+                      ? (controlCheckboxInput[
+                          `${titulos[loop].title}_${secoes[i].title}`
+                        ] = "ok")
+                      : (controlCheckboxInput[
+                          `${titulos[loop].title}_${secoes[i].title}`
+                        ] = "")
                   }
                 />
               </DivCheckbox>
@@ -297,17 +300,12 @@ export default class ComponentsClientsAdd extends React.Component {
     return (
       <div>
         <RowRow>
-          <center>
-            <Logomarca>
-              <InputFile nome="logomarca" />
-            </Logomarca>
-          </center>
-
           <Column>
             {/* Informações Gerais */}
             <Title>
               <FormSectionTitle>Informações Gerais</FormSectionTitle>
             </Title>
+
             <Input
               name="nome"
               type="text"
@@ -431,6 +429,7 @@ export default class ComponentsClientsAdd extends React.Component {
           <hr />
           <Column>
             <div>
+              <FileInput nome="logomarca" />
               {/* Redes Sociais */}
               <Title>
                 <FormSectionTitle>Redes Sociais</FormSectionTitle>
@@ -698,71 +697,68 @@ export default class ComponentsClientsAdd extends React.Component {
             </Title>
           </center>
           <RowRow>
-            <GalleryInput
-              nome="foto1"
-              labeltext="Selecionar Foto 01"
-              indexnumber={1}
-            />
+            <Column>
+              <GalleryInput
+                nome="foto1"
+                labeltext="Selecionar Foto 01"
+                indexnumber={1}
+              />
+
+              <br />
+              <hr />
+
+              <GalleryInput
+                nome="foto3"
+                labeltext="Selecionar Foto 03"
+                indexnumber={3}
+              />
+
+              <br />
+              <hr />
+
+              <GalleryInput
+                nome="foto5"
+                labeltext="Selecionar Foto 05"
+                indexnumber={5}
+              />
+
+              <br />
+              <hr />
+
+              <GalleryInput
+                nome="foto7"
+                labeltext="Selecionar Foto 07"
+                indexnumber={7}
+              />
+            </Column>
 
             <br />
             <hr />
 
-            <GalleryInput
-              nome="foto3"
-              labeltext="Selecionar Foto 03"
-              indexnumber={3}
-            />
-          </RowRow>
+            <Column>
+              <GalleryInput
+                nome="foto2"
+                labeltext="Selecionar Foto 02"
+                indexnumber={2}
+              />
 
-          <br />
-          <hr />
+              <br />
+              <hr />
 
-          <RowRow>
-            <GalleryInput
-              nome="foto5"
-              labeltext="Selecionar Foto 05"
-              indexnumber={5}
-            />
+              <GalleryInput
+                nome="foto4"
+                labeltext="Selecionar Foto 04"
+                indexnumber={4}
+              />
 
-            <br />
-            <hr />
-
-            <GalleryInput
-              nome="foto7"
-              labeltext="Selecionar Foto 07"
-              indexnumber={7}
-            />
-          </RowRow>
-
-          <hr />
-
-          <RowRow>
-            <GalleryInput
-              nome="foto2"
-              labeltext="Selecionar Foto 02"
-              indexnumber={2}
-            />
-
-            <br />
-            <hr />
-
-            <GalleryInput
-              nome="foto4"
-              labeltext="Selecionar Foto 04"
-              indexnumber={4}
-            />
-          </RowRow>
-
-          <br />
-          <hr />
-
-          <RowRow>
-            <GalleryInput
-              nome="foto6"
-              labeltext="Selecionar Foto 06"
-              indexnumber={6}
-            />
-            <div style={{ width: "180%" }} />
+              <br />
+              <hr />
+              <GalleryInput
+                nome="foto6"
+                labeltext="Selecionar Foto 06"
+                indexnumber={6}
+              />
+            </Column>
           </RowRow>
         </div>
 
@@ -772,13 +768,67 @@ export default class ComponentsClientsAdd extends React.Component {
         <ButtonSubmit
           type="submit"
           onClick={() => {
-            for (let loop in controlCheckboxInput) {
-              console.log(
-                `${controlCheckboxInput[loop].section}: ${
-                  controlCheckboxInput[loop].value
-                }`
-              );
+            let finalPut = [];
+            let estados = this.state;
+
+            delete estados['titulos'];
+            delete estados['secoes'];
+
+            finalPut.push(estados);
+            finalPut.push(controlCheckboxInput);
+
+            let galeria = [];
+
+            for (let i = 1; i < 8; i++) {
+              if (fileGallery[i] == undefined) {
+                switch (i) {
+                  case 1:
+                    galeria[i] = "";
+                  case 2:
+                    galeria[i] = "";
+                  case 3:
+                    galeria[i] = "";
+                  case 4:
+                    galeria[i] = "";
+                  case 5:
+                    galeria[i] = "";
+                  case 6:
+                    galeria[i] = "";
+                  case 7:
+                    galeria[i] = "";
+                }
+              } else {
+                switch (i) {
+                  case 1:
+                    galeria[i] = `${this.state.nome}_1`;
+                  case 2:
+                    galeria[i] = `${this.state.nome}_2`;
+                  case 3:
+                    galeria[i] = `${this.state.nome}_3`;
+                  case 4:
+                    galeria[i] = `${this.state.nome}_4`;
+                  case 5:
+                    galeria[i] = `${this.state.nome}_5`;
+                  case 6:
+                    galeria[i] = `${this.state.nome}_6`;
+                  case 7:
+                    galeria[i] = `${this.state.nome}_7`;
+                }
+
+                fire
+                  .storage()
+                  .ref()
+                  .child(`galeria/${this.state.nome}/${galeria[i]}`)
+                  .put(fileGallery[i])
+                  .then(() => console.log(`Galeria ${i}: Upload concluído.`));
+              }
             }
+
+            fire
+              .database()
+              .ref(`/galerias/${this.state.nome}/`)
+              .set(galeria)
+              .then(() => console.log("Galeria: Criado com sucesso!"));
           }}
         >
           Cadastrar no Trilhas

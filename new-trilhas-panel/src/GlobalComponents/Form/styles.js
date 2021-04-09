@@ -35,7 +35,7 @@ export const TextCheckbox = styled.label`
 
 export const LabelFile = styled.label`
   padding: 10px 10px;
-  width: 95%;
+  width: 100%;
   background-color: #333;
   color: #fff;
   text-align: center;
@@ -56,7 +56,7 @@ export const LabelFile2 = styled.label`
   cursor: pointer;
 `;
 
-export const FileInputStyle = styled.label`
+export const FileInputStyle = styled.input`
   display: none;
 `;
 
@@ -74,12 +74,11 @@ export const FormSectionTitle = `
 
 export const TextAreaInputStyle = styled.input`
   padding: 10px 10px;
-  width: 90%;
+  width: 98%;
   cursor: pointer;
   margin-top: 10px;
   border: none;
   box-shadow: 0 0 10px gray;
-  display: block;
   resize: vertical;
   height: 197px;
   background-color: #cbeefd;

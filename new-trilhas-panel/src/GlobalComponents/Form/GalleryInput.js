@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 
 import styled from "styled-components";
-import {LabelFile, FileInputStyle }from "./styles"
+import { LabelFile, FileInputStyle } from "./styles";
 
 export let fileGallery = [];
 
@@ -14,11 +14,8 @@ export function GalleryInput({
   ...rest
 }) {
   const inputRef = useRef(null);
-   ////////Fazer Controle de Formulario///////////////////////
-   const [ fieldName, setFildName] = useState("");
-   const [ registerField, setRegisterField] = useState("");
-   const [ defaultValue, setDefaultValue] = useState("");
-   const [ error, setError] = useState("");
+  ////////Fazer Controle de Formulario///////////////////////
+  const [defaultValue, setDefaultValue] = useState("");
 
   const [preview, setPreview] = useState(
     "https://senhor.app/testes/trilhas/src/main/no-image.png"
@@ -27,10 +24,7 @@ export function GalleryInput({
   const [previewOk, setPreviewOk] = useState(false);
   const [typeOfString, setTypeOfString] = useState("");
 
-  useEffect(() => {
-    
-  }, []);
-///////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
   setTimeout(() => {
     if (destiny == true) {
       setTypeOfString("destinos");
@@ -58,9 +52,7 @@ export function GalleryInput({
       <center>
         <Img src={preview} width="90%" />
       </center>
-      <LabelFile for={nome}>
-        {labeltext}
-      </LabelFile>
+      <LabelFile for={nome}>{labeltext}</LabelFile>
       <FileInputStyle
         onChange={(e) => {
           fileGallery[indexnumber] = e.target.files?.[0];

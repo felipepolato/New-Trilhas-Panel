@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 
-import {LabelFile, FileInputStyle, ImgMobile, LabelFile2 }from "./styles"
+import { LabelFile, FileInputStyle, ImgMobile, LabelFile2 } from "./styles";
 
 export let file;
 
@@ -12,21 +12,10 @@ export function FileInput({
   imgMobile,
   ...rest
 }) {
-  const inputRef = useRef(null);
-   ////////Fazer Controle de Formulario///////////////////////
-   const [ fieldName, setFildName] = useState("");
-   const [ registerField, setRegisterField] = useState("");
-   const [ defaultValue, setDefaultValue] = useState("");
-   const [ error, setError] = useState("");
-
   const [preview, setPreview] = useState("");
   const [previewOk, setPreviewOk] = useState(false);
   const [typeOfString, setTypeOfString] = useState("");
-
-  useEffect(() => {
-    
-  }, []);
-//////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
   setTimeout(() => {
     if (destiny == true) {
       setTypeOfString("destinos");
@@ -47,19 +36,9 @@ export function FileInput({
   return (
     <div>
       <center>
-        {imgMobile ? (
-          <ImgMobile>
-            <img id="output" src={preview} width="100%" />
-          </ImgMobile>
-        ) : (
-          <img id="output" src={preview} width="50%" />
-        )}
+        <img id="output" src={preview} width="50%" />
 
-        {mobile ? (
-          <LabelFile2 for={inputRef.current}>Selecionar Logomarca</LabelFile2>
-        ) : (
-          <LabelFile for={inputRef.current}>Selecionar Logomarca</LabelFile>
-        )}
+        <LabelFile for={nome}>Selecionar Logomarca</LabelFile>
 
         <FileInputStyle
           onChange={(e) => {
@@ -71,11 +50,9 @@ export function FileInput({
             const previewURL = URL.createObjectURL(file);
             setPreview(previewURL);
           }}
-          ref={inputRef}
-          defaultValue={defaultValue}
           {...rest}
           type="file"
-          id={inputRef.current}
+          id={nome}
         />
       </center>
     </div>
