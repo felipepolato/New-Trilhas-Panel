@@ -101,6 +101,13 @@ export default class MyComponent extends React.Component {
 
         this.setState({ titulos: titulos });
       });
+
+    if (
+      localStorage.getItem("panel-trilhas-user") == undefined &&
+      localStorage.getItem("panel-trilhas-user") == null
+    ) {
+      window.location.href = "/";
+    }
   }
 
   render() {
@@ -124,7 +131,6 @@ export default class MyComponent extends React.Component {
         <NavBar>
           {this.state.inAccounts ? (
             <ContainerAccounts>
-              <InputFileLabel>AVATAR</InputFileLabel>
               <InputFile type="file" />
               <Input type="text" placeholder="Nome" />
               <Input type="text" placeholder="Sobrenome" />

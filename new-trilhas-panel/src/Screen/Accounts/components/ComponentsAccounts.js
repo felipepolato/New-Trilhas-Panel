@@ -13,15 +13,11 @@ export default class ComponentsAccounts extends React.Component {
   render() {
     return (
       <TableUsers>
-        <TableUserHeaderBox>
-          <TableUserHeaderText>Avatar</TableUserHeaderText>
-        </TableUserHeaderBox>
-
-        <TableUserHeaderBox style={{ marginLeft: '2px' }}>
+        <TableUserHeaderBox style={{ marginLeft: "2px" }}>
           <TableUserHeaderText>Nome</TableUserHeaderText>
         </TableUserHeaderBox>
 
-        <TableUserHeaderBox style={{ marginLeft: '2px', marginRight: '2px' }}>
+        <TableUserHeaderBox style={{ marginLeft: "2px", marginRight: "2px" }}>
           <TableUserHeaderText>Sobrenome</TableUserHeaderText>
         </TableUserHeaderBox>
 

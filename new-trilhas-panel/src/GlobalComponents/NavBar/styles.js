@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerAccounts = styled.div`
   color: white;
   font-size: 12px;
-  width: 74%;
+  width: 71.8%;
 `;
 
 export const Container = styled.div``;
