@@ -98,6 +98,8 @@ export default class ComponentsClientsAdd extends React.Component {
       horario4horario2: "",
       horario4horario3: "",
       horario4horario4: "",
+
+      totalClientes: 0,
     };
   }
 
@@ -133,6 +135,13 @@ export default class ComponentsClientsAdd extends React.Component {
         }
         console.log(titulos);
         this.setState({ titulos: titulos, secoes: secoes });
+      });
+    fire
+      .database()
+      .ref("/clientes/")
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+        this.setState({totalClientes: tmp.length});
       });
   }
 
@@ -792,22 +801,10 @@ export default class ComponentsClientsAdd extends React.Component {
               .put(file)
               .then(() => console.log(`Logomarca: Upload concluído.`));
 
-            let count = 0;
-
+            console.log(this.state.totalClientes);
             fire
               .database()
-              .ref("/clientes/")
-              .on("value", (snapshot) => {
-                let tmp = snapshot.val();
-
-                count = tmp.length;
-              });
-
-            count++;
-
-            fire
-              .database()
-              .ref(`/clientes/${count}/`)
+              .ref(`/clientes/${this.state.totalClientes}`)
               .set(finalPut)
               .then(() => console.log("Clientes: Dados registrados."));
           }}
