@@ -64,7 +64,7 @@ export const ImgMobile = styled.img`
   padding-top: 10px;
 `;
 
-export const FormSectionTitle = `
+export const FormSectionTitle = styled.div`
   font-size: 30px;
   text-shadow: 0px 0px 5px #000000;
   color: #fff;
@@ -72,7 +72,7 @@ export const FormSectionTitle = `
   margin-top: 8px;
 `;
 
-export const TextAreaInputStyle = styled.input`
+export const TextAreaInputStyle = styled.textarea`
   padding: 10px 10px;
   width: 98%;
   cursor: pointer;

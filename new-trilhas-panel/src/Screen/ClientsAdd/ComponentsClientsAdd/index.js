@@ -133,8 +133,6 @@ export default class ComponentsClientsAdd extends React.Component {
         }
         console.log(titulos);
         this.setState({ titulos: titulos, secoes: secoes });
-
-       
       });
   }
 
@@ -476,7 +474,7 @@ export default class ComponentsClientsAdd extends React.Component {
         {/* Horário de Funcionamento [ 1 ] */}
         <center>
           <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
-            <FormSectionTitle>Horario de Funcionamento</FormSectionTitle>
+            <FormSectionTitle>Horário de Funcionamento</FormSectionTitle>
           </Title>
         </center>
         <RowRow>
@@ -758,8 +756,8 @@ export default class ComponentsClientsAdd extends React.Component {
             let finalPut = [];
             let estados = this.state;
 
-            delete estados['titulos'];
-            delete estados['secoes'];
+            delete estados["titulos"];
+            delete estados["secoes"];
 
             finalPut.push(estados);
             finalPut.push(controlCheckboxInput);
@@ -768,47 +766,17 @@ export default class ComponentsClientsAdd extends React.Component {
 
             for (let i = 1; i < 8; i++) {
               if (fileGallery[i] == undefined) {
-                switch (i) {
-                  case 1:
-                    galeria[i] = "";
-                  case 2:
-                    galeria[i] = "";
-                  case 3:
-                    galeria[i] = "";
-                  case 4:
-                    galeria[i] = "";
-                  case 5:
-                    galeria[i] = "";
-                  case 6:
-                    galeria[i] = "";
-                  case 7:
-                    galeria[i] = "";
-                }
+                galeria[i] = "";
               } else {
-                switch (i) {
-                  case 1:
-                    galeria[i] = `${this.state.nome}_1`;
-                  case 2:
-                    galeria[i] = `${this.state.nome}_2`;
-                  case 3:
-                    galeria[i] = `${this.state.nome}_3`;
-                  case 4:
-                    galeria[i] = `${this.state.nome}_4`;
-                  case 5:
-                    galeria[i] = `${this.state.nome}_5`;
-                  case 6:
-                    galeria[i] = `${this.state.nome}_6`;
-                  case 7:
-                    galeria[i] = `${this.state.nome}_7`;
-                }
-
-                fire
-                  .storage()
-                  .ref()
-                  .child(`galeria/${this.state.nome}/${galeria[i]}`)
-                  .put(fileGallery[i])
-                  .then(() => console.log(`Galeria ${i}: Upload concluído.`));
+                galeria[i] = `${this.state.nome}_${i}`;
               }
+
+              fire
+                .storage()
+                .ref()
+                .child(`galeria/${this.state.nome}/${galeria[i]}`)
+                .put(fileGallery[i])
+                .then(() => console.log(`Galeria ${i}: Upload concluído.`));
             }
 
             fire
@@ -816,6 +784,32 @@ export default class ComponentsClientsAdd extends React.Component {
               .ref(`/galerias/${this.state.nome}/`)
               .set(galeria)
               .then(() => console.log("Galeria: Criado com sucesso!"));
+
+            fire
+              .storage()
+              .ref()
+              .child(`galeria/${this.state.nome}/logomarca`)
+              .put(file)
+              .then(() => console.log(`Logomarca: Upload concluído.`));
+
+            let count = 0;
+
+            fire
+              .database()
+              .ref("/clientes/")
+              .on("value", (snapshot) => {
+                let tmp = snapshot.val();
+
+                count = tmp.length;
+              });
+
+            count++;
+
+            fire
+              .database()
+              .ref(`/clientes/${count}/`)
+              .set(finalPut)
+              .then(() => console.log("Clientes: Dados registrados."));
           }}
         >
           Cadastrar no Trilhas
