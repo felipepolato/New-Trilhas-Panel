@@ -24,6 +24,8 @@ import {
   ButtonAddText,
   DivNav,
   ButtomAlterarSenha,
+  OptionSection,
+  SelectSection,
 } from "./styles";
 import LogomarcaImage from "../../Images/logo-normal.png";
 
@@ -46,6 +48,8 @@ export default class MyComponent extends React.Component {
       function: "",
       dropdownActive: false,
       trocarSenha: false,
+      titulos: [],
+      sectionName: "",
     };
   }
 
@@ -74,9 +78,47 @@ export default class MyComponent extends React.Component {
     } else if (this.props.thisPage === "Destinations") {
       this.setState({ inDestinations: true });
     }
+
+    fire
+      .database()
+      .ref("/categorias/")
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+        let titulos = [];
+
+        for (let loop in tmp) {
+          let count = 0;
+          let tmp2 = tmp[loop].segments;
+          for (let loop2 in tmp2) {
+            count++;
+          }
+          titulos.push({
+            title: tmp[loop].info["section-title"],
+            ref: loop,
+            amount: count,
+          });
+        }
+
+        this.setState({ titulos: titulos });
+      });
   }
 
   render() {
+    const selectRender = () => {
+      let data = this.state.titulos;
+      let toRender = [];
+      for (let loop in data) {
+        toRender.push(
+          <OptionSection value={data[loop].ref}>
+            {data[loop].title}
+          </OptionSection>
+        );
+      }
+      return toRender;
+    };
+
+    const { sectionName } = this.state;
+
     return (
       <Container>
         <NavBar>
@@ -101,12 +143,72 @@ export default class MyComponent extends React.Component {
             </ContainerAccounts>
           ) : null}
 
+          {this.state.inSections ? (
+            <ContainerAccounts>
+              <SelectSection id="section">
+                <OptionContas value="">Selecione ↓</OptionContas>
+                {selectRender()}
+              </SelectSection>
+
+              <Input
+                value={this.state.sectionName}
+                onChange={(e) => this.setState({ sectionName: e.target.value })}
+                type="text"
+                placeholder="Nome"
+              />
+
+              <ButtonInput
+                onClick={() => {
+                  let teste = [];
+                  teste[`${this.state.sectionName}`] = "ok";
+
+                  fire
+                    .database()
+                    .ref(
+                      `/categorias/${
+                        document.getElementById("section").value
+                      }/segments/`
+                    )
+                    .on("value", (snapshot) => {
+                      let tmp = snapshot.val();
+                      for (let loop in tmp) {
+                        teste[`${loop}`] = "ok";
+                      }
+                    });
+
+                  fire
+                    .database()
+                    .ref(
+                      `/categorias/${
+                        document.getElementById("section").value
+                      }/segments/`
+                    )
+                    .set(teste);
+
+                  console.log(teste);
+
+                  console.log(
+                    `${document.getElementById("section").value}: ${
+                      this.state.sectionName
+                    }`
+                  );
+                }}
+              >
+                Enviar
+              </ButtonInput>
+            </ContainerAccounts>
+          ) : null}
+
           {this.state.inClients ? (
             <DivNav>
               <SearchBar />
               <ButtonAdd>
                 <ButtonAddTextBox>
-                  <ButtonAddText onClick={() => (window.location.href = "/add")}>Adicionar Cliente</ButtonAddText>
+                  <ButtonAddText
+                    onClick={() => (window.location.href = "/add")}
+                  >
+                    Adicionar Cliente
+                  </ButtonAddText>
                 </ButtonAddTextBox>
               </ButtonAdd>
             </DivNav>
@@ -248,16 +350,6 @@ export default class MyComponent extends React.Component {
                         trocarSenha: true,
                         dropdownActive: false,
                       })
-                    }
-                    style={
-                      this.state.inSections
-                        ? {
-                            backgroundColor: "rgb(255, 198, 73)",
-                            color: "#116591",
-                            paddingBottom: "15px",
-                            paddingTop: "15px",
-                          }
-                        : null
                     }
                   >
                     Trocar Senha

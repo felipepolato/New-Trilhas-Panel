@@ -177,6 +177,22 @@ export const OptionContas = styled.option`
   border: none;
 `;
 
+export const OptionSection = styled.option`
+  background-color: #cbeefd;
+  outline: none;
+  border: none;
+`;
+
+export const SelectSection = styled.select`
+  background-color: #cbeefd;
+  outline: none;
+  border: none;
+  width: 20%;
+  height: 2em;
+  margin-right: 5px;
+  margin-left: 15px;
+`;
+
 export const SideBar = styled.div`
   position: fixed;
   width: 15vw;
