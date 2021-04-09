@@ -134,20 +134,7 @@ export default class ComponentsClientsAdd extends React.Component {
         console.log(titulos);
         this.setState({ titulos: titulos, secoes: secoes });
 
-       /* const { titulos } = this.state;
-        let toRender = [];
-
-        toRender.push(...)
-
-        for(let loop in titulos) {
-          toRender.push(
-            <div>
-              {titulos[loop].title}
-            </div>
-          )
-        }
-
-        return toRender;*/
+       
       });
   }
 

@@ -49,6 +49,7 @@ export const Col21 = styled.div`
   width: 50%;
   height: auto;
   display: flex;
+  flex-direction: column;
   margin: 5px;
 `;
 
@@ -56,6 +57,7 @@ export const Col22 = styled.div`
   width: 50%;
   height: auto;
   display: flex;
+  flex-direction: column;
   margin: 5px;
 `;
 
@@ -147,4 +149,42 @@ export const ButtonEdit = styled.button`
   padding-right: 5px;
   &:hover {
     cursor: pointer;
+`;
+
+export const TableLine = styled.div`
+  width: 97%;
+  margin-left: 1.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const TableLineStriped = styled.div`
+  width: 97%;
+  margin-left: 1.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+`;
+
+export const TableColumn = styled.div`
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 10px;
+`;
+
+export const TableColumnTitle = styled.div`
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding-left: 20px;
+  text-decoration: underline;
 `;
