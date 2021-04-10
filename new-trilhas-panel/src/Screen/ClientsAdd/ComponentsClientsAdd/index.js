@@ -801,7 +801,7 @@ export default class ComponentsClientsAdd extends React.Component {
             fire
               .storage()
               .ref()
-              .child(`galeria/${this.state.nome}/logomarca`)
+              .child(`galeria/${this.state.nome}/logomarca.png`)
               .put(file)
               .then(() => console.log(`Logomarca: Upload concluído.`));
 
