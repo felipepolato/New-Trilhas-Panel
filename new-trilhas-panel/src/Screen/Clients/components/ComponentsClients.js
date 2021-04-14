@@ -23,21 +23,110 @@ import {
 
 import icon from "../../../Images/location-icon.png";
 
+import { fire } from "../../../GlobalComponents/config";
+
 export default class ComponentsClients extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: [],
+    };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    fire
+      .database()
+      .ref("/clientes/")
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+
+        this.setState({ data: tmp });
+      });
+  }
 
   render() {
-    return (
-      <div>
-        <TitleBox>
-          <Title>Clientes</Title>
-        </TitleBox>
+    const renderTables = () => {
+      let toRender = [];
+      let data = this.state.data;
 
+      let sideA = [];
+      let sideB = [];
+
+      let size = data.length / 2;
+
+      let count = 0;
+
+      for (let loop in data) {
+        count++;
+
+        if (count <= size) {
+          sideA.push(
+            <tr>
+              <center>
+                <td>
+                  <img src={icon} width="50%" />
+                </td>
+              </center>
+              <td>
+                <TdTitle>{data[loop][0].nome}</TdTitle> <br />
+                <TdSubTitle>{data[loop][0].nicho}</TdSubTitle> <br />
+                <TdSubTitle>
+                  {data[loop][0].cidade}/{data[loop][0].estado}
+                </TdSubTitle>
+              </td>
+              <td>
+                <ButtonEdit>
+                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <ButtonEditTextBox>
+                    <ButtonEditText>Editar</ButtonEditText>
+                  </ButtonEditTextBox>
+                </ButtonEdit>
+
+                <ButtonRemove>
+                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <ButtonRemoveTextBox>
+                    <ButtonRemoveText>Excluir</ButtonRemoveText>
+                  </ButtonRemoveTextBox>
+                </ButtonRemove>
+              </td>
+            </tr>
+          );
+        } else {
+          sideB.push(
+            <tr>
+              <center>
+                <td>
+                  <img src={icon} width="50%" />
+                </td>
+              </center>
+              <td>
+                <TdTitle>{data[loop][0].nome}</TdTitle> <br />
+                <TdSubTitle>{data[loop][0].nicho}</TdSubTitle> <br />
+                <TdSubTitle>
+                  {data[loop][0].cidade}/{data[loop][0].estado}
+                </TdSubTitle>
+              </td>
+              <td>
+                <ButtonEdit>
+                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <ButtonEditTextBox>
+                    <ButtonEditText>Editar</ButtonEditText>
+                  </ButtonEditTextBox>
+                </ButtonEdit>
+
+                <ButtonRemove>
+                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <ButtonRemoveTextBox>
+                    <ButtonRemoveText>Excluir</ButtonRemoveText>
+                  </ButtonRemoveTextBox>
+                </ButtonRemove>
+              </td>
+            </tr>
+          );
+        }
+      }
+
+      toRender.push(
         <Row2>
           <Col21>
             <Table>
@@ -64,33 +153,7 @@ export default class ComponentsClients extends React.Component {
                   Ações
                 </Th>
               </tr>
-              <tr>
-                <center>
-                  <td>
-                    <img src={icon} width="50%" />
-                  </td>
-                </center>
-                <td>
-                  <TdTitle>Nome</TdTitle> <br />
-                  <TdSubTitle>Nicho</TdSubTitle> <br />
-                  <TdSubTitle>Cidade/Estado</TdSubTitle>
-                </td>
-                <td>
-                  <ButtonEdit>
-                    <img src={icon} width="40%" height="70%" alt="logo" />
-                    <ButtonEditTextBox>
-                      <ButtonEditText>Editar</ButtonEditText>
-                    </ButtonEditTextBox>
-                  </ButtonEdit>
-
-                  <ButtonRemove>
-                    <img src={icon} width="40%" height="70%" alt="logo" />
-                    <ButtonRemoveTextBox>
-                      <ButtonRemoveText>Excluir</ButtonRemoveText>
-                    </ButtonRemoveTextBox>
-                  </ButtonRemove>
-                </td>
-              </tr>
+              {sideA}
             </Table>
           </Col21>
           <Col22>
@@ -118,37 +181,21 @@ export default class ComponentsClients extends React.Component {
                   Ações
                 </Th>
               </tr>
-
-              <tr>
-                <center>
-                  <td>
-                    <img src={icon} width="50%" />
-                  </td>
-                </center>
-                <td>
-                  <TdTitle>Nome</TdTitle> <br />
-                  <TdSubTitle>Nicho</TdSubTitle> <br />
-                  <TdSubTitle>Cidade/Estado</TdSubTitle>
-                </td>
-                <td>
-                  <ButtonEdit>
-                    <img src={icon} width="40%" height="70%" alt="logo" />
-                    <ButtonEditTextBox>
-                      <ButtonEditText>Editar</ButtonEditText>
-                    </ButtonEditTextBox>
-                  </ButtonEdit>
-
-                  <ButtonRemove>
-                    <img src={icon} width="40%" height="70%" alt="logo" />
-                    <ButtonRemoveTextBox>
-                      <ButtonRemoveText>Excluir</ButtonRemoveText>
-                    </ButtonRemoveTextBox>
-                  </ButtonRemove>
-                </td>
-              </tr>
+              {sideB}
             </Table>
           </Col22>
         </Row2>
+      );
+
+      return toRender;
+    };
+    return (
+      <div>
+        <TitleBox>
+          <Title>Clientes</Title>
+        </TitleBox>
+
+        {renderTables()}
       </div>
     );
   }
