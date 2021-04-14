@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import {
-  DivAbsoluta,
   ButtonSubmit,
   FormSectionTitle,
   Logomarca,
@@ -9,14 +8,14 @@ import {
   Column,
   RowNumero,
   RowEstado,
-  Title
+  Title,
 } from "./styles";
 
 ///////////////////////////
 // FireBase ///////////////
 ///////////////////////////
 
-//import { fire } from "../../../GlobalComponents/config";
+import { fire } from "../../../GlobalComponents/config";
 
 ///////////////////////////
 // Formulário /////////////
@@ -24,10 +23,41 @@ import {
 
 import TextAreaInput from "../../../GlobalComponents/Form/TextAreaInput";
 import Input from "../../../GlobalComponents/Form/Forms";
-import { GalleryInput } from "../../../GlobalComponents/Form/GalleryInput";
 import { InputFile } from "../../../GlobalComponents/NavBar/styles";
+import { FileInput, file } from "../../../GlobalComponents/Form/FileInput";
+import {
+  GalleryInput,
+  fileGallery,
+} from "../../../GlobalComponents/Form/GalleryInput";
+
+let controlCheckboxInput = [];
 
 export default class ComponentsAddDestinos extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      titulos: "",
+      secoes: "",
+
+      totalClientes: 0,
+    };
+  }
+
+  componentDidMount() {
+    fire
+      .database()
+      .ref("/destinos/")
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+        if (tmp == null) {
+          this.setState({ totalDestinos: 0 });
+        } else {
+          this.setState({ totalDestinos: tmp.length });
+        }
+      });
+  }
+
   render() {
     return (
       <div>
@@ -308,18 +338,59 @@ export default class ComponentsAddDestinos extends React.Component {
 
         <br />
         <hr />
+        <ButtonSubmit
+          type="submit"
+          onClick={() => {
+            let finalPut = [];
+            let estados = this.state;
 
-        <ButtonSubmit type="submit">Cadastrar no Trilhas</ButtonSubmit>
+            delete estados["titulos"];
+            delete estados["secoes"];
+
+            finalPut.push(estados);
+            finalPut.push(controlCheckboxInput);
+
+            let galeria = [];
+
+            for (let i = 1; i < 8; i++) {
+              if (fileGallery[i] == undefined) {
+                galeria[i] = "";
+              } else {
+                galeria[i] = `${this.state.nome}_${i}`;
+              }
+
+              fire
+                .storage()
+                .ref()
+                .child(`galeria/${this.state.nome}/${galeria[i]}`)
+                .put(fileGallery[i])
+                .then(() => console.log(`Galeria ${i}: Upload concluído.`));
+            }
+
+            fire
+              .database()
+              .ref(`/galerias/${this.state.nome}/`)
+              .set(galeria)
+              .then(() => console.log("Galeria: Criado com sucesso!"));
+
+            fire
+              .storage()
+              .ref()
+              .child(`galeria/${this.state.nome}/logomarca.png`)
+              .put(file)
+              .then(() => console.log(`Logomarca: Upload concluído.`));
+
+            console.log(this.state.totalDestinos);
+            fire
+              .database()
+              .ref(`/destinos/${this.state.totalDestinos}`)
+              .set(finalPut)
+              .then(() => console.log("Clientes: Dados registrados."));
+          }}
+        >
+          Cadastrar no Trilhas
+        </ButtonSubmit>
       </div>
     );
   }
 }
-
-/*{this.state.isLoading ? (
-          <DivAbsoluta>
-            <ImageLoading src="https://thumbs.gfycat.com/HollowNaughtyAfricanhornbill-small.gif" />
-          </DivAbsoluta>
-        ) : null}
-        
-         
-        */

@@ -9,7 +9,7 @@ import {
   Column,
   RowNumero,
   RowEstado,
-  Title
+  Title,
 } from "./styles";
 
 ///////////////////////////
@@ -315,12 +315,3 @@ export default class ComponentsAddDestinos extends React.Component {
     );
   }
 }
-
-/*{this.state.isLoading ? (
-          <DivAbsoluta>
-            <ImageLoading src="https://thumbs.gfycat.com/HollowNaughtyAfricanhornbill-small.gif" />
-          </DivAbsoluta>
-        ) : null}
-        
-         
-        */
