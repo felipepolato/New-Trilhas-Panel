@@ -19,6 +19,7 @@ import {
   ButtonRemove,
   ButtonEditTextBox,
   ButtonEdit,
+  Tr,
 } from "./styles";
 
 import icon from "../../../Images/location-icon.png";
@@ -57,17 +58,17 @@ export default class ComponentsClients extends React.Component {
       let count = 0;
 
       for (let loop in data) {
-        count++;
-
+        let arrayImage = `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${data[loop][0].nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`;
         if (count <= size) {
+          console.log(arrayImage);
           sideA.push(
-            <tr>
+            <Tr>
               <center>
-                <td>
-                  <img src={icon} width="50%" />
+                <td style={{ display: "flex", alignItems: "center" }}>
+                  <img src={arrayImage} width="100%" />
                 </td>
               </center>
-              <td>
+              <td style={{ paddingLeft: "10px" }}>
                 <TdTitle>{data[loop][0].nome}</TdTitle> <br />
                 <TdSubTitle>{data[loop][0].nicho}</TdSubTitle> <br />
                 <TdSubTitle>
@@ -78,7 +79,14 @@ export default class ComponentsClients extends React.Component {
                 <ButtonEdit>
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox>
-                    <ButtonEditText>Editar</ButtonEditText>
+                    <ButtonEditText
+                      onClick={() => {
+                        localStorage.setItem("clientId", loop);
+                        window.location.href = "/clientsedit";
+                      }}
+                    >
+                      Editar
+                    </ButtonEditText>
                   </ButtonEditTextBox>
                 </ButtonEdit>
 
@@ -89,17 +97,17 @@ export default class ComponentsClients extends React.Component {
                   </ButtonRemoveTextBox>
                 </ButtonRemove>
               </td>
-            </tr>
+            </Tr>
           );
         } else {
           sideB.push(
-            <tr>
+            <Tr>
               <center>
-                <td>
-                  <img src={icon} width="50%" />
+                <td style={{ display: "flex", alignItems: "center" }}>
+                  <img src={arrayImage} width="100%" />
                 </td>
               </center>
-              <td>
+              <td style={{ paddingLeft: "10px" }}>
                 <TdTitle>{data[loop][0].nome}</TdTitle> <br />
                 <TdSubTitle>{data[loop][0].nicho}</TdSubTitle> <br />
                 <TdSubTitle>
@@ -109,7 +117,12 @@ export default class ComponentsClients extends React.Component {
               <td>
                 <ButtonEdit>
                   <img src={icon} width="40%" height="70%" alt="logo" />
-                  <ButtonEditTextBox>
+                  <ButtonEditTextBox
+                    onClick={() => {
+                      localStorage.setItem("clientId", loop);
+                      window.location.href = "/clientsedit";
+                    }}
+                  >
                     <ButtonEditText>Editar</ButtonEditText>
                   </ButtonEditTextBox>
                 </ButtonEdit>
@@ -121,9 +134,10 @@ export default class ComponentsClients extends React.Component {
                   </ButtonRemoveTextBox>
                 </ButtonRemove>
               </td>
-            </tr>
+            </Tr>
           );
         }
+        count++;
       }
 
       toRender.push(

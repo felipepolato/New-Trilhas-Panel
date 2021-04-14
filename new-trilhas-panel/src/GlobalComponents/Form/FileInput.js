@@ -24,14 +24,12 @@ export function FileInput({
     }
     if (previewOk === false) {
       if (initialPreview !== undefined) {
-        setPreview(
-          `https://firebasestorage.googleapis.com/v0/b/reactjs-eb650.appspot.com/o/${typeOfString}%2F${initialPreview}?alt=media&token=41e1a21b-3919-4afd-80b6-1bdb22993a6e`
-        );
-        console.log(initialPreview);
+        setPreview(initialPreview);
+        console.log(`Initial: ${initialPreview}`);
         setPreviewOk(true);
       }
     }
-  }, 800);
+  }, 1000);
 
   return (
     <div>

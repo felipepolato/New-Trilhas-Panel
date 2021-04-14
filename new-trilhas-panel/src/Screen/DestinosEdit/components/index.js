@@ -235,74 +235,75 @@ export default class ComponentsAddDestinos extends React.Component {
           </Column>
         </RowRow>
         <div>
-          <center>
-            <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
-              <FormSectionTitle>Fotos para Galeria</FormSectionTitle>
-            </Title>
-          </center>
           <RowRow>
-            <Column>
-              <GalleryInput
-                nome="foto1"
-                labeltext="Selecionar Foto 01"
-                indexnumber={1}
-              />
-
-              <br />
-              <hr />
-
-              <GalleryInput
-                nome="foto3"
-                labeltext="Selecionar Foto 03"
-                indexnumber={3}
-              />
-
-              <br />
-              <hr />
-
-              <GalleryInput
-                nome="foto5"
-                labeltext="Selecionar Foto 05"
-                indexnumber={5}
-              />
-
-              <br />
-              <hr />
-
-              <GalleryInput
-                nome="foto7"
-                labeltext="Selecionar Foto 07"
-                indexnumber={7}
-              />
-            </Column>
+            <GalleryInput
+              nome="foto1"
+              labeltext="Selecionar Foto 01"
+              indexnumber={1}
+            />
 
             <br />
+
             <hr />
 
-            <Column>
-              <GalleryInput
-                nome="foto2"
-                labeltext="Selecionar Foto 02"
-                indexnumber={2}
-              />
+            <GalleryInput
+              nome="foto3"
+              labeltext="Selecionar Foto 03"
+              indexnumber={3}
+            />
+          </RowRow>
+          <br />
 
-              <br />
-              <hr />
+          <hr />
 
-              <GalleryInput
-                nome="foto4"
-                labeltext="Selecionar Foto 04"
-                indexnumber={4}
-              />
+          <RowRow>
+            <GalleryInput
+              nome="foto5"
+              labeltext="Selecionar Foto 05"
+              indexnumber={5}
+            />
 
-              <br />
-              <hr />
-              <GalleryInput
-                nome="foto6"
-                labeltext="Selecionar Foto 06"
-                indexnumber={6}
-              />
-            </Column>
+            <br />
+
+            <hr />
+
+            <GalleryInput
+              nome="foto7"
+              labeltext="Selecionar Foto 07"
+              indexnumber={7}
+            />
+          </RowRow>
+
+          <hr />
+
+          <RowRow>
+            <GalleryInput
+              nome="foto2"
+              labeltext="Selecionar Foto 02"
+              indexnumber={2}
+            />
+
+            <br />
+
+            <hr />
+
+            <GalleryInput
+              nome="foto4"
+              labeltext="Selecionar Foto 04"
+              indexnumber={4}
+            />
+          </RowRow>
+          <br />
+
+          <hr />
+
+          <RowRow>
+            <GalleryInput
+              nome="foto6"
+              labeltext="Selecionar Foto 06"
+              indexnumber={6}
+            />
+            <div style={{ width: "180%" }} />
           </RowRow>
         </div>
 

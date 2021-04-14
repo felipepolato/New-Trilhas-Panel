@@ -35,9 +35,7 @@ export function GalleryInput({
     setTimeout(() => {
       if (previewOk === false) {
         if (initialPreview !== undefined) {
-          setPreview(
-            `https://firebasestorage.googleapis.com/v0/b/reactjs-eb650.appspot.com/o/${typeOfString}%2F${initialPreview}?alt=media&token=41e1a21b-3919-4afd-80b6-1bdb22993a6e`
-          );
+          setPreview(initialPreview);
           setPreviewOk(true);
         }
         if (initialPreview === "") {

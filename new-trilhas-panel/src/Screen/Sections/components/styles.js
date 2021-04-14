@@ -149,6 +149,7 @@ export const ButtonEdit = styled.button`
   padding-right: 5px;
   &:hover {
     cursor: pointer;
+  }
 `;
 
 export const TableLine = styled.div`

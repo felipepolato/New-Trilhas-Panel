@@ -14,6 +14,12 @@ export const Th = styled.th`
   color: #fff;
 `;
 
+export const Tr = styled.tr`
+  &:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+`;
+
 export const Row = styled.div`
   width: 87.75%;
   height: 10vh;
@@ -73,74 +79,74 @@ export const TitleBox = styled.div`
 `;
 
 export const TdTitle = styled.span`
-	font-size: 1em;
-	text-shadow: 0px 0px 7px rgba(0,0,0,0.94);
-	color: #FFF;
+  font-size: 1em;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  color: #fff;
 `;
 
 export const TdSubTitle = styled.span`
-	font-size: 0.8em;
-	text-shadow: 0px 0px 7px rgba(0,0,0,0.94);
-	color: #FFF;
+  font-size: 0.8em;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  color: #fff;
 `;
 
 export const ButtonEditText = styled.span`
-	font-size: 1.2em;
-	font-weight: bold;
-	text-align: center;
-	text-shadow: 0px 0px 7px rgba(0,0,0,0.94);
-	color: #FFF;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  color: #fff;
 `;
 
 export const ButtonRemove = styled.button`
-	width: 8vw;
-	height: 3vw;
-	background: rgba(255, 0, 0, 0.5);
-	outline: none;
-	border: none;
-	border-radius: 3px;
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	padding-left: 5px;
-	padding-right: 5px;
-	margin-top: 5px;
+  width: 8vw;
+  height: 3vw;
+  background: rgba(255, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;
 `;
 
 export const ButtonRemoveTextBox = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ButtonRemoveText = styled.span`
-	font-size: 1.2em;
-	font-weight: bold;
-	text-align: center;
-	text-shadow: 0px 0px 7px rgba(0,0,0,0.94);
-	color: #FFF;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.94);
+  color: #fff;
 `;
 
 export const ButtonEditTextBox = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ButtonEdit = styled.button`
-	width: 8vw;
-	height: 3vw;
-	background: rgba(41, 245, 34, 0.5);
-	outline: none;
-	border: none;
-	border-radius: 3px;
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	padding-left: 5px;
-	padding-right: 5px;
+  width: 8vw;
+  height: 3vw;
+  background: rgba(41, 245, 34, 0.5);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
