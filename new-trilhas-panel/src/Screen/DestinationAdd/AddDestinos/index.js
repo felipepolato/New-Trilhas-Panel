@@ -40,6 +40,65 @@ export default class ComponentsAddDestinos extends React.Component {
       titulos: "",
       secoes: "",
 
+      // #InformaçõesGerais
+
+      nome: "",
+      tipo: "",
+      cor: "",
+      whatsapp: "",
+      telefone: "",
+      cardapio: "",
+      descricao: "",
+      // #Gelocalizalição
+
+      latitude: "",
+      longitude: "",
+      //#Endereço
+
+      rua: "",
+      numero: "",
+      complemento: "",
+      bairro: "",
+      cidade: "",
+      estado: "",
+      //#RedesSociais
+
+      facebook: "",
+      instagram: "",
+      youtube: "",
+      linkedin: "",
+      twitter: "",
+      site: "",
+
+      //#HorarioDeFuncionamento
+      titulo1: "",
+      horario1Titulo: "",
+      horario1horario1: "",
+      horario1horario2: "",
+      horario1horario3: "",
+      horario1horario4: "",
+
+      titulo2: "",
+      horario2Titulo: "",
+      horario2horario1: "",
+      horario2horario2: "",
+      horario2horario3: "",
+      horario2horario4: "",
+
+      titulo3: "",
+      horario3Titulo: "",
+      horario3horario1: "",
+      horario3horario2: "",
+      horario3horario3: "",
+      horario3horario4: "",
+
+      titulo4: "",
+      horario4Titulo: "",
+      horario4horario1: "",
+      horario4horario2: "",
+      horario4horario3: "",
+      horario4horario4: "",
+
       totalClientes: 0,
     };
   }
@@ -59,6 +118,49 @@ export default class ComponentsAddDestinos extends React.Component {
   }
 
   render() {
+    const {
+      nome,
+      tipo,
+      cor,
+      whatsapp,
+      telefone,
+      cardapio,
+      latitude,
+      longitude,
+      rua,
+      numero,
+      complemento,
+      bairro,
+      cidade,
+      estado,
+      facebook,
+      instagram,
+      youtube,
+      linkedin,
+      twitter,
+      site,
+      descricao,
+      titulo1,
+      titulo2,
+      titulo3,
+      titulo4,
+      horario1horario1,
+      horario1horario2,
+      horario1horario3,
+      horario1horario4,
+      horario2horario1,
+      horario2horario2,
+      horario2horario3,
+      horario2horario4,
+      horario3horario1,
+      horario3horario2,
+      horario3horario3,
+      horario3horario4,
+      horario4horario1,
+      horario4horario2,
+      horario4horario3,
+      horario4horario4,
+    } = this.state;
     return (
       <div>
         <RowRow>
@@ -78,12 +180,30 @@ export default class ComponentsAddDestinos extends React.Component {
               name="nome"
               type="text"
               maxlength="16"
+              value={nome}
+              onChange={(e) => this.setState({ nome: e.target.value })}
               placeholder="Nome do Destino"
             />
-            <Input nome="tipo" placeholder="Tipo" />
 
-            <Input nome="whatsapp" placeholder="Whatsapp Comercial" />
-            <Input nome="telefone" placeholder="Telefone Comercial" />
+            <Input
+              nome="tipo"
+              placeholder="Tipo"
+              value={tipo}
+              onChange={(e) => this.setState({ tipo: e.target.value })}
+            />
+
+            <Input
+              nome="whatsapp"
+              placeholder="Whatsapp Comercial"
+              value={whatsapp}
+              onChange={(e) => this.setState({ whatsapp: e.target.value })}
+            />
+            <Input
+              nome="telefone"
+              placeholder="Telefone Comercial"
+              value={telefone}
+              onChange={(e) => this.setState({ telefone: e.target.value })}
+            />
 
             {/* Geolocalização */}
 
@@ -93,10 +213,20 @@ export default class ComponentsAddDestinos extends React.Component {
 
             <RowRow style={{ width: "106%" }}>
               <Column>
-                <Input nome="latitude" placeholder="latitude" />
+                <Input
+                  nome="latitude"
+                  placeholder="latitude"
+                  value={latitude}
+                  onChange={(e) => this.setState({ latitude: e.target.value })}
+                />
               </Column>
               <Column>
-                <Input nome="longitude" placeholder="longitude" />
+                <Input
+                  nome="longitude"
+                  placeholder="longitude"
+                  value={longitude}
+                  onChange={(e) => this.setState({ longitude: e.target.value })}
+                />
               </Column>
             </RowRow>
 
@@ -106,16 +236,41 @@ export default class ComponentsAddDestinos extends React.Component {
             </Title>
 
             <RowRow style={{ width: "100%" }}>
-              <Input nome="rua" placeholder="rua" />
+              <Input
+                nome="rua"
+                placeholder="rua"
+                value={rua}
+                onChange={(e) => this.setState({ rua: e.target.value })}
+              />
               <RowNumero>
-                <Input nome="numero" placeholder="número" />
+                <Input
+                  nome="numero"
+                  placeholder="número"
+                  value={numero}
+                  onChange={(e) => this.setState({ numero: e.target.value })}
+                />
               </RowNumero>
             </RowRow>
-            <Input nome="complemento" placeholder="complemento" />
+            <Input
+              nome="complemento"
+              placeholder="complemento"
+              value={complemento}
+              onChange={(e) => this.setState({ complemento: e.target.value })}
+            />
 
-            <Input nome="bairro" placeholder="bairro" />
+            <Input
+              nome="bairro"
+              placeholder="bairro"
+              value={bairro}
+              onChange={(e) => this.setState({ bairro: e.target.value })}
+            />
             <RowRow style={{ width: "100%" }}>
-              <Input nome="cidade" placeholder="cidade" />
+              <Input
+                nome="cidade"
+                placeholder="cidade"
+                value={cidade}
+                onChange={(e) => this.setState({ cidade: e.target.value })}
+              />
               <RowEstado>
                 <Input nome="estado" placeholder="estado" />
               </RowEstado>
