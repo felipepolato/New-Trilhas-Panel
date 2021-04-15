@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import {
   ButtonSubmit,
   FormSectionTitle,
-  Logomarca,
   RowRow,
   Column,
   RowNumero,
@@ -38,16 +37,13 @@ export default class ComponentsAddDestinos extends React.Component {
 
     this.state = {
       titulos: "",
-      secoes: "",
 
       // #InformaçõesGerais
 
       nome: "",
       tipo: "",
-      cor: "",
       whatsapp: "",
       telefone: "",
-      cardapio: "",
       descricao: "",
       // #Gelocalizalição
 
@@ -121,10 +117,8 @@ export default class ComponentsAddDestinos extends React.Component {
     const {
       nome,
       tipo,
-      cor,
       whatsapp,
       telefone,
-      cardapio,
       latitude,
       longitude,
       rua,
@@ -164,12 +158,6 @@ export default class ComponentsAddDestinos extends React.Component {
     return (
       <div>
         <RowRow>
-          <center>
-            <Logomarca>
-              <InputFile nome="logomarca" />
-            </Logomarca>
-          </center>
-
           <Column>
             {/* Informações Gerais */}
             <Title>
@@ -272,13 +260,21 @@ export default class ComponentsAddDestinos extends React.Component {
                 onChange={(e) => this.setState({ cidade: e.target.value })}
               />
               <RowEstado>
-                <Input nome="estado" placeholder="estado" />
+                <Input
+                  nome="estado"
+                  placeholder="estado"
+                  value={estado}
+                  onChange={(e) => this.setState({ estado: e.target.value })}
+                />
               </RowEstado>
             </RowRow>
           </Column>
           <hr />
           <Column>
             <div>
+              <center>
+                <FileInput nome="logomarca" />
+              </center>
               {/* Redes Sociais */}
               <Title>
                 <FormSectionTitle>Redes Sociais</FormSectionTitle>
@@ -317,8 +313,8 @@ export default class ComponentsAddDestinos extends React.Component {
               <Input
                 nome="site"
                 placeholder="site"
-                value={twitter}
-                onChange={(e) => this.setState({ twitter: e.target.value })}
+                value={site}
+                onChange={(e) => this.setState({ site: e.target.value })}
               />
             </div>
             {/* Descrição */}
@@ -603,14 +599,7 @@ export default class ComponentsAddDestinos extends React.Component {
         <ButtonSubmit
           type="submit"
           onClick={() => {
-            let finalPut = [];
             let estados = this.state;
-
-            delete estados["titulos"];
-            delete estados["secoes"];
-
-            finalPut.push(estados);
-            finalPut.push(controlCheckboxInput);
 
             let galeria = [];
 
@@ -645,8 +634,8 @@ export default class ComponentsAddDestinos extends React.Component {
             console.log(this.state.totalDestinos);
             fire
               .database()
-              .ref(`/destinos/${this.state.totalDestinos}`)
-              .set(finalPut)
+              .ref(`/destinos/${this.state.totalDestinos}/`)
+              .set(estados)
               .then(() => console.log("Clientes: Dados registrados."));
           }}
         >
