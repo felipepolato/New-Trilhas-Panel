@@ -1,9 +1,6 @@
 import React from "react";
 
 import {
-  Row,
-  Col,
-  Col2,
   Title,
   Table,
   Col22,
@@ -26,11 +23,14 @@ import icon from "../../../Images/location-icon.png";
 
 import { fire } from "../../../GlobalComponents/config";
 
+import TrilhasAlert from "../../../GlobalComponents/TrilhasAlert";
+
 export default class ComponentsClients extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
+      alertOpened: false,
     };
   }
 
@@ -90,7 +90,12 @@ export default class ComponentsClients extends React.Component {
                   </ButtonEditTextBox>
                 </ButtonEdit>
 
-                <ButtonRemove>
+                <ButtonRemove
+                  onClick={() => {
+                    localStorage.setItem("id-to-delete", loop);
+                    this.setState({ alertOpened: true });
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
@@ -115,7 +120,12 @@ export default class ComponentsClients extends React.Component {
                 </TdSubTitle>
               </td>
               <td>
-                <ButtonEdit>
+                <ButtonEdit
+                  onClick={() => {
+                    localStorage.setItem("clientsId", loop);
+                    window.location.href = "/clientsedit";
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
@@ -127,7 +137,12 @@ export default class ComponentsClients extends React.Component {
                   </ButtonEditTextBox>
                 </ButtonEdit>
 
-                <ButtonRemove>
+                <ButtonRemove
+                  onClick={() => {
+                    localStorage.setItem("id-to-delete", loop);
+                    this.setState({ alertOpened: true });
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
@@ -210,6 +225,23 @@ export default class ComponentsClients extends React.Component {
         </TitleBox>
 
         {renderTables()}
+
+        {this.state.alertOpened ? (
+          <TrilhasAlert
+            title="EXCLUIR DESTINO"
+            message="VOCÊ QUER EXCLUIR ESTE DESTINO?"
+            confirmTitle="EXCLUIR"
+            confirmOnClick={() =>
+              fire
+                .database()
+                .ref(`/clientes/${localStorage.getItem("id-to-delete")}`)
+                .set({})
+            }
+            cancelTitle="CANCELAR"
+            cancelOnClick={() => this.setState({ alertOpened: false })}
+            pageToReturn="/clients"
+          />
+        ) : null}
       </div>
     );
   }

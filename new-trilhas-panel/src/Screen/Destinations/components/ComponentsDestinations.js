@@ -1,9 +1,6 @@
 import React from "react";
 
 import {
-  Row,
-  Col,
-  Col2,
   Title,
   Table,
   Col22,
@@ -25,12 +22,14 @@ import {
 import icon from "../../../Images/location-icon.png";
 
 import { fire } from "../../../GlobalComponents/config";
+import TrilhasAlert from "../../../GlobalComponents/TrilhasAlert";
 
 export default class ComponentsDestination extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
+      alertOpened: false,
     };
   }
 
@@ -53,65 +52,88 @@ export default class ComponentsDestination extends React.Component {
       let sideA = [];
       let sideB = [];
 
-      let size = data.length / 2;
+      let size = data.length / 2.3;
 
       let count = 0;
 
       for (let loop in data) {
-        let arrayImage = `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${data[loop].nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`;
-        if (count <= size) {
+        let arrayImage = `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(
+          data[loop].nome
+        )}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`;
+        if (count < size) {
           console.log(arrayImage);
           sideA.push(
-            <tr>
+            <Tr>
               <center>
                 <td>
-                  <img src={icon} width="50%" />
+                  <img
+                    src={arrayImage}
+                    style={{ marginTop: 20 }}
+                    width="100%"
+                  />
                 </td>
               </center>
-              <td>
+              <td style={{ paddingLeft: 10 }}>
                 <TdTitle>{data[loop].nome}</TdTitle> <br />
                 <TdSubTitle>
                   {data[loop].cidade}/{data[loop].estado}
                 </TdSubTitle>
               </td>
-              <td>
-                <ButtonEdit>
+              <td style={{ paddingTop: 10, paddingBottom: 10 }}>
+                <ButtonEdit
+                  onClick={() => {
+                    localStorage.setItem("destinoId", loop);
+                    window.location.href = "/destinoedit";
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
-                  <ButtonEditTextBox
-                    onClick={() => {
-                      localStorage.setItem("destinoId", loop);
-                      window.location.href = "/destinoedit";
-                    }}
-                  >
+                  <ButtonEditTextBox onClick={() => {
+                        localStorage.setItem("destinoId", loop);
+                        window.location.href = "/destinoedit";
+                      }}>
                     <ButtonEditText>Editar</ButtonEditText>
                   </ButtonEditTextBox>
                 </ButtonEdit>
 
-                <ButtonRemove>
+                <ButtonRemove
+                  onClick={() => {
+                    localStorage.setItem("id-to-delete", loop);
+                    this.setState({ alertOpened: true });
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
                 </ButtonRemove>
               </td>
-            </tr>
+            </Tr>
           );
         } else {
           sideB.push(
-            <tr>
+            <Tr>
               <center>
                 <td>
-                  <img src={icon} width="50%" />
+                  <img
+                    src={arrayImage}
+                    style={{ marginTop: 20 }}
+                    width="100%"
+                  />
                 </td>
               </center>
-              <td>
+              <td style={{ paddingLeft: 10 }}>
                 <TdTitle>{data[loop].nome}</TdTitle> <br />
                 <TdSubTitle>
                   {data[loop].cidade}/{data[loop].estado}
                 </TdSubTitle>
               </td>
-              <td>
-                <ButtonEdit>
+              <td style={{ paddingTop: 10, paddingBottom: 10 }}>
+                <ButtonEdit
+                  onClick={() => {
+                    localStorage.setItem("destinoId", loop);
+                    window.location.href = "/destinoedit";
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
@@ -123,14 +145,19 @@ export default class ComponentsDestination extends React.Component {
                   </ButtonEditTextBox>
                 </ButtonEdit>
 
-                <ButtonRemove>
+                <ButtonRemove
+                  onClick={() => {
+                    localStorage.setItem("id-to-delete", loop);
+                    this.setState({ alertOpened: true });
+                  }}
+                >
                   <img src={icon} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
                 </ButtonRemove>
               </td>
-            </tr>
+            </Tr>
           );
         }
         count++;
@@ -206,6 +233,23 @@ export default class ComponentsDestination extends React.Component {
         </TitleBox>
 
         {renderTables()}
+
+        {this.state.alertOpened ? (
+          <TrilhasAlert
+            title="EXCLUIR DESTINO"
+            message="VOCÊ QUER EXCLUIR ESTE DESTINO?"
+            confirmTitle="EXCLUIR"
+            confirmOnClick={() =>
+              fire
+                .database()
+                .ref(`/destinos/${localStorage.getItem("id-to-delete")}`)
+                .set({})
+            }
+            cancelTitle="CANCELAR"
+            cancelOnClick={() => this.setState({ alertOpened: false })}
+            pageToReturn="/destinations"
+          />
+        ) : null}
       </div>
     );
   }

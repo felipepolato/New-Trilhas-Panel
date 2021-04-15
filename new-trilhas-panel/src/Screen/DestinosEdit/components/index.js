@@ -214,7 +214,7 @@ export default class ComponentsAddDestinos extends React.Component {
           `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_6?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
           `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_7?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
         ],
-        clienteData: true
+        clienteData: true,
       });
 
       setTimeout(() => {
@@ -652,8 +652,7 @@ export default class ComponentsAddDestinos extends React.Component {
           </Column>
         </RowRow>
         <div>
-          
-        <RowRow>
+          <RowRow>
             <Column>
               <GalleryInput
                 nome="foto1"
@@ -757,12 +756,14 @@ export default class ComponentsAddDestinos extends React.Component {
               .set(galeria)
               .then(() => console.log("Galeria: Criado com sucesso!"));
 
-            fire
-              .storage()
-              .ref()
-              .child(`galeria/${this.state.nome}/logomarca.png`)
-              .put(file)
-              .then(() => console.log(`Logomarca: Upload concluído.`));
+            if (file != undefined) {
+              fire
+                .storage()
+                .ref()
+                .child(`galeria/${this.state.nome}/logomarca.png`)
+                .put(file)
+                .then(() => console.log(`Logomarca: Upload concluído.`));
+            }
 
             console.log(this.state.totalDestinos);
             fire
