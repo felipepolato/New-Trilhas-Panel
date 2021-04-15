@@ -209,39 +209,36 @@ export default class ComponentsClientsAdd extends React.Component {
         }
       });
 
-    setTimeout(
-      () => {
+    setTimeout(() => {
+      this.setState({
+        arrayImage: `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+        arrayGaleria: [
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_1?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_2?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_3?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_4?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_5?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_6?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_7?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+        ],
+      });
 
-        this.setState({
-          arrayImage: `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          arrayGaleria: [
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_1?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_2?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_3?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_4?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_5?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_6?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-            `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_7?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          ],
-        });
-
-        setTimeout(() => {
-          let tmpGaleria = this.state.arrayGaleria;
-          for(let loop in tmpGaleria) {
-            fetch(tmpGaleria[loop])
-              .then((response) => {})
-              .then((response) => {
-                if(response == undefined) {
-                  console.log('fetch deu negativo');
-                  tmpGaleria[loop] = "https://senhor.app/testes/trilhas/src/main/no-image.png";
-                  this.setState({arrayGaleria: tmpGaleria});
-                }
-              });
-          }          
-        }, 200);
-      },
-      1000
-    );
+      setTimeout(() => {
+        let tmpGaleria = this.state.arrayGaleria;
+        for (let loop in tmpGaleria) {
+          fetch(tmpGaleria[loop])
+            .then((response) => {})
+            .then((response) => {
+              if (response == undefined) {
+                console.log("fetch deu negativo");
+                tmpGaleria[loop] =
+                  "https://senhor.app/testes/trilhas/src/main/no-image.png";
+                this.setState({ arrayGaleria: tmpGaleria });
+              }
+            });
+        }
+      }, 200);
+    }, 1000);
   }
 
   render() {

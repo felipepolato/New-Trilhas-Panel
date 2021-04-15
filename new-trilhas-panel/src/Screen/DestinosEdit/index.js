@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Wrapper, ContainerShadowBox, Container } from "./styles";
 
 import Navbar from "../../GlobalComponents/NavBar";
-import ComponentsAddDestinos from "../DestinationAdd/AddDestinos";
+import ComponentsAddDestinos from "./components";
 
 ///////////////////////////
 
