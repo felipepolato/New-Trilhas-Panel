@@ -284,17 +284,52 @@ export default class ComponentsAddDestinos extends React.Component {
                 <FormSectionTitle>Redes Sociais</FormSectionTitle>
               </Title>
 
-              <Input nome="facebook" placeholder="facebook" />
-              <Input nome="instagram" placeholder="instagram" />
-              <Input nome="youtube" placeholder="youtube" />
-              <Input nome="linkedin" placeholder="linkedin" />
-              <Input nome="twitter" placeholder="twitter" />
-              <Input nome="site" placeholder="site" />
+              <Input
+                nome="facebook"
+                placeholder="facebook"
+                value={facebook}
+                onChange={(e) => this.setState({ facebook: e.target.value })}
+              />
+              <Input
+                nome="instagram"
+                placeholder="instagram"
+                value={instagram}
+                onChange={(e) => this.setState({ instagram: e.target.value })}
+              />
+              <Input
+                nome="youtube"
+                placeholder="youtube"
+                value={youtube}
+                onChange={(e) => this.setState({ youtube: e.target.value })}
+              />
+              <Input
+                nome="linkedin"
+                placeholder="linkedin"
+                value={linkedin}
+                onChange={(e) => this.setState({ linkedin: e.target.value })}
+              />
+              <Input
+                nome="twitter"
+                placeholder="twitter"
+                value={twitter}
+                onChange={(e) => this.setState({ twitter: e.target.value })}
+              />
+              <Input
+                nome="site"
+                placeholder="site"
+                value={twitter}
+                onChange={(e) => this.setState({ twitter: e.target.value })}
+              />
             </div>
             {/* Descrição */}
             <div style={{ marginTop: "4%" }}></div>
             <FormSectionTitle>Descrição</FormSectionTitle>
-            <TextAreaInput nome="descricao" placeholder="Descrição" />
+            <TextAreaInput
+              nome="descricao"
+              placeholder="Descrição"
+              value={descricao}
+              onChange={(e) => this.setState({ descricao: e.target.value })}
+            />
           </Column>
         </RowRow>
         <br />
@@ -312,23 +347,41 @@ export default class ComponentsAddDestinos extends React.Component {
                 <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
+                  value={titulo1}
+                  onChange={(e) => this.setState({ titulo1: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario1horario1}
+                  onChange={(e) =>
+                    this.setState({ horario1horario1: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario1horario2}
+                  onChange={(e) =>
+                    this.setState({ horario1horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario1horario3}
+                  onChange={(e) =>
+                    this.setState({ horario1horario3: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario1horario4}
+                  onChange={(e) =>
+                    this.setState({ horario1horario4: e.target.value })
+                  }
                 />
               </div>
 
@@ -338,23 +391,41 @@ export default class ComponentsAddDestinos extends React.Component {
                 <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
+                  value={titulo2}
+                  onChange={(e) => this.setState({ titulo2: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario2horario1}
+                  onChange={(e) =>
+                    this.setState({ horario2horario1: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario2horario2}
+                  onChange={(e) =>
+                    this.setState({ horario2horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario2horario3}
+                  onChange={(e) =>
+                    this.setState({ horario2horario3: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario2horario4}
+                  onChange={(e) =>
+                    this.setState({ horario2horario4: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -368,24 +439,42 @@ export default class ComponentsAddDestinos extends React.Component {
                 <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
+                  value={titulo3}
+                  onChange={(e) => this.setState({ titulo3: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario3horario1}
+                  onChange={(e) =>
+                    this.setState({ horario3horario1: e.target.value })
+                  }
                 />
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario3horario2}
+                  onChange={(e) =>
+                    this.setState({ horario3horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario3horario3}
+                  onChange={(e) =>
+                    this.setState({ horario3horario3: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario3horario4}
+                  onChange={(e) =>
+                    this.setState({ horario3horario4: e.target.value })
+                  }
                 />
               </div>
 
@@ -395,25 +484,43 @@ export default class ComponentsAddDestinos extends React.Component {
                 <Input
                   nome="titulo"
                   placeholder="Título (Ex: Segunda à Sexta)"
+                  value={titulo4}
+                  onChange={(e) => this.setState({ titulo4: e.target.value })}
                 />
                 <Input
                   nome="horario[0].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario4horario1}
+                  onChange={(e) =>
+                    this.setState({ horario4horario1: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[1].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario4horario2}
+                  onChange={(e) =>
+                    this.setState({ horario4horario2: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[2].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario4horario3}
+                  onChange={(e) =>
+                    this.setState({ horario4horario3: e.target.value })
+                  }
                 />
 
                 <Input
                   nome="horario[3].horas"
                   placeholder="Horário (Ex: 07:00 às 18:00)"
+                  value={horario4horario4}
+                  onChange={(e) =>
+                    this.setState({ horario4horario4: e.target.value })
+                  }
                 />
               </div>
             </div>
