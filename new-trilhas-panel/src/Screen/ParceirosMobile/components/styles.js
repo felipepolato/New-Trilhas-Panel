@@ -12,8 +12,8 @@ export const Logomarca = styled.div`
 `;
 
 export const ButtonSubmit = styled.button`
-  width: 100%;
-  height: 15vw;
+  width:100%;
+  height: 5vw;
   background: rgba(255, 198, 73);
   outline: none;
   border: none;
@@ -40,7 +40,7 @@ export const ContainerShadowBox = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 90vw;
+  width: 100vw;
   height: 85vh;
   overflow-y: scroll;
   background: #1179b6;
@@ -70,18 +70,36 @@ export const ImageLoading = styled.img`
   object-fit: contain;
 `;
 
-export const RowRow = styled.div`
+
+export const FormSectionTitle = styled.span`
+  font-size: 20px;
+  text-shadow: 0px 0px 5px #000000;
+  color: #fff;
+  margin: 0;
+  padding: 15px;
+  font-weight: bold;
+`;
+
+export const Title = styled.div`
+  margin-top: 10%;
+  margin-bottom: 2%;
+`;
+
+export const TextCheckbox = styled.label`
+  font-size: 16px;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  color: white;
+  margin: 20px;
+  margin-top: 8px;
+  padding-left: 2px;
+`;
+
+export const DivCheckbox = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: row;
-  width: 97%;
 `;
 
-export const RowNumero = styled.div`
-  margin-right: 25px;
-`;
-
-export const RowEstado = styled.div`
-  margin-left: 50px;
-  margin-right: 12px;
-  width: 60%;
+export const Endereco = styled.div`
+  margin-top:4em;
 `;

@@ -50,6 +50,14 @@ export default class MyComponent extends React.Component {
       trocarSenha: false,
       titulos: [],
       sectionName: "",
+
+      /////inputs/////
+      nome: "",
+      sobrenome: "",
+      usuario: "",
+      comercio: "",
+      senha: "",
+      access: 0,
     };
   }
 
@@ -111,6 +119,8 @@ export default class MyComponent extends React.Component {
   }
 
   render() {
+    const { nome, sobrenome, usuario, comercio, senha } = this.state;
+
     const selectRender = () => {
       let data = this.state.titulos;
       let toRender = [];
@@ -132,20 +142,76 @@ export default class MyComponent extends React.Component {
           {this.state.inAccounts ? (
             <ContainerAccounts>
               <InputFile type="file" />
-              <Input type="text" placeholder="Nome" />
-              <Input type="text" placeholder="Sobrenome" />
-              <Input type="text" placeholder="Usuário" />
-              <Input type="text" placeholder="Comércio" />
-              <Input type="password" placeholder="Senha" />
+              <Input
+                type="text"
+                placeholder="Nome"
+                onChange={(e) => this.setState({ nome: e.target.value })}
+                value={this.state.nome}
+              />
+              <Input
+                type="text"
+                placeholder="Sobrenome"
+                onChange={(e) => this.setState({ sobrenome: e.target.value })}
+                value={this.state.sobrenome}
+              />
+              <Input
+                type="text"
+                placeholder="Usuário"
+                onChange={(e) => this.setState({ usuario: e.target.value })}
+                value={this.state.usuario}
+              />
+              <Input
+                type="text"
+                placeholder="Comércio"
+                onChange={(e) => this.setState({ comercio: e.target.value })}
+                value={this.state.comercio}
+              />
+              <Input
+                type="password"
+                placeholder="Senha"
+                onChange={(e) => this.setState({ senha: e.target.value })}
+                value={this.state.senha}
+              />
 
-              <SelectContas>
-                <OptionContas value="">Selecione ↓</OptionContas>
-                <OptionContas value="parceiro">Parceiro</OptionContas>
-                <OptionContas value="gerente">Gerente</OptionContas>
-                <OptionContas value="administrador">Administrador</OptionContas>
+              <SelectContas
+                onChange={(e) => this.setState({ access: e.target.value })}
+              >
+                <OptionContas value={0}>Selecione ↓</OptionContas>
+                <OptionContas value={1}>Parceiro</OptionContas>
+                <OptionContas value={2}>Gerente</OptionContas>
+                <OptionContas value={3}>Administrador</OptionContas>
               </SelectContas>
 
-              <ButtonInput>Enviar</ButtonInput>
+              <ButtonInput
+                type="button"
+                onClick={() => {
+                  this.setState({ countUsers: 0 });
+
+                  fire
+                    .database()
+                    .ref("/panelUsers/")
+                    .on("value", (snapshot) => {
+                      let tmp = snapshot.val();
+                      let result = tmp.length;
+                      this.setState({ countUsers: result });
+                    });
+
+                  setTimeout(() => {
+                    fire
+                      .database()
+                      .ref(`/panelUsers/${this.state.countUsers}/`)
+                      .set({
+                        access: `${this.state.access}`,
+                        name: `${this.state.nome}`,
+                        pass: `${this.state.senha}`,
+                        surname: `${this.state.sobrenome}`,
+                        user: `${this.state.usuario}`,
+                      });
+                  }, 100);
+                }}
+              >
+                Enviar
+              </ButtonInput>
             </ContainerAccounts>
           ) : null}
 

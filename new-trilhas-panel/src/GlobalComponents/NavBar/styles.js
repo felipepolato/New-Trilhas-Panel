@@ -65,6 +65,7 @@ export const Input = styled.input`
   outline: none;
   border: none;
   height: 4vh;
+  width: 15%;
   margin-right: 2px;
   font-size: 12px;
   box-shadow: 3px 4px 15px -1px rgba(0, 0, 0, 0.7);

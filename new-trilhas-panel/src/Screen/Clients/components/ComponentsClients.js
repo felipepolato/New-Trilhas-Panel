@@ -37,7 +37,7 @@ export default class ComponentsClients extends React.Component {
   componentDidMount() {
     fire
       .database()
-      .ref("/clientes/")
+      .ref(`/clientes/`)
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
 
