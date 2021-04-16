@@ -10,6 +10,8 @@ import ClientesAdd from "../Screen/ClientsAdd";
 import DestinationAdd from "../Screen/DestinationAdd";
 import ClientsEdit from "../Screen/ClientsEdit"
 import DestinosEdit from "../Screen/DestinosEdit"
+import ParceiroMobleScreen from "../Screen/ParceirosMobile";
+import Parceiros from "../Screen/Parceiros";
 
 const Routers = () => {
   return (
@@ -44,6 +46,12 @@ const Routers = () => {
         </Route>
         <Route exact path={"/destinoedit"}>
           <DestinosEdit />
+        </Route>
+        <Route exact path={"/parceiros"}>
+          <Parceiros />
+        </Route>
+        <Route exact path={"/parceirosmobile"}>
+          <ParceiroMobleScreen />
         </Route>
       </Switch>
     </BrowserRouter>
