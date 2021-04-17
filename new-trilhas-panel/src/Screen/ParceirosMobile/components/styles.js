@@ -12,8 +12,8 @@ export const Logomarca = styled.div`
 `;
 
 export const ButtonSubmit = styled.button`
-  width:100%;
-  height: 5vw;
+  width: 100%;
+  height: 6vh;
   background: rgba(255, 198, 73);
   outline: none;
   border: none;
@@ -24,8 +24,8 @@ export const ButtonSubmit = styled.button`
   margin-bottom: 20px;
   font-weight: bold;
   color: white;
-  text-shadow: 2px 2px 9px #000000;
   font-size: 18px;
+  text-shadow: 0px 0px 5px #000000;
 `;
 
 export const ContainerShadowBox = styled.div`
@@ -70,7 +70,6 @@ export const ImageLoading = styled.img`
   object-fit: contain;
 `;
 
-
 export const FormSectionTitle = styled.span`
   font-size: 20px;
   text-shadow: 0px 0px 5px #000000;
@@ -101,5 +100,5 @@ export const DivCheckbox = styled.div`
 `;
 
 export const Endereco = styled.div`
-  margin-top:4em;
+  margin-top: 4em;
 `;

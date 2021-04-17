@@ -1,4 +1,4 @@
-import styled from "styled-components";
+ import styled from "styled-components";
 
 export const DivCheckbox = styled.div`
   display: flex;
@@ -34,8 +34,9 @@ export const TextCheckbox = styled.label`
 `;
 
 export const LabelFile = styled.label`
-  padding: 10px 10px;
   width: 100%;
+  padding-top: 5px;
+  padding-bottom: 10px;
   background-color: #333;
   color: #fff;
   text-align: center;

@@ -19,13 +19,15 @@ export const ContainerShadowBox = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 80vw;
+  width: 83vw;
   height: 88vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   background: #1179b6;
   margin-top: 10vh;
   margin-left: 7vw;
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   z-index: 3;
   box-shadow: inset 0px -30px 30px 0px rgba(0, 0, 0, 0.4);
 `;

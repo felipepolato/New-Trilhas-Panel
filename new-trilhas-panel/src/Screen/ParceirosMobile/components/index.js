@@ -263,6 +263,14 @@ export default class ParceirosMobile extends React.Component {
 
     return (
       <div>
+        <center>
+          {this.state.clienteData ? (
+            <FileInput
+              nome="logomarca"
+              initialPreview={this.state.arrayImage}
+            />
+          ) : null}
+        </center>
         {/* Informações Gerais */}
         <Title>
           <FormSectionTitle>Informações Gerais</FormSectionTitle>
@@ -363,15 +371,6 @@ export default class ParceirosMobile extends React.Component {
         <hr />
 
         <div>
-          <center>
-            {this.state.clienteData ? (
-              <FileInput
-                nome="logomarca"
-                initialPreview={this.state.arrayImage}
-              />
-            ) : null}
-          </center>
-
           {/* Redes Sociais */}
           <Title>
             <FormSectionTitle>Redes Sociais</FormSectionTitle>
@@ -620,86 +619,79 @@ export default class ParceirosMobile extends React.Component {
         <br />
         <hr />
 
-        {/* SENGMENTO */}
         <center>
-          <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
-            <FormSectionTitle>Selecione os Nichos</FormSectionTitle>
-          </Title>
-        </center>
-
-        <div>
-          <center>
-            <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
+          <div>
+            <Title style={{ marginTop: "1%", marginBottom: "4%" }}>
               <FormSectionTitle>Fotos para Galeria</FormSectionTitle>
             </Title>
-          </center>
 
-          <GalleryInput
-            nome="foto1"
-            labeltext="Selecionar Foto 01"
-            initialPreview={this.state.arrayGaleria[0]}
-            indexnumber={1}
-          />
+            <GalleryInput
+              nome="foto1"
+              labeltext="Selecionar Foto 01"
+              initialPreview={this.state.arrayGaleria[0]}
+              indexnumber={1}
+            />
 
-          <br />
-          <hr />
+            <br />
+            <hr />
 
-          <GalleryInput
-            nome="foto3"
-            labeltext="Selecionar Foto 03"
-            initialPreview={this.state.arrayGaleria[2]}
-            indexnumber={3}
-          />
+            <GalleryInput
+              nome="foto3"
+              labeltext="Selecionar Foto 03"
+              initialPreview={this.state.arrayGaleria[2]}
+              indexnumber={3}
+            />
 
-          <br />
-          <hr />
+            <br />
+            <hr />
 
-          <GalleryInput
-            nome="foto5"
-            labeltext="Selecionar Foto 05"
-            initialPreview={this.state.arrayGaleria[4]}
-            indexnumber={5}
-          />
+            <GalleryInput
+              nome="foto5"
+              labeltext="Selecionar Foto 05"
+              initialPreview={this.state.arrayGaleria[4]}
+              indexnumber={5}
+            />
 
-          <br />
-          <hr />
+            <br />
+            <hr />
 
-          <GalleryInput
-            nome="foto7"
-            labeltext="Selecionar Foto 07"
-            initialPreview={this.state.arrayGaleria[6]}
-            indexnumber={7}
-          />
+            <GalleryInput
+              nome="foto7"
+              labeltext="Selecionar Foto 07"
+              initialPreview={this.state.arrayGaleria[6]}
+              indexnumber={7}
+            />
 
-          <br />
-          <hr />
+            <br />
+            <hr />
 
-          <GalleryInput
-            nome="foto2"
-            labeltext="Selecionar Foto 02"
-            initialPreview={this.state.arrayGaleria[1]}
-            indexnumber={2}
-          />
+            <GalleryInput
+              nome="foto2"
+              labeltext="Selecionar Foto 02"
+              initialPreview={this.state.arrayGaleria[1]}
+              indexnumber={2}
+            />
 
-          <br />
-          <hr />
+            <br />
+            <hr />
 
-          <GalleryInput
-            nome="foto4"
-            labeltext="Selecionar Foto 04"
-            initialPreview={this.state.arrayGaleria[3]}
-            indexnumber={4}
-          />
+            <GalleryInput
+              nome="foto4"
+              labeltext="Selecionar Foto 04"
+              initialPreview={this.state.arrayGaleria[3]}
+              indexnumber={4}
+            />
 
-          <br />
-          <hr />
-          <GalleryInput
-            nome="foto6"
-            labeltext="Selecionar Foto 06"
-            initialPreview={this.state.arrayGaleria[5]}
-            indexnumber={6}
-          />
-        </div>
+            <br />
+            <hr />
+            <GalleryInput
+              nome="foto6"
+              labeltext="Selecionar Foto 06"
+              initialPreview={this.state.arrayGaleria[5]}
+              indexnumber={6}
+            />
+          </div>
+        </center>
 
         <br />
         <hr />

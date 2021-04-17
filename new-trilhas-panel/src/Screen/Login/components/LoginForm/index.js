@@ -20,6 +20,33 @@ export default class LoginForm extends React.Component {
   componentDidMount() {}
 
   render() {
+    if (
+      localStorage.getItem("panel-trilhas-user") !== undefined &&
+      localStorage.getItem("panel-trilhas-user") != null
+    ) {
+      if (localStorage.getItem("trilhas-user-access") === "3") {
+        window.location.href = "/home";
+      }
+      if (localStorage.getItem("trilhas-user-access") === "2") {
+        window.location.href = "/clientes";
+      }
+      if (localStorage.getItem("trilhas-user-access") === "1") {
+        if (
+          navigator.userAgent.match(/Android/i) ||
+          navigator.userAgent.match(/webOS/i) ||
+          navigator.userAgent.match(/iPhone/i) ||
+          navigator.userAgent.match(/iPad/i) ||
+          navigator.userAgent.match(/iPod/i) ||
+          navigator.userAgent.match(/BlackBerry/i) ||
+          navigator.userAgent.match(/Windows Phone/i)
+        ) {
+          window.location.href = "/parceirosmobile";
+        } else {
+          window.location.href = "/parceiros";
+        }
+      }
+      console.log("já está logado!");
+    }
     return (
       <LoginBox>
         <img className="logo" id="logo" src={LogoRoundedImage} />
