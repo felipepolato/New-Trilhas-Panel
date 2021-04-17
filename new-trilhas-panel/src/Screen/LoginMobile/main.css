@@ -1,0 +1,62 @@
+.bgImage {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    top: -20vh;
+    left: -10vw;
+    animation: anim-stars 20s linear infinite;
+}
+
+.bgImageFour {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    top: -20vh;
+    right: -5vw;
+    animation: anim-stars 40s linear infinite;
+}
+
+.bgImageTwo {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    top: -20vh;
+    right: -5vw;
+    animation: anim-stars-back 12s linear infinite;
+}
+
+.bgImageThree {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    top: -20vh;
+    left: -10vw;
+    animation: anim-stars-three 25s linear infinite;
+}
+
+@keyframes anim-stars {
+    0% {
+        transform: translateY(700px);
+    }
+    100% {
+        transform: translateY(-1000px);
+    }
+}
+
+@keyframes anim-stars-back {
+    0% {
+        transform: translateY(700px);
+    }
+    100% {
+        transform: translateY(-1000px);
+    }
+}
+
+@keyframes anim-stars-three {
+    0% {
+        transform: translateY(900px);
+    }
+    100% {
+        transform: translateY(-1300px);
+    }
+}

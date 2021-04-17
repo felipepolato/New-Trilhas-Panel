@@ -12,6 +12,7 @@ import ClientsEdit from "../Screen/ClientsEdit"
 import DestinosEdit from "../Screen/DestinosEdit"
 import ParceiroMobleScreen from "../Screen/ParceirosMobile";
 import Parceiros from "../Screen/Parceiros";
+import LoginMobile from "../Screen/LoginMobile";
 
 const Routers = () => {
   return (
@@ -25,6 +26,9 @@ const Routers = () => {
         </Route>
         <Route exact path={"/"}>
           <Login />
+        </Route>
+        <Route exact path={"/loginmobile"}>
+          <LoginMobile />
         </Route>
         <Route exact path={"/accounts"}>
           <Accounts />

@@ -1,0 +1,19 @@
+.logo {
+    width: 40%;
+  }
+  
+  @keyframes anim-logo {
+    0% {
+      -webkit-transition: all 0.7s ease;
+      transition: all 0.7s ease;
+    }
+    50% {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+    100% {
+      -webkit-transition: all 0.7s ease;
+      transition: all 0.7s ease;
+    }
+  }
+  
