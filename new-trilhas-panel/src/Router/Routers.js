@@ -13,6 +13,8 @@ import DestinosEdit from "../Screen/DestinosEdit"
 import ParceiroMobleScreen from "../Screen/ParceirosMobile";
 import Parceiros from "../Screen/Parceiros";
 import LoginMobile from "../Screen/LoginMobile";
+import SeachClient from "../Screen/SeachClients";
+import SearchDestinos from "../Screen/SearchDestinos";
 
 const Routers = () => {
   return (
@@ -56,6 +58,12 @@ const Routers = () => {
         </Route>
         <Route exact path={"/parceirosmobile"}>
           <ParceiroMobleScreen />
+        </Route>
+        <Route exact path={"/seachclients"}>
+          <SeachClient />
+        </Route>
+        <Route exact path={"/seachdestinos"}>
+          <SearchDestinos />
         </Route>
       </Switch>
     </BrowserRouter>

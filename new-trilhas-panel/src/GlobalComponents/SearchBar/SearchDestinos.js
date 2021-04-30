@@ -4,7 +4,7 @@ import { SearchBox, Input } from "./styles";
 
 import SearchIcon from "../../Images/searchbar.png";
 
-export default class SearchBar extends Component {
+export default class SearchDestinos extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,11 +30,8 @@ export default class SearchBar extends Component {
           onClick={() => {
             let valueInput = name;
             localStorage.setItem("search_client_field", valueInput);
-            if(this.props.in === 'clientes') {
-              window.location.href = "/seachclients";
-            } else {
-              window.location.href = "/seachdestinos";
-            }
+
+            window.location.href = "/seachdestinos";
           }}
         />
       </SearchBox>

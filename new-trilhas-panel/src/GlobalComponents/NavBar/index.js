@@ -32,6 +32,7 @@ import LogomarcaImage from "../../Images/logo-normal.png";
 //////FIREBASE///////
 import { fire, userRef } from "../config";
 import SearchBar from "../SearchBar/SearchBar";
+import SearchDestinos from "../SearchBar/SearchDestinos";
 
 export default class MyComponent extends React.Component {
   constructor(props) {
@@ -273,7 +274,7 @@ export default class MyComponent extends React.Component {
 
           {this.state.inClients ? (
             <DivNav>
-              <SearchBar />
+              <SearchBar in="clientes" />
               <ButtonAdd>
                 <ButtonAddTextBox>
                   <ButtonAddText
