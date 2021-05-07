@@ -228,8 +228,8 @@ export default class ComponentsClients extends React.Component {
 
         {this.state.alertOpened ? (
           <TrilhasAlert
-            title="EXCLUIR DESTINO"
-            message="VOCÊ QUER EXCLUIR ESTE DESTINO?"
+            title="EXCLUIR CLIENTE"
+            message="VOCÊ QUER EXCLUIR ESTE CLIENTE?"
             confirmTitle="EXCLUIR"
             confirmOnClick={() =>
               fire
