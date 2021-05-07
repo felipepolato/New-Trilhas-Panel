@@ -18,7 +18,9 @@ import {
   TableColumnTitle,
 } from "./styles";
 
-import icon from "../../../Images/location-icon.png";
+import Add from "../../../Images/add.png";
+import Delet from "../../../Images/x-button.png";
+
 import { fire } from "../../../GlobalComponents/config";
 
 export default class ComponentsSection extends React.Component {
@@ -94,14 +96,14 @@ export default class ComponentsSection extends React.Component {
                   <TableColumn>{secoes[i].title}</TableColumn>
                   <TableColumn>
                     <ButtonEdit>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
                         <ButtonEditText>Editar</ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
                     <ButtonRemove>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
                       </ButtonRemoveTextBox>
@@ -116,14 +118,14 @@ export default class ComponentsSection extends React.Component {
                   <TableColumn>{secoes[i].title}</TableColumn>
                   <TableColumn>
                     <ButtonEdit>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
                         <ButtonEditText>Editar</ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
                     <ButtonRemove>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
                       </ButtonRemoveTextBox>
@@ -154,14 +156,14 @@ export default class ComponentsSection extends React.Component {
                   <TableColumn>{secoes[i].title}</TableColumn>
                   <TableColumn>
                     <ButtonEdit>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
                         <ButtonEditText>Editar</ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
                     <ButtonRemove>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
                       </ButtonRemoveTextBox>
@@ -176,14 +178,14 @@ export default class ComponentsSection extends React.Component {
                   <TableColumn>{secoes[i].title}</TableColumn>
                   <TableColumn>
                     <ButtonEdit>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
                         <ButtonEditText>Editar</ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
                     <ButtonRemove>
-                      <img src={icon} width="40%" height="70%" alt="logo" />
+                      <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
                       </ButtonRemoveTextBox>
