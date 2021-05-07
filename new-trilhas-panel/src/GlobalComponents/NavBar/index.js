@@ -51,6 +51,7 @@ export default class MyComponent extends React.Component {
       trocarSenha: false,
       titulos: [],
       sectionName: "",
+      lastID: 0,
 
       /////inputs/////
       nome: "",
@@ -63,6 +64,23 @@ export default class MyComponent extends React.Component {
   }
 
   componentDidMount() {
+    fire
+      .database()
+      .ref("/panelUsers/")
+      .on("value", (snapshot) => {
+        let tmp = snapshot.val();
+        console.log(tmp);
+
+        let id = 0;
+
+        if (tmp != null) {
+          for (let loop in tmp) {
+            id++;
+          }
+          this.setState({ lastID: id });
+        }
+      });
+
     fire
       .database()
       .ref(userRef)
@@ -200,7 +218,7 @@ export default class MyComponent extends React.Component {
                   setTimeout(() => {
                     fire
                       .database()
-                      .ref(`/panelUsers/${this.state.countUsers}/`)
+                      .ref(`/panelUsers/${this.state.lastID}/`)
                       .set({
                         access: `${this.state.access}`,
                         name: `${this.state.nome}`,
@@ -347,7 +365,7 @@ export default class MyComponent extends React.Component {
                 Contas
               </SideBarButton>
             ) : null}
-            
+
             <SideBarButton
               type="button"
               onClick={() => (window.location.href = "/destinations")}
