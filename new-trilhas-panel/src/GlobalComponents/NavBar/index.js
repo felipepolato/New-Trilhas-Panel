@@ -315,22 +315,6 @@ export default class MyComponent extends React.Component {
 
             <SideBarButton
               type="button"
-              onClick={() => (window.location.href = "/home")}
-              style={
-                this.state.inHome
-                  ? {
-                      backgroundColor: "rgb(255, 198, 73)",
-                      color: "#116591",
-                      paddingBottom: "15px",
-                      paddingTop: "15px",
-                    }
-                  : null
-              }
-            >
-              Início
-            </SideBarButton>
-            <SideBarButton
-              type="button"
               onClick={() => (window.location.href = "/clients")}
               style={
                 this.state.inClients
