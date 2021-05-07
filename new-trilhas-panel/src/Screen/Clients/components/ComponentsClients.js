@@ -20,6 +20,8 @@ import {
 } from "./styles";
 
 import icon from "../../../Images/location-icon.png";
+import Add from "../../../Images/add.png";
+import Delet from "../../../Images/x-button.png";
 
 import { fire } from "../../../GlobalComponents/config";
 
@@ -77,7 +79,7 @@ export default class ComponentsClients extends React.Component {
               </td>
               <td>
                 <ButtonEdit>
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox>
                     <ButtonEditText
                       onClick={() => {
@@ -96,7 +98,7 @@ export default class ComponentsClients extends React.Component {
                     this.setState({ alertOpened: true });
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Delet} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
@@ -126,7 +128,7 @@ export default class ComponentsClients extends React.Component {
                     window.location.href = "/clientsedit";
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
                       localStorage.setItem("clientId", loop);
@@ -143,7 +145,7 @@ export default class ComponentsClients extends React.Component {
                     this.setState({ alertOpened: true });
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Delet} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
