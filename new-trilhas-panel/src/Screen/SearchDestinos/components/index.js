@@ -43,7 +43,7 @@ export default class ComponentsSearchDestinos extends React.Component {
         let array = [];
 
         for (let loop in tmp) {
-            console.log(tmp[loop].nome);
+          console.log(tmp[loop].nome);
           let stringA = localStorage.getItem("search_client_field");
           let stringB = tmp[loop].nome;
           if (stringB.indexOf(stringA) !== -1) {
@@ -99,7 +99,7 @@ export default class ComponentsSearchDestinos extends React.Component {
                   <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
-                      localStorage.setItem("destinoId", loop);
+                      localStorage.setItem("destinoId", `${loop}`);
                       window.location.href = "/destinoedit";
                     }}
                   >
@@ -142,7 +142,7 @@ export default class ComponentsSearchDestinos extends React.Component {
               <td style={{ paddingTop: 10, paddingBottom: 10 }}>
                 <ButtonEdit
                   onClick={() => {
-                    localStorage.setItem("destinoId", loop);
+                    localStorage.setItem("destinoId", `${loop}`);
                     window.location.href = "/destinoedit";
                   }}
                 >

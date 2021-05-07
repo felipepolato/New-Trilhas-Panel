@@ -92,7 +92,7 @@ export default class ComponentsSearchClients extends React.Component {
                   <ButtonEditTextBox>
                     <ButtonEditText
                       onClick={() => {
-                        localStorage.setItem("clientId", loop);
+                        localStorage.setItem("clientId", `${loop}`);
                         window.location.href = "/clientsedit";
                       }}
                     >
@@ -133,14 +133,14 @@ export default class ComponentsSearchClients extends React.Component {
               <td>
                 <ButtonEdit
                   onClick={() => {
-                    localStorage.setItem("clientsId", loop);
+                    localStorage.setItem("clientId", `${loop}`);
                     window.location.href = "/clientsedit";
                   }}
                 >
                   <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
-                      localStorage.setItem("clientId", loop);
+                      localStorage.setItem("clientId", `${loop}`);
                       window.location.href = "/clientsedit";
                     }}
                   >
