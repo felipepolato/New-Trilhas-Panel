@@ -237,8 +237,8 @@ export default class ComponentsClientsAdd extends React.Component {
               }
             });
         }
-      }, 200);
-    }, 1000);
+      }, 500);
+    }, 1500);
   }
 
   render() {

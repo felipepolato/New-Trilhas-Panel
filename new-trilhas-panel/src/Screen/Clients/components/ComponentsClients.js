@@ -82,7 +82,7 @@ export default class ComponentsClients extends React.Component {
                   <ButtonEditTextBox>
                     <ButtonEditText
                       onClick={() => {
-                        localStorage.setItem("clientId", loop);
+                        localStorage.setItem("clientId", `${loop}`);
                         window.location.href = "/clientsedit";
                       }}
                     >
