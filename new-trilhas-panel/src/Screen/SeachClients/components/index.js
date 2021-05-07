@@ -48,13 +48,17 @@ export default class ComponentsSearchClients extends React.Component {
             let stringA = localStorage.getItem("search_client_field");
             let stringB = tmp[loop][0].nome;
             if (stringB.indexOf(stringA) !== -1) {
-              array.push(tmp[loop]);
+              array.push({
+                'id': loop,
+                'data': tmp[loop],
+              });
             }
           }
           this.setState({ data: array });
         }
       });
   }
+  
 
   render() {
     const renderTables = () => {
@@ -69,7 +73,7 @@ export default class ComponentsSearchClients extends React.Component {
       let count = 0;
 
       for (let loop in data) {
-        let arrayImage = `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${data[loop][0].nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`;
+        let arrayImage = `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${data[loop]['data'][0].nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`;
         if (count <= size) {
           console.log(arrayImage);
           sideA.push(
@@ -80,30 +84,28 @@ export default class ComponentsSearchClients extends React.Component {
                 </td>
               </center>
               <td style={{ paddingLeft: "10px" }}>
-                <TdTitle>{data[loop][0].nome}</TdTitle> <br />
-                <TdSubTitle>{data[loop][0].nicho}</TdSubTitle> <br />
+                <TdTitle>{data[loop]['data'][0].nome}</TdTitle> <br />
+                <TdSubTitle>{data[loop]['data'][0].nicho}</TdSubTitle> <br />
                 <TdSubTitle>
-                  {data[loop][0].cidade}/{data[loop][0].estado}
+                  {data[loop]['data'][0].cidade}/{data[loop]['data'][0].estado}
                 </TdSubTitle>
               </td>
               <td>
                 <ButtonEdit>
                   <img src={Add} width="40%" height="70%" alt="logo" />
-                  <ButtonEditTextBox>
-                    <ButtonEditText
-                      onClick={() => {
-                        localStorage.setItem("clientId", `${loop}`);
-                        window.location.href = "/clientsedit";
-                      }}
-                    >
-                      Editar
-                    </ButtonEditText>
+                  <ButtonEditTextBox
+                    onClick={() => {
+                      localStorage.setItem("clientId", `${data[loop]['id']}`);
+                      window.location.href = "/clientsedit";
+                    }}
+                  >
+                    <ButtonEditText>Editar</ButtonEditText>
                   </ButtonEditTextBox>
                 </ButtonEdit>
 
                 <ButtonRemove
                   onClick={() => {
-                    localStorage.setItem("id-to-delete", loop);
+                    localStorage.setItem("id-to-delete", data[loop]['id']);
                     this.setState({ alertOpened: true });
                   }}
                 >
@@ -124,23 +126,18 @@ export default class ComponentsSearchClients extends React.Component {
                 </td>
               </center>
               <td style={{ paddingLeft: "10px" }}>
-                <TdTitle>{data[loop][0].nome}</TdTitle> <br />
-                <TdSubTitle>{data[loop][0].nicho}</TdSubTitle> <br />
+                <TdTitle>{data[loop]['data'][0].nome}</TdTitle> <br />
+                <TdSubTitle>{data[loop]['data'][0].nicho}</TdSubTitle> <br />
                 <TdSubTitle>
-                  {data[loop][0].cidade}/{data[loop][0].estado}
+                  {data[loop]['data'][0].cidade}/{data[loop]['data'][0].estado}
                 </TdSubTitle>
               </td>
               <td>
-                <ButtonEdit
-                  onClick={() => {
-                    localStorage.setItem("clientId", `${loop}`);
-                    window.location.href = "/clientsedit";
-                  }}
-                >
+                <ButtonEdit>
                   <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
-                      localStorage.setItem("clientId", `${loop}`);
+                      localStorage.setItem("clientId", `${data[loop]['id']}`);
                       window.location.href = "/clientsedit";
                     }}
                   >
@@ -150,7 +147,7 @@ export default class ComponentsSearchClients extends React.Component {
 
                 <ButtonRemove
                   onClick={() => {
-                    localStorage.setItem("id-to-delete", loop);
+                    localStorage.setItem("id-to-delete", data[loop]['id']);
                     this.setState({ alertOpened: true });
                   }}
                 >
@@ -239,8 +236,8 @@ export default class ComponentsSearchClients extends React.Component {
 
         {this.state.alertOpened ? (
           <TrilhasAlert
-            title="EXCLUIR DESTINO"
-            message="VOCÊ QUER EXCLUIR ESTE DESTINO?"
+            title="EXCLUIR CLIENTE"
+            message="VOCÊ QUER EXCLUIR ESTE CLIENTE?"
             confirmTitle="EXCLUIR"
             confirmOnClick={() =>
               fire
@@ -252,7 +249,7 @@ export default class ComponentsSearchClients extends React.Component {
             cancelOnClick={() => this.setState({ alertOpened: false })}
             pageToReturn="/clients"
           />
-        ) : null}
+          ) : null}
       </div>
     );
   }

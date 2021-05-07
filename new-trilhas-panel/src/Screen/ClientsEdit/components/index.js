@@ -104,6 +104,7 @@ export default class ComponentsClientsAdd extends React.Component {
       clienteData: false,
       arrayImage: "",
       arrayGaleria: [],
+      isLoaded: false
     };
   }
 
@@ -177,7 +178,7 @@ export default class ComponentsClientsAdd extends React.Component {
 
         for (let loop in tmp) {
           titulos.push({
-            title: tmp[loop].info["section-title"],
+            title: tmp[loop].info["button-title"],
             ref: loop,
           });
 
@@ -238,7 +239,9 @@ export default class ComponentsClientsAdd extends React.Component {
             });
         }
       }, 500);
-    }, 1500);
+
+      setTimeout( () => this.setState({isLoaded: true}), 300);
+    }, 1000);
   }
 
   render() {
@@ -285,6 +288,7 @@ export default class ComponentsClientsAdd extends React.Component {
       horario4horario3,
       horario4horario4,
       clienteData,
+      isLoaded
     } = this.state;
 
     const CheckboxRender = () => {
@@ -524,7 +528,7 @@ export default class ComponentsClientsAdd extends React.Component {
           <Column>
             <div>
               <center>
-                {this.state.clienteData ? (
+                {this.state.isLoaded ? (
                   <FileInput
                     nome="logomarca"
                     initialPreview={this.state.arrayImage}
