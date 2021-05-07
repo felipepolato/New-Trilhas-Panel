@@ -329,22 +329,25 @@ export default class MyComponent extends React.Component {
             >
               Clientes
             </SideBarButton>
-            <SideBarButton
-              type="button"
-              onClick={() => (window.location.href = "/accounts")}
-              style={
-                this.state.inAccounts
-                  ? {
-                      backgroundColor: "rgb(255, 198, 73)",
-                      color: "#116591",
-                      paddingBottom: "15px",
-                      paddingTop: "15px",
-                    }
-                  : null
-              }
-            >
-              Contas
-            </SideBarButton>
+            {localStorage.getItem("trilhas-user-access") == 3 ? (
+              <SideBarButton
+                type="button"
+                onClick={() => (window.location.href = "/accounts")}
+                style={
+                  this.state.inAccounts
+                    ? {
+                        backgroundColor: "rgb(255, 198, 73)",
+                        color: "#116591",
+                        paddingBottom: "15px",
+                        paddingTop: "15px",
+                      }
+                    : null
+                }
+              >
+                Contas
+              </SideBarButton>
+            ) : null}
+            
             <SideBarButton
               type="button"
               onClick={() => (window.location.href = "/destinations")}
@@ -361,22 +364,25 @@ export default class MyComponent extends React.Component {
             >
               Destinos
             </SideBarButton>
-            <SideBarButton
-              type="button"
-              onClick={() => (window.location.href = "/sections")}
-              style={
-                this.state.inSections
-                  ? {
-                      backgroundColor: "rgb(255, 198, 73)",
-                      color: "#116591",
-                      paddingBottom: "15px",
-                      paddingTop: "15px",
-                    }
-                  : null
-              }
-            >
-              Sessões
-            </SideBarButton>
+            {localStorage.getItem("trilhas-user-access") == 3 ? (
+              <SideBarButton
+                type="button"
+                onClick={() => (window.location.href = "/sections")}
+                style={
+                  this.state.inSections
+                    ? {
+                        backgroundColor: "rgb(255, 198, 73)",
+                        color: "#116591",
+                        paddingBottom: "15px",
+                        paddingTop: "15px",
+                      }
+                    : null
+                }
+              >
+                Sessões
+              </SideBarButton>
+            ) : null}
+
             <SideBarButtonConfig
               onClick={() =>
                 this.state.dropdownActive
