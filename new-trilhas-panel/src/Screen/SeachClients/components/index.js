@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 
 import {
-    Title,
-    Table,
-    Col22,
-    Col21,
-    Row2,
-    TitleBox,
-    Th,
-    TdTitle,
-    TdSubTitle,
-    ButtonEditText,
-    ButtonRemoveText,
-    ButtonRemoveTextBox,
-    ButtonRemove,
-    ButtonEditTextBox,
-    ButtonEdit,
-    Tr,
-  } from "./styles";
+  Title,
+  Table,
+  Col22,
+  Col21,
+  Row2,
+  TitleBox,
+  Th,
+  TdTitle,
+  TdSubTitle,
+  ButtonEditText,
+  ButtonRemoveText,
+  ButtonRemoveTextBox,
+  ButtonRemove,
+  ButtonEditTextBox,
+  ButtonEdit,
+  Tr,
+} from "./styles";
 
-  import TrilhasAlert from "../../../GlobalComponents/TrilhasAlert";
+import TrilhasAlert from "../../../GlobalComponents/TrilhasAlert";
 
-  import icon from "../../../Images/location-icon.png";
+import Add from "../../../Images/add.png";
+import Delet from "../../../Images/x-button.png";
 
 import { fire } from "../../../GlobalComponents/config";
 
@@ -43,10 +44,10 @@ export default class ComponentsSearchClients extends React.Component {
         if (tmp != null) {
           let array = [];
 
-          for(let loop in tmp) {
+          for (let loop in tmp) {
             let stringA = localStorage.getItem("search_client_field");
             let stringB = tmp[loop][0].nome;
-            if(stringB.indexOf(stringA) !== -1) {
+            if (stringB.indexOf(stringA) !== -1) {
               array.push(tmp[loop]);
             }
           }
@@ -87,7 +88,7 @@ export default class ComponentsSearchClients extends React.Component {
               </td>
               <td>
                 <ButtonEdit>
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox>
                     <ButtonEditText
                       onClick={() => {
@@ -106,7 +107,7 @@ export default class ComponentsSearchClients extends React.Component {
                     this.setState({ alertOpened: true });
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Delet} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
@@ -136,7 +137,7 @@ export default class ComponentsSearchClients extends React.Component {
                     window.location.href = "/clientsedit";
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
                       localStorage.setItem("clientId", loop);
@@ -153,7 +154,7 @@ export default class ComponentsSearchClients extends React.Component {
                     this.setState({ alertOpened: true });
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Delet} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>

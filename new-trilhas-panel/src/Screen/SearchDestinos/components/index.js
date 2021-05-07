@@ -19,7 +19,8 @@ import {
   Tr,
 } from "./styles";
 
-import icon from "../../../Images/location-icon.png";
+import Add from "../../../Images/add.png";
+import Delet from "../../../Images/x-button.png";
 
 import { fire } from "../../../GlobalComponents/config";
 import TrilhasAlert from "../../../GlobalComponents/TrilhasAlert";
@@ -95,7 +96,7 @@ export default class ComponentsSearchDestinos extends React.Component {
                     window.location.href = "/destinoedit";
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
                       localStorage.setItem("destinoId", loop);
@@ -112,7 +113,7 @@ export default class ComponentsSearchDestinos extends React.Component {
                     this.setState({ alertOpened: true });
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Delet} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
@@ -145,7 +146,7 @@ export default class ComponentsSearchDestinos extends React.Component {
                     window.location.href = "/destinoedit";
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
                       localStorage.setItem("destinoId", loop);
@@ -162,7 +163,7 @@ export default class ComponentsSearchDestinos extends React.Component {
                     this.setState({ alertOpened: true });
                   }}
                 >
-                  <img src={icon} width="40%" height="70%" alt="logo" />
+                  <img src={Delet} width="40%" height="70%" alt="logo" />
                   <ButtonRemoveTextBox>
                     <ButtonRemoveText>Excluir</ButtonRemoveText>
                   </ButtonRemoveTextBox>
