@@ -25,10 +25,10 @@ export default class LoginForm extends React.Component {
       localStorage.getItem("panel-trilhas-user") != null
     ) {
       if (localStorage.getItem("trilhas-user-access") === "3") {
-        window.location.href = "/home";
+        window.location.href = "/clients";
       }
       if (localStorage.getItem("trilhas-user-access") === "2") {
-        window.location.href = "/clientes";
+        window.location.href = "/clients";
       }
       if (localStorage.getItem("trilhas-user-access") === "1") {
         if (
@@ -98,13 +98,13 @@ export default class LoginForm extends React.Component {
                           );
 
                           if (dataTemp[loop].access == 3) {
-                            window.location.href = "/home";
+                            window.location.href = "/clients";
                           }
                           if (dataTemp[loop].access == 2) {
-                            window.location.href = "/home";
+                            window.location.href = "/clients";
                           }
                           if (dataTemp[loop].access == 1) {
-                            window.location.href = "/home";
+                            window.location.href = "/clients";
                             localStorage.setItem(
                               "comercio-for-client",
                               dataTemp[loop].comercio
