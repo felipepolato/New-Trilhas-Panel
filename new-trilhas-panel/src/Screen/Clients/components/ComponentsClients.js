@@ -19,7 +19,6 @@ import {
   Tr,
 } from "./styles";
 
-import icon from "../../../Images/location-icon.png";
 import Add from "../../../Images/add.png";
 import Delet from "../../../Images/x-button.png";
 
