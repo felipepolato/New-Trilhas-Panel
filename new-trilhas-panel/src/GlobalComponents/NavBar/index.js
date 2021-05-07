@@ -227,6 +227,8 @@ export default class MyComponent extends React.Component {
                         user: `${this.state.usuario}`,
                       });
                   }, 100);
+
+                  window.location.href = "/accounts";
                 }}
               >
                 Enviar
