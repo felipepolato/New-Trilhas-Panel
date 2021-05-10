@@ -39,7 +39,13 @@ export default class ComponentsSectionEdit extends React.Component {
       .ref(`/categorias/${localStorage.getItem("sectionId")}/`)
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
-        this.setState({});
+        this.setState({
+          titulos: "",
+          secoes: "",
+        });
+        for (let loop in tmp) {
+          console.log(tmp);
+        }
       });
   }
 
@@ -69,6 +75,7 @@ export default class ComponentsSectionEdit extends React.Component {
                 </div>
               ) : null}
               <TableColumnTitle>{titulos[loop].title}</TableColumnTitle>
+              
             </div>
           );
 
