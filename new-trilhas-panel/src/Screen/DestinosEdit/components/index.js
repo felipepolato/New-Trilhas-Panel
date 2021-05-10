@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
 import {
-  DivAbsoluta,
   ButtonSubmit,
   FormSectionTitle,
-  Logomarca,
   RowRow,
   Column,
   RowNumero,
@@ -104,6 +102,7 @@ export default class ComponentsAddDestinos extends React.Component {
 
   componentDidMount() {
     console.log(`Destinos ID: ${localStorage.getItem("destinoId")}`);
+    
     fire
       .database()
       .ref(`/destinos/${localStorage.getItem("destinoId")}/`)

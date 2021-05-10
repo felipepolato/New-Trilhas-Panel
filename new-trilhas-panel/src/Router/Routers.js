@@ -8,13 +8,14 @@ import Login from "../Screen/Login";
 import Sections from "../Screen/Sections";
 import ClientesAdd from "../Screen/ClientsAdd";
 import DestinationAdd from "../Screen/DestinationAdd";
-import ClientsEdit from "../Screen/ClientsEdit"
-import DestinosEdit from "../Screen/DestinosEdit"
+import ClientsEdit from "../Screen/ClientsEdit";
+import DestinosEdit from "../Screen/DestinosEdit";
 import ParceiroMobleScreen from "../Screen/ParceirosMobile";
 import Parceiros from "../Screen/Parceiros";
 import LoginMobile from "../Screen/LoginMobile";
 import SeachClient from "../Screen/SeachClients";
 import SearchDestinos from "../Screen/SearchDestinos";
+import SectionEdit from "../Screen/SectionEdit";
 
 const Routers = () => {
   return (
@@ -64,6 +65,9 @@ const Routers = () => {
         </Route>
         <Route exact path={"/seachdestinos"}>
           <SearchDestinos />
+        </Route>
+        <Route exact path={"/sectionedit"}>
+          <SectionEdit />
         </Route>
       </Switch>
     </BrowserRouter>
