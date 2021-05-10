@@ -50,6 +50,7 @@ export default class ComponentsSection extends React.Component {
           }
           titulos.push({
             title: tmp[loop].info["section-title"],
+            titleDB: loop,
             amount: count,
           });
         }
@@ -133,7 +134,7 @@ export default class ComponentsSection extends React.Component {
                       <ButtonEditTextBox>
                         <ButtonEditText
                           onClick={() => {
-                            localStorage.setItem("sectionId", `${loop}`);
+                            localStorage.setItem("sectionId", titulos[loop].titleDB);
                             window.location.href = "/sectionedit";
                           }}
                         >
@@ -183,7 +184,7 @@ export default class ComponentsSection extends React.Component {
                       <ButtonEditTextBox>
                         <ButtonEditText
                           onClick={() => {
-                            localStorage.setItem("sectionId", `${loop}`);
+                            localStorage.setItem("sectionId", titulos[loop].titleDB);
                             window.location.href = "/sectionedit";
                           }}
                         >
@@ -214,14 +215,14 @@ export default class ComponentsSection extends React.Component {
                   <TableColumn>
                     <ButtonEdit
                       onClick={() => {
-                        localStorage.setItem("sectionId", loop);
+                        localStorage.setItem("sectionId", titulos[loop].titleDB);
                         window.location.href = "/sectionedit";
                       }}
                     >
                       <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox
                         onClick={() => {
-                          localStorage.setItem("sectionId", loop);
+                          localStorage.setItem("sectionId", titulos[loop].titleDB);
                           window.location.href = "/sectionedit";
                         }}
                       >

@@ -10,7 +10,7 @@ export default class SectionEdit extends React.Component {
   render() {
     return (
       <Container>
-        <NavBar />
+        <NavBar thisPage="Sections" />
         <Content>
           <ComponentsSectionEdit />
         </Content>

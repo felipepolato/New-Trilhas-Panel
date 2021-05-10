@@ -44,7 +44,7 @@ export default class ComponentsSectionEdit extends React.Component {
           secoes: "",
         });
         for (let loop in tmp) {
-          console.log(tmp);
+          console.log(tmp['segments']);
         }
       });
   }
