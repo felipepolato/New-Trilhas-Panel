@@ -36,7 +36,7 @@ export default class ComponentsSectionEdit extends React.Component {
     console.log(`Section ID: ${localStorage.getItem("sectionId")}`);
     fire
       .database()
-      .ref(`/destinos/${localStorage.getItem("sectionId")}/`)
+      .ref(`/categorias/${localStorage.getItem("sectionId")}/`)
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
         this.setState({});
