@@ -40,17 +40,21 @@ export default class ComponentsSearchDestinos extends React.Component {
       .ref(`/destinos/`)
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
-        let array = [];
+        if (tmp != null) {
+          let array = [];
 
-        for (let loop in tmp) {
-          console.log(tmp[loop].nome);
-          let stringA = localStorage.getItem("search_client_field");
-          let stringB = tmp[loop].nome;
-          if (stringB.indexOf(stringA) !== -1) {
-            array.push(tmp[loop]);
+          for (let loop in tmp) {
+            let stringA = localStorage.getItem("search_client_field");
+            let stringB = tmp[loop].nome;
+            if (stringB.indexOf(stringA) !== -1) {
+              array.push({
+                id: loop,
+                data: tmp[loop],
+              });
+            }
           }
+          this.setState({ data: array });
         }
-        this.setState({ data: array });
       });
   }
 
@@ -84,9 +88,9 @@ export default class ComponentsSearchDestinos extends React.Component {
                 </td>
               </center>
               <td style={{ paddingLeft: 10 }}>
-                <TdTitle>{data[loop].nome}</TdTitle> <br />
+                <TdTitle>{data[loop]["data"].nome}</TdTitle> <br />
                 <TdSubTitle>
-                  {data[loop].cidade}/{data[loop].estado}
+                  {data[loop]["data"].cidade}/{data[loop]["data"].estado}
                 </TdSubTitle>
               </td>
               <td style={{ paddingTop: 10, paddingBottom: 10 }}>
@@ -99,7 +103,7 @@ export default class ComponentsSearchDestinos extends React.Component {
                   <img src={Add} width="40%" height="70%" alt="logo" />
                   <ButtonEditTextBox
                     onClick={() => {
-                      localStorage.setItem("destinoId", `${loop}`);
+                      localStorage.setItem("destinoId", `${data[loop]["id"]}`);
                       window.location.href = "/destinoedit";
                     }}
                   >
@@ -134,15 +138,15 @@ export default class ComponentsSearchDestinos extends React.Component {
                 </td>
               </center>
               <td style={{ paddingLeft: 10 }}>
-                <TdTitle>{data[loop].nome}</TdTitle> <br />
+                <TdTitle>{data[loop]["data"].nome}</TdTitle> <br />
                 <TdSubTitle>
-                  {data[loop].cidade}/{data[loop].estado}
+                  {data[loop]["data"].cidade}/{data[loop]["data"].estado}
                 </TdSubTitle>
               </td>
               <td style={{ paddingTop: 10, paddingBottom: 10 }}>
                 <ButtonEdit
                   onClick={() => {
-                    localStorage.setItem("destinoId", `${loop}`);
+                    localStorage.setItem("destinoId", `${data[loop]["id"]}`);
                     window.location.href = "/destinoedit";
                   }}
                 >
@@ -159,7 +163,7 @@ export default class ComponentsSearchDestinos extends React.Component {
 
                 <ButtonRemove
                   onClick={() => {
-                    localStorage.setItem("id-to-delete", loop);
+                    localStorage.setItem("id-to-delete", data[loop]["id"]);
                     this.setState({ alertOpened: true });
                   }}
                 >
