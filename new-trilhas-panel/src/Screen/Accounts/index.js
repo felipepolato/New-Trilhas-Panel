@@ -10,14 +10,12 @@ export default class Accounts extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <Container>
         <NavBar thisPage="Accounts" />
       <Content>
-        <ComponentsAccounts></ComponentsAccounts>
+        <ComponentsAccounts/>
       </Content>
         
       </Container>

@@ -225,6 +225,7 @@ export default class MyComponent extends React.Component {
                         pass: `${this.state.senha}`,
                         surname: `${this.state.sobrenome}`,
                         user: `${this.state.usuario}`,
+                      comercio: `${this.state.comercio}`
                       });
                   }, 100);
 

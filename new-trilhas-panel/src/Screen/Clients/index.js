@@ -12,8 +12,6 @@ export default class Clients extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <Container>
