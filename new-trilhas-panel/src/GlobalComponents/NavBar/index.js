@@ -108,7 +108,9 @@ export default class MyComponent extends React.Component {
 
     fire
       .database()
-      .ref("/categorias/")
+      .ref(
+        `categorias/`
+      )
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
         let titulos = [];

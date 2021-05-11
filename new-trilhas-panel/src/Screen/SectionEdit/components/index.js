@@ -26,8 +26,8 @@ export default class ComponentsSectionEdit extends React.Component {
       <div>
         <label>Nome da Seção</label>
         <input
-          placeholder="nome do nicho"
-          onChange={(text) => this.setState({ nome: text.target.value })}
+          placeholder="Nome do Nicho"
+          onChange={(text) => this.setState({ novoNome: text.target.value })}
           value={this.state.novoNome}
         />
         <ButtonSubmit

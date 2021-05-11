@@ -35,13 +35,23 @@ export default class ComponentsSection extends React.Component {
   componentDidMount() {
     fire
       .database()
-      .ref("/categorias/")
+      .ref(
+        `categorias/`
+      )
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
         let secoes = [];
         let titulos = [];
 
         for (let loop in tmp) {
+          let teste = tmp[loop]['info'];
+          let sectionTitle = '';
+          for(let loop3 in teste) {
+            if(loop3 === 'section-title') {
+              sectionTitle = teste[loop3];
+              break;
+            }
+          }
           let count = 0;
           let tmp2 = tmp[loop].segments;
           for (let loop2 in tmp2) {
@@ -49,7 +59,7 @@ export default class ComponentsSection extends React.Component {
             count++;
           }
           titulos.push({
-            title: tmp[loop].info["section-title"],
+            title: sectionTitle,
             titleDB: loop,
             amount: count,
           });
