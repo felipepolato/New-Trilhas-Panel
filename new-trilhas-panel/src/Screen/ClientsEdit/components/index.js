@@ -1008,7 +1008,7 @@ export default class ComponentsClientsAdd extends React.Component {
             console.log(this.state.totalClientes);
             fire
               .database()
-              .ref(`/clientes/${this.state.totalClientes}`)
+              .ref(`/clientes/${localStorage.getItem("clientId")}`)
               .set(finalPut)
               .then(() => console.log("Clientes: Dados registrados."));
           }}

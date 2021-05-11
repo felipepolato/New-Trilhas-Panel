@@ -100,7 +100,8 @@ export default class ComponentsSection extends React.Component {
                       <ButtonEditTextBox>
                         <ButtonEditText
                           onClick={() => {
-                            localStorage.setItem("sectionId", `${loop}`);
+                            localStorage.setItem("sectionId", titulos[loop].titleDB);
+                            localStorage.setItem("sectionNicho", secoes[i].title);
                             window.location.href = "/sectionedit";
                           }}
                         >
@@ -135,6 +136,7 @@ export default class ComponentsSection extends React.Component {
                         <ButtonEditText
                           onClick={() => {
                             localStorage.setItem("sectionId", titulos[loop].titleDB);
+                            localStorage.setItem("sectionNicho", secoes[i].title);
                             window.location.href = "/sectionedit";
                           }}
                         >
@@ -185,6 +187,7 @@ export default class ComponentsSection extends React.Component {
                         <ButtonEditText
                           onClick={() => {
                             localStorage.setItem("sectionId", titulos[loop].titleDB);
+                            localStorage.setItem("sectionNicho", secoes[i].title);
                             window.location.href = "/sectionedit";
                           }}
                         >
@@ -216,6 +219,7 @@ export default class ComponentsSection extends React.Component {
                     <ButtonEdit
                       onClick={() => {
                         localStorage.setItem("sectionId", titulos[loop].titleDB);
+                        localStorage.setItem("sectionNicho", secoes[i].title);
                         window.location.href = "/sectionedit";
                       }}
                     >
@@ -223,6 +227,7 @@ export default class ComponentsSection extends React.Component {
                       <ButtonEditTextBox
                         onClick={() => {
                           localStorage.setItem("sectionId", titulos[loop].titleDB);
+                          localStorage.setItem("sectionNicho", secoes[i].title);
                           window.location.href = "/sectionedit";
                         }}
                       >

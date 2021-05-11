@@ -189,3 +189,20 @@ export const TableColumnTitle = styled.div`
   padding-left: 20px;
   text-decoration: underline;
 `;
+
+export const ButtonSubmit = styled.button`
+  width: 30%;
+  height: 3vw;
+  background: rgba(255, 198, 73);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 9px #000000;
+  font-size: 18px;
+`;
