@@ -795,7 +795,7 @@ export default class ComponentsClientsAdd extends React.Component {
               fire
                 .storage()
                 .ref()
-                .child(`galeria/${this.state.nome}/${galeria[i]}`)
+                .child(`galeria/${this.state.nome}/${encodeURI(galeria[i])}`)
                 .put(fileGallery[i])
                 .then(() => console.log(`Galeria ${i}: Upload concluído.`));
             }
