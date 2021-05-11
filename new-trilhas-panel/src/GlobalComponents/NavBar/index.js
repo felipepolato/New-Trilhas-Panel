@@ -116,13 +116,21 @@ export default class MyComponent extends React.Component {
         let titulos = [];
 
         for (let loop in tmp) {
+          let teste = tmp[loop]['info'];
+          let sectionTitle = '';
+          for(let loop3 in teste) {
+            if(loop3 === 'section-title') {
+              sectionTitle = teste[loop3];
+              break;
+            }
+          }
           let count = 0;
           let tmp2 = tmp[loop].segments;
           for (let loop2 in tmp2) {
             count++;
           }
           titulos.push({
-            title: tmp[loop].info["section-title"],
+            title: sectionTitle,
             ref: loop,
             amount: count,
           });

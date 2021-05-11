@@ -114,8 +114,16 @@ export default class ComponentsClientsAdd extends React.Component {
         let secoes = [];
 
         for (let loop in tmp) {
+          let teste = tmp[loop]['info'];
+          let sectionTitle = '';
+          for(let loop3 in teste) {
+            if(loop3 === 'section-title') {
+              sectionTitle = teste[loop3];
+              break;
+            }
+          }
           titulos.push({
-            title: tmp[loop].info["button-title"],
+            title: sectionTitle,
             ref: loop,
           });
 
