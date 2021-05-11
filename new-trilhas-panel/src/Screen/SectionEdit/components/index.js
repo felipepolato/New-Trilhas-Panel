@@ -45,6 +45,9 @@ export default class ComponentsSectionEdit extends React.Component {
         });
         for (let loop in tmp) {
           console.log(tmp['segments']);
+          this.setState({
+            titulos: tmp.titulos
+          })
         }
       });
   }

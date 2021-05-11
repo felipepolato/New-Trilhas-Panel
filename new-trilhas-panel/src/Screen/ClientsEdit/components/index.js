@@ -356,6 +356,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               } else {
                 sideA.push(
                   <DivCheckbox>
@@ -382,6 +383,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               }
             }
             
@@ -426,6 +428,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               } else {
                 sideB.push(
                   <DivCheckbox>
@@ -452,6 +455,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               }
             }
             
