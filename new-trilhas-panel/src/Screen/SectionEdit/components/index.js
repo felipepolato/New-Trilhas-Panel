@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ButtonSubmit } from "./styles";
+import { ButtonSubmit, Label, InputEdit, DivEdit } from "./styles";
 
 import { fire } from "../../../GlobalComponents/config";
 
@@ -23,9 +23,9 @@ export default class ComponentsSectionEdit extends React.Component {
 
   render() {
     return (
-      <div>
-        <label>Nome da Seção</label>
-        <input
+      <DivEdit>
+        <Label>Nome da Seção</Label>
+        <InputEdit
           placeholder="Nome do Nicho"
           onChange={(text) => this.setState({ novoNome: text.target.value })}
           value={this.state.novoNome}
@@ -52,9 +52,9 @@ export default class ComponentsSectionEdit extends React.Component {
               .set("ok");
           }}
         >
-          Cadastrar no Trilhas
+          Editar Seção
         </ButtonSubmit>
-      </div>
+      </DivEdit>
     );
   }
 }
