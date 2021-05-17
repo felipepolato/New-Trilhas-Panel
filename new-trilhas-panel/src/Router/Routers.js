@@ -15,6 +15,7 @@ import Parceiros from "../Screen/Parceiros";
 import LoginMobile from "../Screen/LoginMobile";
 import SeachClient from "../Screen/SeachClients";
 import SearchDestinos from "../Screen/SearchDestinos";
+import Teste from "../Screen/testeurl";
 
 const Routers = () => {
   return (
@@ -64,6 +65,9 @@ const Routers = () => {
         </Route>
         <Route exact path={"/seachdestinos"}>
           <SearchDestinos />
+        </Route>
+        <Route exact path={"/teste"}>
+          <Teste />
         </Route>
       </Switch>
     </BrowserRouter>

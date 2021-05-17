@@ -238,7 +238,7 @@ export default class ComponentsClientsAdd extends React.Component {
               }
             });
         }
-      }, 500);
+      }, 1000);
 
       setTimeout( () => this.setState({isLoaded: true}), 300);
     }, 1000);
