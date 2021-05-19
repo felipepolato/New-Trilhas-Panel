@@ -30,6 +30,8 @@ import {
 } from "../../../GlobalComponents/Form/GalleryInput";
 import { FileInput, file } from "../../../GlobalComponents/Form/FileInput";
 
+import LoadingImage from '../../../Images/loading.gif';
+
 let controlCheckboxInput = [];
 
 export default class ComponentsClientsAdd extends React.Component {
@@ -297,6 +299,19 @@ export default class ComponentsClientsAdd extends React.Component {
 
     return (
       <div>
+        <div style={{
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          display: 'none',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: 'white'
+        }} id="loadingDiv">
+          <img src={LoadingImage} style={{ width: '40vw' }} />
+        </div>
         <RowRow>
           <Column>
             {/* Informações Gerais */}
@@ -769,9 +784,6 @@ export default class ComponentsClientsAdd extends React.Component {
             let finalPut = [];
             let estados = this.state;
 
-            delete estados["titulos"];
-            delete estados["secoes"];
-
             finalPut.push(estados);
             finalPut.push(controlCheckboxInput);
 
@@ -806,11 +818,18 @@ export default class ComponentsClientsAdd extends React.Component {
               .then(() => console.log(`Logomarca: Upload concluído.`));
 
             console.log(this.state.totalClientes);
+
             fire
               .database()
               .ref(`/clientes/${this.state.totalClientes}`)
               .set(finalPut)
               .then(() => console.log("Clientes: Dados registrados."));
+
+            setTimeout(() => {
+              window.location.href = '/clients';
+              alert('Loja editada com sucesso!');
+            }, 30000);
+            document.getElementById('loadingDiv').style.display = 'flex';
           }}
         >
           Cadastrar no Trilhas

@@ -18,6 +18,8 @@ import {
 
 import { fire } from "../../../GlobalComponents/config";
 
+import LoadingImage from '../../../Images/loading.gif';
+
 ///////////////////////////
 // Formulário /////////////
 ///////////////////////////
@@ -104,7 +106,8 @@ export default class ComponentsClientsAdd extends React.Component {
       clienteData: false,
       arrayImage: "",
       arrayGaleria: [],
-      isLoaded: false
+      isLoaded: false,
+      arrayNichos: []
     };
   }
 
@@ -115,6 +118,13 @@ export default class ComponentsClientsAdd extends React.Component {
       .ref(`/clientes/${localStorage.getItem("clientId")}/`)
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
+        let nichosTemp = [];
+
+        for(let loop in tmp[1]) {
+          if(tmp[1] == null) continue;
+          nichosTemp.push(loop);
+        }
+
         this.setState({
           nome: tmp[0].nome,
           nicho: tmp[0].nicho,
@@ -151,6 +161,8 @@ export default class ComponentsClientsAdd extends React.Component {
           horario2horario3: tmp[0].horario2horario3,
           horario2horario4: tmp[0].horario2horario4,
 
+          totalClientes: tmp[0].totalClientes,
+
           titulo3: tmp[0].titulo3,
           horario3Titulo: "",
           horario3horario1: tmp[0].horario3horario1,
@@ -164,6 +176,7 @@ export default class ComponentsClientsAdd extends React.Component {
           horario4horario2: tmp[0].horario4horario2,
           horario4horario3: tmp[0].horario4horario3,
           horario4horario4: tmp[0].horario4horario4,
+          arrayNichos: nichosTemp
         });
       });
 
@@ -198,29 +211,18 @@ export default class ComponentsClientsAdd extends React.Component {
         }
         this.setState({ titulos: titulos, secoes: secoes });
       });
-    fire
-      .database()
-      .ref("/clientes/")
-      .on("value", (snapshot) => {
-        let tmp = snapshot.val();
-        if (tmp == null) {
-          this.setState({ totalClientes: 0 });
-        } else {
-          this.setState({ totalClientes: tmp.length });
-        }
-      });
 
     setTimeout(() => {
       this.setState({
-        arrayImage: `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+        arrayImage: `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2Flogomarca.png?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
         arrayGaleria: [
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_1?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_2?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_3?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_4?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_5?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_6?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
-          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${this.state.nome}%2F${this.state.nome}_7?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_1?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_2?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_3?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_4?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_5?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_6?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
+          `https://firebasestorage.googleapis.com/v0/b/trilhas-f0c85.appspot.com/o/galeria%2F${encodeURI(this.state.nome)}%2F${encodeURI(this.state.nome)}_7?alt=media&token=14c5e841-2d28-4b32-a1ec-3be8b56972dc`,
         ],
       });
 
@@ -238,10 +240,10 @@ export default class ComponentsClientsAdd extends React.Component {
               }
             });
         }
-      }, 1000);
+      }, 3000);
 
-      setTimeout( () => this.setState({isLoaded: true}), 300);
-    }, 1000);
+      setTimeout( () => this.setState({isLoaded: true}), 3100);
+    }, 2000);
   }
 
   render() {
@@ -300,26 +302,33 @@ export default class ComponentsClientsAdd extends React.Component {
       const secoes = this.state.secoes;
 
       let countLoop = 0;
-      let division = titulos.length / 2;
-
+      let division = 5;
+      if(titulos != null && titulos != undefined && titulos.length > 0) {
+        division = titulos.length / 2;
+      } else {
+        division = 5;
+      }
+      
       for (let loop in titulos) {
         let count = loopInitialValue + titulos[loop].count;
         countLoop++;
-
+        
         if (countLoop > division) {
           sideA.push(
             <Title style={{ marginTop: "1%", marginBottom: "2%" }}>
               <FormSectionTitle>{titulos[loop].title}</FormSectionTitle>
             </Title>
           );
-
+          
           for (let i = loopInitialValue; i < count; i++) {
+            let go = this.state.arrayNichos;
+            let comparador = titulos[loop].title.toLowerCase() + '_' + secoes[i].title.toLowerCase();
             sideA.push(
               <DivCheckbox>
                 <TextCheckbox
                   for={`${titulos[loop].title}_${secoes[i].title}`}
                   style={{ width: "90%" }}
-                >
+                  >
                   {secoes[i].title}
                 </TextCheckbox>
                 <Input
@@ -328,17 +337,24 @@ export default class ComponentsClientsAdd extends React.Component {
                   onChange={() =>
                     document.getElementById(
                       `${titulos[loop].title}_${secoes[i].title}`
-                    ).checked
+                      ).checked
                       ? (controlCheckboxInput[
-                          `${titulos[loop].title}_${secoes[i].title}`
+                        `${titulos[loop].title}_${secoes[i].title}`
                         ] = "ok")
-                      : (controlCheckboxInput[
+                        : (controlCheckboxInput[
                           `${titulos[loop].title}_${secoes[i].title}`
                         ] = "")
                   }
-                />
+                  />
               </DivCheckbox>
             );
+            for(let loop3 in this.state.arrayNichos) {
+              if(go[loop3].toLowerCase() === comparador) {
+                document.getElementById(
+                  `${titulos[loop].title}_${secoes[i].title}`
+                  ).checked = true;
+              }
+            }
           }
           sideA.push(<hr style={{ width: "98%" }} />);
         } else {
@@ -347,8 +363,17 @@ export default class ComponentsClientsAdd extends React.Component {
               <FormSectionTitle>{titulos[loop].title}</FormSectionTitle>
             </Title>
           );
-
+          
           for (let i = loopInitialValue; i < count; i++) {
+            let go = this.state.arrayNichos;
+            let comparador = titulos[loop].title.toLowerCase() + '_' + secoes[i].title.toLowerCase();
+            for(let loop3 in this.state.arrayNichos) {
+              if(go[loop3].toLowerCase() === comparador) {
+                document.getElementById(
+                  `${titulos[loop].title}_${secoes[i].title}`
+                  ).checked = true;
+              }
+            }
             sideB.push(
               <DivCheckbox>
                 <TextCheckbox
@@ -397,6 +422,19 @@ export default class ComponentsClientsAdd extends React.Component {
 
     return (
       <div>
+      <div style={{
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        display: 'none',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: 'white'
+      }} id="loadingDiv">
+        <img src={LoadingImage} style={{ width: '40vw' }} />
+      </div>
         <RowRow>
           <Column>
             {/* Informações Gerais */}
@@ -890,7 +928,7 @@ export default class ComponentsClientsAdd extends React.Component {
             finalPut.push(estados);
             finalPut.push(controlCheckboxInput);
 
-            let galeria = [];
+            let galeria = this.state.arrayGaleria;
 
             for (let i = 1; i < 8; i++) {
               if (fileGallery[i] == undefined) {
@@ -913,12 +951,14 @@ export default class ComponentsClientsAdd extends React.Component {
               .set(galeria)
               .then(() => console.log("Galeria: Criado com sucesso!"));
 
-            fire
-              .storage()
-              .ref()
-              .child(`galeria/${this.state.nome}/logomarca.png`)
-              .put(file)
-              .then(() => console.log(`Logomarca: Upload concluído.`));
+            if(file !== undefined) {
+              fire
+                .storage()
+                .ref()
+                .child(`galeria/${this.state.nome}/logomarca.png`)
+                .put(file)
+                .then(() => console.log(`Logomarca: Upload concluído.`));
+            }
 
             console.log(this.state.totalClientes);
             fire
@@ -926,9 +966,15 @@ export default class ComponentsClientsAdd extends React.Component {
               .ref(`/clientes/${this.state.totalClientes}`)
               .set(finalPut)
               .then(() => console.log("Clientes: Dados registrados."));
+
+              setTimeout(() => {
+                window.location.href = '/clients';
+                alert('Loja editada com sucesso!');
+              }, 30000);
+              document.getElementById('loadingDiv').style.display = 'flex';
           }}
         >
-          Cadastrar no Trilhas
+          Concluir Edição
         </ButtonSubmit>
       </div>
     );
