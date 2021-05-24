@@ -115,9 +115,11 @@ export default class ComponentsClientsAdd extends React.Component {
     console.log(`Client ID: ${localStorage.getItem("clientId")}`);
     fire
       .database()
-      .ref(`/clientes/${localStorage.getItem("clientId")}/`)
+      .ref('/')
       .on("value", (snapshot) => {
-        let tmp = snapshot.val();
+        let dataTemporaria = snapshot.val();
+        let tmp222 = dataTemporaria['clientes'];
+        let tmp = tmp222[localStorage.getItem("clientId")];
         let nichosTemp = [];
 
         for(let loop in tmp[1]) {
@@ -178,13 +180,8 @@ export default class ComponentsClientsAdd extends React.Component {
           horario4horario4: tmp[0].horario4horario4,
           arrayNichos: nichosTemp
         });
-      });
 
-    fire
-      .database()
-      .ref("/categorias/")
-      .on("value", (snapshot) => {
-        let tmp = snapshot.val();
+        tmp = dataTemporaria['categorias'];
 
         let titulos = [];
         let secoes = [];
