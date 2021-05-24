@@ -1,7 +1,6 @@
 import React from "react";
 
 import {
-  Table,
   Col22,
   Col21,
   Row2,
@@ -11,7 +10,6 @@ import {
   ButtonRemove,
   ButtonEditTextBox,
   ButtonEdit,
-  Th,
   TableLine,
   TableLineStriped,
   TableColumn,
@@ -29,20 +27,31 @@ export default class ComponentsSection extends React.Component {
     this.state = {
       titulos: [],
       secoes: [],
-      total: 0
+      total: 0,
+      alertOpened: false,
     };
   }
 
   componentDidMount() {
     fire
       .database()
-      .ref("/categorias/")
+      .ref(
+        `categorias/`
+      )
       .on("value", (snapshot) => {
         let tmp = snapshot.val();
         let secoes = [];
         let titulos = [];
 
         for (let loop in tmp) {
+          let teste = tmp[loop]['info'];
+          let sectionTitle = '';
+          for(let loop3 in teste) {
+            if(loop3 === 'section-title') {
+              sectionTitle = teste[loop3];
+              break;
+            }
+          }
           let count = 0;
           let tmp2 = tmp[loop].segments;
           for (let loop2 in tmp2) {
@@ -50,7 +59,8 @@ export default class ComponentsSection extends React.Component {
             count++;
           }
           titulos.push({
-            title: tmp[loop].info["section-title"],
+            title: sectionTitle,
+            titleDB: loop,
             amount: count,
           });
         }
@@ -98,11 +108,24 @@ export default class ComponentsSection extends React.Component {
                     <ButtonEdit>
                       <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
-                        <ButtonEditText>Editar</ButtonEditText>
+                        <ButtonEditText
+                          onClick={() => {
+                            localStorage.setItem("sectionId", titulos[loop].titleDB);
+                            localStorage.setItem("sectionNicho", secoes[i].title);
+                            window.location.href = "/sectionedit";
+                          }}
+                        >
+                          Editar
+                        </ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
-                    <ButtonRemove>
+                    <ButtonRemove
+                      onClick={() => {
+                        localStorage.setItem("id-to-delete", loop);
+                        this.setState({ alertOpened: true });
+                      }}
+                    >
                       <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
@@ -120,11 +143,24 @@ export default class ComponentsSection extends React.Component {
                     <ButtonEdit>
                       <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
-                        <ButtonEditText>Editar</ButtonEditText>
+                        <ButtonEditText
+                          onClick={() => {
+                            localStorage.setItem("sectionId", titulos[loop].titleDB);
+                            localStorage.setItem("sectionNicho", secoes[i].title);
+                            window.location.href = "/sectionedit";
+                          }}
+                        >
+                          Editar
+                        </ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
-                    <ButtonRemove>
+                    <ButtonRemove
+                      onClick={() => {
+                        localStorage.setItem("id-to-delete", loop);
+                        this.setState({ alertOpened: true });
+                      }}
+                    >
                       <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
@@ -158,11 +194,24 @@ export default class ComponentsSection extends React.Component {
                     <ButtonEdit>
                       <img src={Add} width="40%" height="70%" alt="logo" />
                       <ButtonEditTextBox>
-                        <ButtonEditText>Editar</ButtonEditText>
+                        <ButtonEditText
+                          onClick={() => {
+                            localStorage.setItem("sectionId", titulos[loop].titleDB);
+                            localStorage.setItem("sectionNicho", secoes[i].title);
+                            window.location.href = "/sectionedit";
+                          }}
+                        >
+                          Editar
+                        </ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
-                    <ButtonRemove>
+                    <ButtonRemove
+                      onClick={() => {
+                        localStorage.setItem("id-to-delete", loop);
+                        this.setState({ alertOpened: true });
+                      }}
+                    >
                       <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
@@ -177,14 +226,31 @@ export default class ComponentsSection extends React.Component {
                 <TableLineStriped>
                   <TableColumn>{secoes[i].title}</TableColumn>
                   <TableColumn>
-                    <ButtonEdit>
+                    <ButtonEdit
+                      onClick={() => {
+                        localStorage.setItem("sectionId", titulos[loop].titleDB);
+                        localStorage.setItem("sectionNicho", secoes[i].title);
+                        window.location.href = "/sectionedit";
+                      }}
+                    >
                       <img src={Add} width="40%" height="70%" alt="logo" />
-                      <ButtonEditTextBox>
+                      <ButtonEditTextBox
+                        onClick={() => {
+                          localStorage.setItem("sectionId", titulos[loop].titleDB);
+                          localStorage.setItem("sectionNicho", secoes[i].title);
+                          window.location.href = "/sectionedit";
+                        }}
+                      >
                         <ButtonEditText>Editar</ButtonEditText>
                       </ButtonEditTextBox>
                     </ButtonEdit>
 
-                    <ButtonRemove>
+                    <ButtonRemove
+                      onClick={() => {
+                        localStorage.setItem("id-to-delete", loop);
+                        this.setState({ alertOpened: true });
+                      }}
+                    >
                       <img src={Delet} width="40%" height="70%" alt="logo" />
                       <ButtonRemoveTextBox>
                         <ButtonRemoveText>Excluir</ButtonRemoveText>
