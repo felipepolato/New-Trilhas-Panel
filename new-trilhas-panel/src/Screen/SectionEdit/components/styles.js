@@ -189,3 +189,44 @@ export const TableColumnTitle = styled.div`
   padding-left: 20px;
   text-decoration: underline;
 `;
+
+export const ButtonSubmit = styled.button`
+  width: 20%;
+  height: 3vw;
+  background: rgba(255, 198, 73);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 9px #000000;
+  font-size: 18px;
+  margin: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const Label = styled.label`
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 9px #000000;
+  font-size: 18px;
+  margin: 15px;
+`;
+
+export const InputEdit = styled.input`
+  height: 2.5vw;
+  width: 30%;
+  margin: 15px;
+`;
+
+export const DivEdit = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;

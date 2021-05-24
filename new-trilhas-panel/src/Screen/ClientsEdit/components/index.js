@@ -356,6 +356,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               } else {
                 sideA.push(
                   <DivCheckbox>
@@ -382,6 +383,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               }
             }
             
@@ -426,6 +428,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               } else {
                 sideB.push(
                   <DivCheckbox>
@@ -452,6 +455,7 @@ export default class ComponentsClientsAdd extends React.Component {
                     />
                   </DivCheckbox>
                 );
+                break;
               }
             }
             
@@ -983,7 +987,7 @@ export default class ComponentsClientsAdd extends React.Component {
               fire
                 .storage()
                 .ref()
-                .child(`galeria/${this.state.nome}/${galeria[i]}`)
+                .child(`galeria/${this.state.nome}/${encodeURI(galeria[i])}`)
                 .put(fileGallery[i])
                 .then(() => console.log(`Galeria ${i}: Upload concluído.`));
             }
@@ -1004,7 +1008,7 @@ export default class ComponentsClientsAdd extends React.Component {
             console.log(this.state.totalClientes);
             fire
               .database()
-              .ref(`/clientes/${this.state.totalClientes}`)
+              .ref(`/clientes/${localStorage.getItem("clientId")}`)
               .set(finalPut)
               .then(() => console.log("Clientes: Dados registrados."));
           }}

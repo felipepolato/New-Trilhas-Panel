@@ -114,8 +114,16 @@ export default class ComponentsClientsAdd extends React.Component {
         let secoes = [];
 
         for (let loop in tmp) {
+          let teste = tmp[loop]['info'];
+          let sectionTitle = '';
+          for(let loop3 in teste) {
+            if(loop3 === 'section-title') {
+              sectionTitle = teste[loop3];
+              break;
+            }
+          }
           titulos.push({
-            title: tmp[loop].info["button-title"],
+            title: sectionTitle,
             ref: loop,
           });
 
@@ -787,21 +795,21 @@ export default class ComponentsClientsAdd extends React.Component {
               fire
                 .storage()
                 .ref()
-                .child(`galeria/${this.state.nome}/${galeria[i]}`)
+                .child(`galeria/${encodeURI(this.state.nome)}/${encodeURI(galeria[i])}`)
                 .put(fileGallery[i])
                 .then(() => console.log(`Galeria ${i}: Upload concluído.`));
             }
 
             fire
               .database()
-              .ref(`/galerias/${this.state.nome}/`)
+              .ref(`/galerias/${encodeURI(this.state.nome)}/`)
               .set(galeria)
               .then(() => console.log("Galeria: Criado com sucesso!"));
 
             fire
               .storage()
               .ref()
-              .child(`galeria/${this.state.nome}/logomarca.png`)
+              .child(`galeria/${encodeURI(this.state.nome)}/logomarca.png`)
               .put(file)
               .then(() => console.log(`Logomarca: Upload concluído.`));
 
