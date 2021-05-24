@@ -107,8 +107,7 @@ export default class ComponentsClientsAdd extends React.Component {
       arrayImage: "",
       arrayGaleria: [],
       isLoaded: false,
-      arrayNichos: [],
-      inputsChecked: []
+      arrayNichos: []
     };
   }
 
@@ -127,7 +126,7 @@ export default class ComponentsClientsAdd extends React.Component {
           if(tmp[1] == null) continue;
           nichosTemp.push(loop);
         }
-        let tmp3 = [];
+
         this.setState({
           nome: tmp[0].nome,
           nicho: tmp[0].nicho,
@@ -181,17 +180,8 @@ export default class ComponentsClientsAdd extends React.Component {
           horario4horario4: tmp[0].horario4horario4,
           arrayNichos: nichosTemp
         });
-        let tmp2 = tmp[1];
-        for(let loop in tmp2) {
-          if(tmp2[loop] === 'ok') {
-            tmp3.push(loop);
-          }
-        }
 
-        this.setState({ inputsChecked: tmp3 });
-      });
-
-        tmp = dataTemporaria['categorias'];
+        tmp = dataTemporaria['categorias/'];
 
         let titulos = [];
         let secoes = [];
@@ -249,7 +239,7 @@ export default class ComponentsClientsAdd extends React.Component {
         }
       }, 3000);
 
-      setTimeout( () => this.setState({isLoaded: true}), 3100);
+      setTimeout( () => this.setState({isLoaded: true}), 3400);
     }, 2000);
   }
 
@@ -362,41 +352,6 @@ export default class ComponentsClientsAdd extends React.Component {
                   ).checked = true;
               }
             }
-          for (let i = loopInitialValue; i < count; i++) {
-            let go = this.state.arrayNichos;
-            let comparador = titulos[loop].title.toLowerCase() + '_' + secoes[i].title.toLowerCase();
-            sideA.push(
-              <DivCheckbox>
-                <TextCheckbox
-                  for={`${titulos[loop].title}_${secoes[i].title}`}
-                  style={{ width: "90%" }}
-                  >
-                  {secoes[i].title}
-                </TextCheckbox>
-                <Input
-                  type="checkbox"
-                  id={`${titulos[loop].title}_${secoes[i].title}`}
-                  onChange={() =>
-                    document.getElementById(
-                      `${titulos[loop].title}_${secoes[i].title}`
-                      ).checked
-                      ? (controlCheckboxInput[
-                        `${titulos[loop].title}_${secoes[i].title}`
-                        ] = "ok")
-                        : (controlCheckboxInput[
-                          `${titulos[loop].title}_${secoes[i].title}`
-                        ] = "")
-                  }
-                  />
-              </DivCheckbox>
-            );
-            for(let loop3 in this.state.arrayNichos) {
-              if(go[loop3].toLowerCase() === comparador) {
-                document.getElementById(
-                  `${titulos[loop].title}_${secoes[i].title}`
-                  ).checked = true;
-              }
-            }
           }
           sideA.push(<hr style={{ width: "98%" }} />);
         } else {
@@ -414,75 +369,6 @@ export default class ComponentsClientsAdd extends React.Component {
                 document.getElementById(
                   `${titulos[loop].title}_${secoes[i].title}`
                   ).checked = true;
-              }
-            }
-            sideB.push(
-              <DivCheckbox>
-                <TextCheckbox
-                  for={`${titulos[loop].title}_${secoes[i].title}`}
-                  style={{ width: "90%" }}
-                >
-                  {secoes[i].title}
-                </TextCheckbox>
-            let dataTMP = this.state.inputsChecked;
-            let stringAA = `${titulos[loop].title}_${secoes[i].title}`;
-            let stringBB = stringAA.toLowerCase();
-            for(let loop10 in dataTMP) {
-              if(stringBB === dataTMP[loop10].toLowerCase()) {
-                sideB.push(
-                  <DivCheckbox>
-                    <TextCheckbox
-                      for={`${titulos[loop].title}_${secoes[i].title}`}
-                      style={{ width: "90%" }}
-                    >
-                      {secoes[i].title}
-                    </TextCheckbox>
-                    <Input
-                      type="checkbox"
-                      id={`${titulos[loop].title}_${secoes[i].title}`}
-                      onChange={() =>
-                        document.getElementById(
-                          `${titulos[loop].title}_${secoes[i].title}`
-                        ).checked
-                          ? (controlCheckboxInput[
-                              `${titulos[loop].title}_${secoes[i].title}`
-                            ] = "ok")
-                          : (controlCheckboxInput[
-                              `${titulos[loop].title}_${secoes[i].title}`
-                            ] = "")
-                      }
-                      checked
-                    />
-                  </DivCheckbox>
-                );
-                break;
-              } else {
-                sideB.push(
-                  <DivCheckbox>
-                    <TextCheckbox
-                      for={`${titulos[loop].title}_${secoes[i].title}`}
-                      style={{ width: "90%" }}
-                    >
-                      {secoes[i].title}
-                    </TextCheckbox>
-                    <Input
-                      type="checkbox"
-                      id={`${titulos[loop].title}_${secoes[i].title}`}
-                      onChange={() =>
-                        document.getElementById(
-                          `${titulos[loop].title}_${secoes[i].title}`
-                        ).checked
-                          ? (controlCheckboxInput[
-                              `${titulos[loop].title}_${secoes[i].title}`
-                            ] = "ok")
-                          : (controlCheckboxInput[
-                              `${titulos[loop].title}_${secoes[i].title}`
-                            ] = "")
-                      }
-                    />
-                  </DivCheckbox>
-                );
-                break;
               }
             }
             sideB.push(
