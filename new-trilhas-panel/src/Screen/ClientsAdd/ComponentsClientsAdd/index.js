@@ -807,21 +807,21 @@ export default class ComponentsClientsAdd extends React.Component {
               fire
                 .storage()
                 .ref()
-                .child(`galeria/${encodeURI(this.state.nome)}/${encodeURI(galeria[i])}`)
+                .child(`galeria/${this.state.nome}/${galeria[i]}`)
                 .put(fileGallery[i])
                 .then(() => console.log(`Galeria ${i}: Upload concluído.`));
             }
 
             fire
               .database()
-              .ref(`/galerias/${encodeURI(this.state.nome)}/`)
+              .ref(`/galerias/${this.state.nome}/`)
               .set(galeria)
               .then(() => console.log("Galeria: Criado com sucesso!"));
 
             fire
               .storage()
               .ref()
-              .child(`galeria/${encodeURI(this.state.nome)}/logomarca.png`)
+              .child(`galeria/${this.state.nome}/logomarca.png`)
               .put(file)
               .then(() => console.log(`Logomarca: Upload concluído.`));
 
